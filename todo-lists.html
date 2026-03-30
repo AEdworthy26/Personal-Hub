@@ -230,6 +230,19 @@
     .empty-icon { font-size: 2rem; display: block; margin-bottom: 0.5rem; opacity: 0.5; }
     .empty-text { font-size: 0.8rem; font-style: italic; }
 
+    .btn-clear-completed {
+      margin-left: auto;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: all 0.15s;
+    }
+    .btn-clear-completed:hover { border-color: #dc2626; color: #dc2626; background: #fef2f2; }
+
     /* ── COMPLETED TODAY ── */
     .completed-item {
       display: flex; align-items: center; gap: 0.7rem;
@@ -410,6 +423,7 @@
       <div class="section-hd">
         <h2>Completed Today</h2>
         <span class="count-pill green" id="completed-count">0</span>
+        <button onclick="clearCompleted()" class="btn-clear-completed">Clear all</button>
       </div>
       <div class="task-list" id="completed-list"></div>
     </div>
@@ -758,6 +772,15 @@
           + '<span class="completed-time">' + fmtTime(t.completedAt) + '</span>'
           + '</div>';
       }).join('');
+    }
+
+    function clearCompleted() {
+      var today = todayISO();
+      if (!backlog[today] || backlog[today].length === 0) return;
+      if (!confirm('Clear all ' + backlog[today].length + ' completed task' + (backlog[today].length > 1 ? 's' : '') + '?')) return;
+      delete backlog[today];
+      save();
+      render();
     }
 
     function renderBacklog() {
