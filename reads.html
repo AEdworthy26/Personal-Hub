@@ -699,42 +699,54 @@
       + '</div>';
   }
 
+  function coverImgHTML(url, fallbackSVG) {
+    if (url) {
+      return '<img src="' + url + '" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1;"'
+        + ' onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">'
+        + '<div style="display:none;width:100%;height:100%;position:relative;z-index:1;">' + fallbackSVG + '</div>';
+    }
+    return fallbackSVG;
+  }
+
   function buildBook(book, idx) {
     var el = document.getElementById('js-book');
+    var imgHTML = coverImgHTML(book.coverUrl, bookSVG(book, idx));
     el.innerHTML = '<section class="rec-feature rec-book">'
       + '<div class="rec-body">'
       + '<span class="rec-type-tag">Book</span>'
       + '<div><h2 class="rec-title">' + book.title + '</h2><p class="rec-author" style="margin-top:0.5rem;">' + book.author + '</p></div>'
       + '<div class="rec-genre-row">' + book.genres.map(function(g) { return '<span class="rec-genre">' + g + '</span>'; }).join('') + '</div>'
-      + '<p class="rec-desc">' + book.desc + '</p>'
+      + '<p class="rec-desc">' + (book.desc || book.description || '') + '</p>'
+      + (book.whyRead ? '<p class="rec-desc" style="font-style:italic;opacity:0.8">' + book.whyRead + '</p>' : '')
       + '<div class="rec-rating"><span class="rating-score gold">' + book.rating + '</span>'
       + '<div class="rating-detail">'
       + starsHTML(book.rating)
-      + '<span class="rating-source" style="margin-top:0.2rem;">' + book.ratingSource + ' &nbsp;&middot;&nbsp; ' + book.ratingCount + ' ratings</span>'
+      + '<span class="rating-source" style="margin-top:0.2rem;">' + book.ratingSource + ' &nbsp;&middot;&nbsp; ' + (book.ratingCount || '') + ' ratings</span>'
       + '</div></div>'
       + '</div>'
-      + '<div class="rec-image"><div class="rec-cover-wrap">' + bookSVG(book, idx) + '</div></div>'
+      + '<div class="rec-image"><div class="rec-cover-wrap">' + imgHTML + '</div></div>'
       + '</section>';
   }
 
   function buildFilm(film, idx) {
     var el = document.getElementById('js-film');
+    var imgHTML = coverImgHTML(film.posterUrl, filmSVG(film, idx));
     el.innerHTML = '<section class="rec-feature rec-film">'
       + '<div class="rec-body">'
       + '<span class="rec-type-tag film-tag">Film</span>'
       + '<h2 class="rec-title">' + film.title + '</h2>'
       + '<div class="rec-genre-row">' + film.genres.map(function(g) { return '<span class="rec-genre">' + g + '</span>'; }).join('') + '<span class="rec-genre">' + film.year + '</span></div>'
-      + '<p class="rec-desc">' + film.desc + '</p>'
+      + '<p class="rec-desc">' + (film.desc || film.description || '') + '</p>'
       + '<div class="rec-meta-block"><span class="rec-cast-label">Cast</span>'
       + '<span class="rec-cast-list">' + film.cast.join(' &nbsp;&middot;&nbsp; ') + '</span></div>'
       + '<div class="rec-rating"><span class="rating-score tomato">' + film.rating + '%</span>'
       + '<div class="rating-detail">'
       + '<span class="rating-label tomato-label">&#127813; Rotten Tomatoes</span>'
       + '<div class="rt-bar-track"><div class="rt-bar-fill" data-w="' + film.rating + '%"></div></div>'
-      + '<span class="rating-source">' + film.ratingExtra + '</span>'
+      + '<span class="rating-source">' + (film.ratingExtra || '') + '</span>'
       + '</div></div>'
       + '</div>'
-      + '<div class="rec-image"><div class="rec-cover-wrap">' + filmSVG(film, idx) + '</div></div>'
+      + '<div class="rec-image"><div class="rec-cover-wrap">' + imgHTML + '</div></div>'
       + '</section>';
   }
 
@@ -850,12 +862,18 @@
     try { localStorage.setItem('reads_daily', JSON.stringify({ date: todayStr, bookIdx: bookIdx, filmIdx: filmIdx })); } catch(_) {}
   }
 
-  buildBook(BOOKS[bookIdx], bookIdx);
-  loadLiveRatings(BOOKS[bookIdx], FILMS[filmIdx], cachedData);
+  // Use daily data file if available, otherwise fall back to rotation
+  var activeBook = (typeof READS_DATA !== 'undefined' && READS_DATA && READS_DATA.book)
+    ? READS_DATA.book : BOOKS[bookIdx];
+  var activeFilm = (typeof FILMS_DATA !== 'undefined' && FILMS_DATA && FILMS_DATA.film)
+    ? FILMS_DATA.film : FILMS[filmIdx];
+
+  buildBook(activeBook, bookIdx);
+  loadLiveRatings(activeBook, activeFilm, cachedData);
 
   // Save slim preview data for the homepage
   try {
-    var b = BOOKS[bookIdx], f = FILMS[filmIdx];
+    var b = activeBook, f = activeFilm;
     localStorage.setItem('reads_preview', JSON.stringify({
       date:   todayStr,
       book: { title: b.title, author: b.author, rating: b.rating, ratingSource: b.ratingSource },
@@ -907,6 +925,8 @@
       });
     })();
   </script>
+  <script src="reads-data.js"></script>
+  <script src="films-data.js"></script>
   <script src="world-news-data.js"></script>
   <script src="ticker.js"></script>
 

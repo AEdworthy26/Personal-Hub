@@ -514,24 +514,34 @@
       + '</svg>';
   }
 
+  function coverImgHTML(url, fallbackSVG) {
+    if (url) {
+      return '<img src="' + url + '" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1;"'
+        + ' onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">'
+        + '<div style="display:none;width:100%;height:100%;position:relative;z-index:1;">' + fallbackSVG + '</div>';
+    }
+    return fallbackSVG;
+  }
+
   function buildFilm(film, idx) {
     var el = document.getElementById('js-film');
+    var imgHTML = coverImgHTML(film.posterUrl, filmSVG(film, idx));
     el.innerHTML = '<section class="rec-feature rec-film">'
       + '<div class="rec-body">'
       + '<span class="rec-type-tag">Film</span>'
       + '<h2 class="rec-title">' + film.title + '</h2>'
       + '<div class="rec-genre-row">' + film.genres.map(function(g) { return '<span class="rec-genre">' + g + '</span>'; }).join('') + '<span class="rec-genre">' + film.year + '</span></div>'
-      + '<p class="rec-desc">' + film.desc + '</p>'
+      + '<p class="rec-desc">' + (film.desc || film.description || '') + '</p>'
       + '<div class="rec-meta-block"><span class="rec-cast-label">Cast</span>'
       + '<span class="rec-cast-list">' + film.cast.join(' &nbsp;&middot;&nbsp; ') + '</span></div>'
       + '<div class="rec-rating"><span class="rating-score tomato">' + film.rating + '%</span>'
       + '<div class="rating-detail">'
       + '<span class="rating-label tomato-label">&#127813; Rotten Tomatoes</span>'
       + '<div class="rt-bar-track"><div class="rt-bar-fill" data-w="' + film.rating + '%"></div></div>'
-      + '<span class="rating-source">' + film.ratingExtra + '</span>'
+      + '<span class="rating-source">' + (film.ratingExtra || '') + '</span>'
       + '</div></div>'
       + '</div>'
-      + '<div class="rec-image"><div class="rec-cover-wrap">' + filmSVG(film, idx) + '</div></div>'
+      + '<div class="rec-image"><div class="rec-cover-wrap">' + imgHTML + '</div></div>'
       + '</section>';
   }
 
@@ -587,10 +597,13 @@
     try { localStorage.setItem('films_daily', JSON.stringify({ date: todayStr, filmIdx: filmIdx })); } catch(_) {}
   }
 
-  buildFilm(FILMS[filmIdx], filmIdx);
+  var activeFilm = (typeof FILMS_DATA !== 'undefined' && FILMS_DATA && FILMS_DATA.film)
+    ? FILMS_DATA.film : FILMS[filmIdx];
+
+  buildFilm(activeFilm, filmIdx);
 
   // Fetch live rating
-  fetchFilmRating(FILMS[filmIdx], function(data) {
+  fetchFilmRating(activeFilm, function(data) {
     applyLiveFilmRating(data);
     if (data) try {
       var s = JSON.parse(localStorage.getItem('films_daily') || '{}');
@@ -601,7 +614,7 @@
 
   // Save preview for homepage
   try {
-    var f = FILMS[filmIdx];
+    var f = activeFilm;
     localStorage.setItem('films_preview', JSON.stringify({
       date: todayStr,
       film: { title: f.title, director: f.director, year: f.year, rating: f.rating }
@@ -652,6 +665,7 @@
     });
   })();
   </script>
+  <script src="films-data.js"></script>
   <script src="world-news-data.js"></script>
   <script src="ticker.js"></script>
 
