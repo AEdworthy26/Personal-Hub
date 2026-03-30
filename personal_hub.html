@@ -873,6 +873,7 @@
     Personal Hub &mdash; Alfie Edworthy &mdash; Private &amp; Confidential
   </footer>
 
+  <script src="quote-data.js?v=20260331"></script>
   <script src="suggested-recipes-data.js"></script>
   <script src="world-news-data.js"></script>
   <script src="tech-news-data.js"></script>
@@ -892,74 +893,8 @@
     document.getElementById('js-date').textContent = label;
     document.getElementById('js-edition').textContent = 'Edition: ' + label;
 
-    // Quote of the day — cycles by day of year so it changes daily
-    const quotes = [
-      { text: "The secret of getting ahead is getting started.", author: "Mark Twain" },
-      { text: "It is not that I'm so smart. But I stay with the questions much longer.", author: "Albert Einstein" },
-      { text: "In the middle of every difficulty lies opportunity.", author: "Albert Einstein" },
-      { text: "The man who moves a mountain begins by carrying away small stones.", author: "Confucius" },
-      { text: "He who has a why to live can bear almost any how.", author: "Friedrich Nietzsche" },
-      { text: "The impediment to action advances action. What stands in the way becomes the way.", author: "Marcus Aurelius" },
-      { text: "Waste no more time arguing about what a good man should be. Be one.", author: "Marcus Aurelius" },
-      { text: "You have power over your mind, not outside events. Realise this, and you will find strength.", author: "Marcus Aurelius" },
-      { text: "First say to yourself what you would be; and then do what you have to do.", author: "Epictetus" },
-      { text: "We suffer more in imagination than in reality.", author: "Seneca" },
-      { text: "Luck is what happens when preparation meets opportunity.", author: "Seneca" },
-      { text: "It is not the man who has too little, but the man who craves more, that is poor.", author: "Seneca" },
-      { text: "The whole future lies in uncertainty: live immediately.", author: "Seneca" },
-      { text: "Begin at once to live, and count each separate day as a separate life.", author: "Seneca" },
-      { text: "How soon 'not now' becomes 'never'.", author: "Martin Luther" },
-      { text: "A reader lives a thousand lives before he dies. The man who never reads lives only one.", author: "George R.R. Martin" },
-      { text: "Not all those who wander are lost.", author: "J.R.R. Tolkien" },
-      { text: "The only way out of the labyrinth of suffering is to forgive.", author: "John Green" },
-      { text: "It does not do to dwell on dreams and forget to live.", author: "J.K. Rowling" },
-      { text: "To improve is to change; to be perfect is to change often.", author: "Winston Churchill" },
-      { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
-      { text: "History will be kind to me for I intend to write it.", author: "Winston Churchill" },
-      { text: "An investment in knowledge pays the best interest.", author: "Benjamin Franklin" },
-      { text: "Either write something worth reading or do something worth writing.", author: "Benjamin Franklin" },
-      { text: "Well done is better than well said.", author: "Benjamin Franklin" },
-      { text: "The journey of a thousand miles begins with one step.", author: "Lao Tzu" },
-      { text: "Knowing others is intelligence; knowing yourself is true wisdom.", author: "Lao Tzu" },
-      { text: "If you are going through hell, keep going.", author: "Winston Churchill" },
-      { text: "Hard choices, easy life. Easy choices, hard life.", author: "Jerzy Gregorek" },
-      { text: "Do not wait to strike till the iron is hot, but make it hot by striking.", author: "William Butler Yeats" },
-      { text: "The two most important days in your life are the day you are born and the day you find out why.", author: "Mark Twain" },
-      { text: "Twenty years from now you will be more disappointed by the things you didn't do than by the ones you did.", author: "Mark Twain" },
-      { text: "The only true wisdom is in knowing you know nothing.", author: "Socrates" },
-      { text: "An unexamined life is not worth living.", author: "Socrates" },
-      { text: "We are what we repeatedly do. Excellence, then, is not an act, but a habit.", author: "Aristotle" },
-      { text: "Educating the mind without educating the heart is no education at all.", author: "Aristotle" },
-      { text: "The roots of education are bitter, but the fruit is sweet.", author: "Aristotle" },
-      { text: "Real knowledge is to know the extent of one's ignorance.", author: "Confucius" },
-      { text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
-      { text: "I cannot teach anybody anything. I can only make them think.", author: "Socrates" },
-      { text: "If your actions inspire others to dream more, learn more, do more and become more, you are a leader.", author: "John Quincy Adams" },
-      { text: "The price of anything is the amount of life you exchange for it.", author: "Henry David Thoreau" },
-      { text: "Go confidently in the direction of your dreams. Live the life you have imagined.", author: "Henry David Thoreau" },
-      { text: "What you do speaks so loudly that I cannot hear what you say.", author: "Ralph Waldo Emerson" },
-      { text: "Nothing great was ever achieved without enthusiasm.", author: "Ralph Waldo Emerson" },
-      { text: "That which does not kill us makes us stronger.", author: "Friedrich Nietzsche" },
-      { text: "Without music, life would be a mistake.", author: "Friedrich Nietzsche" },
-      { text: "One must still have chaos in oneself to be able to give birth to a dancing star.", author: "Friedrich Nietzsche" },
-      { text: "To live is the rarest thing in the world. Most people exist, that is all.", author: "Oscar Wilde" },
-      { text: "Be yourself; everyone else is already taken.", author: "Oscar Wilde" },
-      { text: "Experience is simply the name we give our mistakes.", author: "Oscar Wilde" },
-      { text: "I am not afraid of storms, for I am learning how to sail my ship.", author: "Louisa May Alcott" },
-      { text: "It always seems impossible until it's done.", author: "Nelson Mandela" },
-      { text: "Education is the most powerful weapon which you can use to change the world.", author: "Nelson Mandela" },
-      { text: "The secret of change is to focus all of your energy not on fighting the old, but on building the new.", author: "Socrates" },
-      { text: "Concentrate all your thoughts upon the work at hand. The sun's rays do not burn until brought to a focus.", author: "Alexander Graham Bell" },
-      { text: "You miss 100% of the shots you don't take.", author: "Wayne Gretzky" },
-      { text: "Whether you think you can or think you can't, you're right.", author: "Henry Ford" },
-      { text: "I have not failed. I've just found 10,000 ways that won't work.", author: "Thomas Edison" },
-      { text: "Genius is one percent inspiration and ninety-nine percent perspiration.", author: "Thomas Edison" },
-      { text: "The measure of intelligence is the ability to change.", author: "Albert Einstein" },
-      { text: "Strive not to be a success, but rather to be of value.", author: "Albert Einstein" },
-    ];
-
-    const dayOfYear = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 86400000);
-    const q = quotes[dayOfYear % quotes.length];
+    // Quote of the day — AI-generated daily via quote-data.js
+    const q = (typeof QUOTE_DATA !== 'undefined') ? QUOTE_DATA : { text: "The impediment to action advances action. What stands in the way becomes the way.", author: "Marcus Aurelius" };
     document.getElementById('js-quote').innerHTML = '\u201c' + q.text + '\u201d';
     document.getElementById('js-author').textContent = '\u2014 ' + q.author;
 
