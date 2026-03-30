@@ -987,83 +987,86 @@
     Personal Hub &mdash; RICS Study &mdash; Alfie Edworthy &mdash; Private &amp; Confidential
   </footer>
 
-  <script src="rics-topics-data.js"></script>
+  <script src="rics-data.js"></script>
 
-  <!-- Step 1: compute today's day number and synchronously write the article script tag.
-       document.write during parsing guarantees the article file loads before the
-       renderer script below runs — works on file:// with no server needed. -->
   <script>
+    // ── Renderer — reads from RICS_DATA (updated daily) ──
     (function () {
-      var EPOCH = new Date('2026-03-28T00:00:00');
-      var CYCLE = 33;
-      var today = new Date(); today.setHours(0, 0, 0, 0);
-      var idx = (((Math.floor((today - EPOCH) / 864e5)) % CYCLE) + CYCLE) % CYCLE;
-      window._RICS_DAY = idx + 1;
-      var pad = String(window._RICS_DAY).padStart(2, '0');
-      document.write('<scr' + 'ipt src="articles/day-' + pad + '.js"><\/scr' + 'ipt>');
-    })();
-  </script>
+      var art = window.RICS_DATA;
+      if (!art) return;
 
-  <!-- Step 2: renderer — runs after article file has been loaded and executed -->
-  <script>
-    (function () {
-      var art = window.RICS_ARTICLE;
-      // If no article file exists yet, static fallback content in the HTML stays visible.
-      if (!art || !art.sections) return;
-      var s = art.sections;
+      // Hero meta
+      var el;
+      el = document.getElementById('js-topic-module'); if (el) el.textContent = art.module || '';
+      el = document.getElementById('js-topic-title');  if (el) el.textContent = art.topic || '';
+      el = document.getElementById('js-topic-focus');  if (el) el.textContent = art.focus || '';
+      document.title = (art.topic || 'RICS Study') + ' \u2014 RICS Study';
 
-      // Hero image
+      var levelBadge = document.getElementById('js-topic-level');
+      if (levelBadge) {
+        levelBadge.textContent = 'Level ' + art.level;
+        levelBadge.className = 'level-badge level-badge-' + art.level;
+      }
+
+      // Hero image — topic-specific Unsplash photo
       var heroEl = document.getElementById('js-hero-image');
-      if (heroEl) {
-        heroEl.innerHTML = (s.image && s.image.svg_markup)
-          ? s.image.svg_markup + (s.image.caption ? '<p class="hero-image-caption">' + s.image.caption + '</p>' : '')
-          : '<div class="image-placeholder">No diagram for this topic</div>';
+      if (heroEl && art.image) {
+        heroEl.innerHTML = '<img src="' + art.image + '" alt="" style="width:100%;height:auto;display:block;border-radius:4px;border:1px solid #ccc;">';
       }
 
       // Main content
       var mainEl = document.getElementById('section-main');
-      if (mainEl && s.main) {
-        mainEl.innerHTML = '<span class="article-section-label">Main Learning Content</span>' + s.main;
+      if (mainEl && art.content) {
+        var html = '<span class="article-section-label">Main Learning Content</span>';
+        art.content.forEach(function (block) {
+          if (block.type === 'paragraph') {
+            html += '<p>' + block.text + '</p>';
+          } else if (block.type === 'heading') {
+            html += '<h3>' + block.text + '</h3>';
+          } else if (block.type === 'callout') {
+            html += '<div class="callout-tip"><strong>' + (block.label || 'APC Tip') + '</strong><p>' + block.text + '</p></div>';
+          } else if (block.type === 'key_term') {
+            html += '<div class="key-term"><strong>Key Term \u2014 ' + (block.term || '') + '</strong><p>' + block.text + '</p></div>';
+          }
+        });
+        mainEl.innerHTML = html;
       }
 
-      // Diagrams / tables
-      var tablesEl = document.getElementById('section-diagrams');
-      if (tablesEl && s.tables) {
-        tablesEl.innerHTML = '<span class="article-section-label">Diagrams &amp; Tables</span>' + s.tables;
-      }
+      // Hide diagrams section (replaced by inline content blocks)
+      var diagEl = document.getElementById('section-diagrams');
+      if (diagEl) diagEl.style.display = 'none';
 
       // Summary
       var summaryEl = document.getElementById('section-summary');
-      if (summaryEl && s.summary_points) {
-        var pts = s.summary_points.map(function (p) { return '<li>' + p + '</li>'; }).join('');
+      if (summaryEl && art.summary) {
+        var pts = art.summary.map(function (p) { return '<li>' + p + '</li>'; }).join('');
         summaryEl.innerHTML =
           '<span class="article-section-label">Summary</span>' +
           '<h2>What to Take Away</h2>' +
-          '<div class="summary-box"><div class="summary-header">Key Points</div><ul>' + pts + '</ul></div>' +
-          (s.summary_closing || '');
+          '<div class="summary-box"><div class="summary-header">Key Points</div><ul>' + pts + '</ul></div>';
       }
 
       // Q&A
       var qaEl = document.getElementById('section-qa');
-      if (qaEl && s.qa) {
-        var qaItems = s.qa.map(function (item) {
-          return '<div class="qa-item">' +
-            '<div class="qa-question">' + item.q + '</div>' +
-            '<button class="qa-toggle" onclick="toggleAnswer(this)">Show answer</button>' +
-            '<div class="qa-answer">' + item.a + '</div></div>';
+      if (qaEl && art.qa) {
+        var qaItems = art.qa.map(function (item) {
+          return '<div class="qa-item">'
+            + '<div class="qa-question">' + item.q + '</div>'
+            + '<button class="qa-toggle" onclick="toggleAnswer(this)">Show answer</button>'
+            + '<div class="qa-answer">' + item.a + '</div></div>';
         }).join('');
         qaEl.innerHTML = '<span class="sidebar-label">Q&amp;A</span><h3>Test Your Knowledge</h3>' + qaItems;
       }
 
       // News
       var newsEl = document.getElementById('section-news');
-      if (newsEl && s.news) {
-        var newsItems = s.news.map(function (item) {
-          return '<div class="news-item"><span class="news-tag">' + item.tag + '</span>' +
-            '<h4>' + item.headline + '</h4><p>' + item.body + '</p></div>';
+      if (newsEl && art.news) {
+        var newsItems = art.news.map(function (item) {
+          return '<div class="news-item"><span class="news-tag">' + item.tag + '</span>'
+            + '<h4>' + item.headline + '</h4><p>' + item.body + '</p></div>';
         }).join('');
-        newsEl.innerHTML = '<span class="sidebar-label">Latest Real Estate News</span>' +
-          '<h3>Market &amp; Industry Briefing</h3>' + newsItems;
+        newsEl.innerHTML = '<span class="sidebar-label">Latest Real Estate News</span>'
+          + '<h3>Market &amp; Industry Briefing</h3>' + newsItems;
       }
     })();
 
@@ -1074,27 +1077,6 @@
     document.getElementById('js-date').textContent = label;
     document.getElementById('js-edition').textContent = 'Edition: ' + label;
     document.getElementById('js-article-date').textContent = label;
-
-    // ── Topic rotation — hero meta (title, module, level badge) ──
-    (function () {
-      const EPOCH = new Date('2026-03-28T00:00:00');
-      const CYCLE = RICS_TOPICS.meta.cycle_length;
-      const today = new Date(); today.setHours(0, 0, 0, 0);
-      const daysSinceEpoch = Math.floor((today - EPOCH) / (1000 * 60 * 60 * 24));
-      const dayNum = ((daysSinceEpoch % CYCLE) + CYCLE) % CYCLE + 1;
-      const levelLabels = { 3: 'Level 3', 2: 'Level 2', 1: 'Level 1' };
-      const levelClasses = { 3: 'level-badge-3', 2: 'level-badge-2', 1: 'level-badge-1' };
-      const entry = RICS_TOPICS.schedule.find(t => t.day === dayNum);
-      if (!entry) return;
-      document.getElementById('js-topic-module').textContent = entry.module;
-      document.getElementById('js-topic-title').textContent = entry.topic;
-      document.getElementById('js-topic-focus').textContent = entry.focus;
-      const levelBadge = document.getElementById('js-topic-level');
-      levelBadge.textContent = levelLabels[entry.level] || '';
-      levelBadge.className = 'level-badge ' + (levelClasses[entry.level] || '');
-      document.getElementById('js-cycle-day').textContent = 'Day ' + dayNum + ' of ' + CYCLE;
-      document.title = entry.topic + ' \u2014 RICS Study';
-    })();
 
     // ── Q&A toggle ──
     function toggleAnswer(btn) {

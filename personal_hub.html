@@ -882,7 +882,7 @@
   <script src="curiosity-data.js"></script>
   <script src="philosophy-data.js"></script>
   <script src="quiz-data.js"></script>
-  <script src="rics-topics-data.js"></script>
+  <script src="rics-data.js"></script>
   <script src="ticker.js"></script>
   <script>
     // ── Date labels ──
@@ -965,19 +965,14 @@
 
     // ── RICS Today's Topic ──
     (function () {
-      if (typeof RICS_TOPICS === 'undefined') return;
+      if (typeof RICS_DATA === 'undefined') return;
 
-      var EPOCH = new Date('2026-03-28T00:00:00');
-      var today2 = new Date(); today2.setHours(0,0,0,0);
-      var idx = (((Math.floor((today2 - EPOCH) / 864e5)) % 33) + 33) % 33;
-      var entry = RICS_TOPICS.schedule[idx];
-      if (!entry) return;
+      var entry = RICS_DATA;
+      var levelColor = entry.level === 3 ? '#003399' : entry.level === 2 ? '#2e7d32' : '#666';
+      var levelLabel = 'Level ' + entry.level;
 
-      var levelColor  = entry.level === 3 ? '#003399' : entry.level === 2 ? '#2e7d32' : '#666';
-      var levelLabel  = 'Level ' + entry.level;
-
-      // ── SVG illustrations by module category ──
-      function topicSVG(module) {
+      // PLACEHOLDER — topicSVG removed, images now come from RICS_DATA
+      function topicSVG_removed(module) {
         var p = '#f4f0e6', ink = '#0d0d0d', blue = '#003399', muted = '#888', mid = '#555';
 
         // Financial: bar chart (GDV / costs / profit)
@@ -1105,9 +1100,7 @@
           'Sustainability': sustainability
         };
 
-        return '<svg class="rics-card-image" viewBox="0 0 360 158" xmlns="http://www.w3.org/2000/svg">'
-          + (map[module] || financial)
-          + '</svg>';
+        return '';
       }
 
       // ── Monthly Goals preview ──
@@ -1380,15 +1373,23 @@
       })();
 
       var el = document.getElementById('rics-study');
-      el.innerHTML =
-        '<span class="section-tag">RICS Study'
-          + ' &nbsp;&middot;&nbsp; <span class="rics-level-badge" style="background:' + levelColor + ';color:#fff;">'
-          + levelLabel + '</span></span>'
-        + '<span class="rics-module-label">' + entry.module + '</span>'
-        + '<h2><a href="rics-study.html">' + entry.topic + '</a></h2>'
-        + '<a href="rics-study.html" class="ns-thumb-link">' + topicSVG(entry.module) + '</a>'
-        + '<p class="standfirst">' + entry.focus + '</p>'
-        + '<a href="rics-study.html" class="rics-read-link">Read today\u2019s article \u2192</a>';
+      if (el) {
+        var fmtDate = new Date(entry.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long' });
+        var thumb = entry.image
+          ? '<img src="' + entry.image + '" alt="" loading="lazy" style="width:100%;height:auto;display:block;border-radius:4px;border:1px solid #c8c4ba;" onerror="this.style.display=\'none\'">'
+          : '';
+        el.innerHTML =
+          '<span class="section-tag">RICS Study'
+            + ' &nbsp;&middot;&nbsp; <span class="rics-level-badge" style="background:' + levelColor + ';color:#fff;">'
+            + levelLabel + '</span>'
+            + ' &nbsp;&middot;&nbsp; ' + fmtDate
+            + '</span>'
+          + '<span class="rics-module-label">' + entry.module + '</span>'
+          + '<h2><a href="rics-study.html">' + entry.topic + '</a></h2>'
+          + (thumb ? '<a href="rics-study.html" class="ns-thumb-link">' + thumb + '</a>' : '')
+          + '<p class="standfirst">' + entry.focus + '</p>'
+          + '<a href="rics-study.html" class="rics-read-link">Read today\u2019s article \u2192</a>';
+      }
     })();
   </script>
 
