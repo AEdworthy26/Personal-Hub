@@ -776,8 +776,6 @@
 
     function clearCompleted() {
       var today = todayISO();
-      if (!backlog[today] || backlog[today].length === 0) return;
-      if (!confirm('Clear all ' + backlog[today].length + ' completed task' + (backlog[today].length > 1 ? 's' : '') + '?')) return;
       delete backlog[today];
       save();
       render();
