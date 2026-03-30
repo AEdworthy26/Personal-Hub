@@ -21,35 +21,30 @@
     });
   }
 
-  // ── Ticker ─────────────────────────────────────────────────────────────────
-  (function () {
+  // ── Ticker — populated from this page's live data ─────────────────────────
+  function _initTicker(data) {
     var t = document.getElementById('js-ticker');
     if (!t) return;
-    var headlines = [
-      'World leaders gather for emergency climate summit in Geneva',
-      'Global markets steady as central banks signal rate pause',
-      'UN Security Council meets over escalating tensions in Middle East',
-      'European Union agrees new trade framework with South-East Asia',
-      'Scientists announce breakthrough in carbon capture technology',
-      'NATO allies pledge increased defence spending at Brussels meeting',
-      'IMF revises global growth forecast upward for 2026',
-      'Historic ceasefire agreement reached after months of negotiations',
-      'G7 nations commit to new framework on artificial intelligence governance',
-      'Record temperatures recorded across southern Europe this week',
-      'World Health Organisation warns of emerging respiratory virus strain',
-      'African Union summit focuses on infrastructure investment drive'
-    ];
+    var headlines = [];
+    if (data) {
+      if (data.main && data.main.title) headlines.push(data.main.title);
+      if (Array.isArray(data.secondary)) {
+        data.secondary.forEach(function (s) { if (s.title) headlines.push(s.title); });
+      }
+    }
+    if (!headlines.length) headlines = ['Loading latest headlines\u2026'];
     var mk = function (a) {
       return a.map(function (x) {
         return '<span style="color:#fff;font-family:\'Source Serif 4\',serif;font-size:0.78rem;font-weight:600;padding:0 2rem;">'
-          + x + '</span><span class="ticker-sep">&#124;</span>';
+          + x.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+          + '</span><span class="ticker-sep">&#124;</span>';
       }).join('');
     };
     t.innerHTML = mk(headlines) + mk(headlines);
     requestAnimationFrame(function () {
       t.style.animationDuration = (t.scrollWidth / 2 / 60) + 's';
     });
-  })();
+  }
 
   // ── Dropdown nav ───────────────────────────────────────────────────────────
   (function () {
@@ -72,6 +67,8 @@
   window.renderNewsPage = function (cfg) {
     var output = document.getElementById('news-output');
     if (!output) return;
+
+    _initTicker(cfg.data);
 
     if (!cfg.data) {
       output.innerHTML =

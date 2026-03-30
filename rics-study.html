@@ -1118,29 +1118,6 @@
       window.addEventListener('scroll', onScroll, { passive: true });
     })();
 
-    // ── News ticker ──
-    (function () {
-      const headlines = [
-        'UK house prices rise 0.5% month-on-month according to Nationwide',
-        'Government announces planning reform consultation for major infrastructure projects',
-        'Commercial property investment volumes up 12% year-on-year',
-        'Bank of England holds base rate; mortgage market remains cautious',
-        'RICS: Surveyor demand at five-year high amid construction pipeline growth',
-        'London office vacancy rates stabilise as return-to-office mandates increase',
-        'Build-to-rent sector attracts record institutional investment in Q1 2026',
-        'Net zero retrofit targets drive demand for energy assessment professionals',
-      ];
-      const ticker = document.getElementById('js-ticker');
-      const makeHtml = arr => arr.map(h =>
-        `<span style="color:#fff;font-family:'Source Serif 4',serif;font-size:0.78rem;font-weight:600;padding:0 2rem;">${h}</span><span class="ticker-sep">&#124;</span>`
-      ).join('');
-      ticker.innerHTML = makeHtml(headlines) + makeHtml(headlines);
-      requestAnimationFrame(() => {
-        const halfWidth = ticker.scrollWidth / 2;
-        ticker.style.animationDuration = (halfWidth / 60) + 's';
-      });
-    })();
-
     // ── Dropdown nav ──
     (function () {
       var btns = document.querySelectorAll('.nav-drop-btn');
@@ -1158,6 +1135,8 @@
       });
     })();
   </script>
+  <script src="world-news-data.js"></script>
+  <script src="ticker.js"></script>
 
 </body>
 </html>

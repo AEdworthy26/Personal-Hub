@@ -883,34 +883,8 @@
   <script src="philosophy-data.js"></script>
   <script src="quiz-data.js"></script>
   <script src="rics-topics-data.js"></script>
+  <script src="ticker.js"></script>
   <script>
-    // ── News ticker (static placeholder — live feed to be added) ──
-    (function () {
-      const headlines = [
-        'World leaders gather for emergency climate summit in Geneva',
-        'Global markets steady as central banks signal rate pause',
-        'UN Security Council meets over escalating tensions in Middle East',
-        'European Union agrees new trade framework with South-East Asia',
-        'Scientists announce breakthrough in carbon capture technology',
-        'NATO allies pledge increased defence spending at Brussels meeting',
-        'IMF revises global growth forecast upward for 2026',
-        'Historic ceasefire agreement reached after months of negotiations',
-        'G7 nations commit to new framework on artificial intelligence governance',
-        'Record temperatures recorded across southern Europe this week',
-        'World Health Organisation warns of emerging respiratory virus strain',
-        'African Union summit focuses on infrastructure investment drive',
-      ];
-      const ticker = document.getElementById('js-ticker');
-      const makeHtml = arr => arr.map(h =>
-        `<span style="color:#fff;font-family:'Source Serif 4',serif;font-size:0.78rem;font-weight:600;padding:0 2rem;">${h}</span><span class="ticker-sep">&#124;</span>`
-      ).join('');
-      ticker.innerHTML = makeHtml(headlines) + makeHtml(headlines);
-      requestAnimationFrame(() => {
-        const halfWidth = ticker.scrollWidth / 2;
-        ticker.style.animationDuration = (halfWidth / 60) + 's';
-      });
-    })();
-
     // ── Date labels ──
     const d = new Date();
     const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
