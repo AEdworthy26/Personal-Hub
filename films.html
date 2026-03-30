@@ -144,8 +144,8 @@
     /* ────────────────── FEATURE SECTION ────────────────── */
     .rec-feature {
       display: grid;
-      grid-template-columns: 3fr 2fr;
-      min-height: 72vh;
+      grid-template-columns: 4fr 1fr;
+      min-height: 52vh;
       border-bottom: 1px solid var(--dark-border);
     }
     .rec-feature.rec-film .rec-image { order: 2; }
@@ -160,7 +160,7 @@
       transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .rec-feature:hover .rec-cover-wrap { transform: scale(1.05); }
-    .rec-cover-svg { width: 55%; max-width: 280px; display: block; position: relative; z-index: 1; }
+    .rec-cover-svg { width: 75%; max-width: 160px; display: block; position: relative; z-index: 1; }
 
     .rec-image::after {
       content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -188,7 +188,7 @@
 
     .rec-body {
       background: var(--dark-card);
-      padding: 3.5rem 3rem 3rem;
+      padding: 2.5rem 2rem 2rem;
       display: flex; flex-direction: column; justify-content: center;
       gap: 1.1rem;
       transition: background 0.45s ease;
