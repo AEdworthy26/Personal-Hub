@@ -333,6 +333,22 @@
     .rec-feature.rec-film { border-top: 2px solid rgba(212,64,0,0.18); }
 
 
+    /* ────────────────── AMAZON BUTTON ────────────────── */
+    .amazon-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-top: 0.5rem;
+      padding: 0.55rem 1.2rem;
+      background: #FF9900;
+      color: #111;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
+      border-radius: 6px;
+      text-decoration: none;
+      width: fit-content;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .amazon-btn:hover { background: #e68a00; transform: translateY(-1px); }
+    .amazon-btn::before { content: ''; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23111'%3E%3Cpath d='M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z'/%3E%3C/svg%3E") no-repeat center/contain; width: 14px; height: 14px; display: inline-block; opacity: 0.7; }
+
     /* ────────────────── STAR VISUAL ────────────────── */
     .star-visual {
       position: relative; display: inline-block;
@@ -663,6 +679,7 @@
   function buildBook(book, idx) {
     var el = document.getElementById('js-book');
     var imgHTML = coverImgHTML(book.coverUrl, bookSVG(book, idx));
+    var amazonUrl = 'https://www.amazon.co.uk/s?k=' + encodeURIComponent(book.title + ' ' + book.author);
     el.innerHTML = '<section class="rec-feature rec-book">'
       + '<div class="rec-body">'
       + '<span class="rec-type-tag">Book</span>'
@@ -675,6 +692,7 @@
       + starsHTML(book.rating)
       + '<span class="rating-source" style="margin-top:0.2rem;">' + book.ratingSource + ' &nbsp;&middot;&nbsp; ' + (book.ratingCount || '') + ' ratings</span>'
       + '</div></div>'
+      + '<a href="' + amazonUrl + '" target="_blank" rel="noopener" class="amazon-btn">Buy on Amazon</a>'
       + '</div>'
       + '<div class="rec-image"><div class="rec-cover-wrap">' + imgHTML + '</div></div>'
       + '</section>';
