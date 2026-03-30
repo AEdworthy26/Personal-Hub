@@ -168,11 +168,11 @@
 
     .rec-image {
       flex-shrink: 0;
-      width: 200px;
+      width: 280px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem 1.5rem;
+      padding: 2rem;
     }
     .rec-cover-wrap {
       display: flex; align-items: center; justify-content: center;
@@ -180,7 +180,7 @@
     }
     .rec-feature:hover .rec-cover-wrap { transform: scale(1.03); }
 
-    .rec-cover-svg { max-width: 140px; height: auto; display: block; }
+    .rec-cover-svg { max-width: 210px; height: auto; display: block; }
 
     /* ── Info panel ── */
     .rec-body {
@@ -691,7 +691,7 @@
 
   function coverImgHTML(url, fallbackSVG) {
     if (url) {
-      return '<img src="' + url + '" alt="" loading="lazy" style="max-width:140px;height:auto;object-fit:contain;display:block;"'
+      return '<img src="' + url + '" alt="" loading="lazy" style="max-width:210px;height:auto;object-fit:contain;display:block;"'
         + ' onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'">'
         + '<div style="display:none;">' + fallbackSVG + '</div>';
     }
