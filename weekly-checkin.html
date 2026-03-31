@@ -1102,8 +1102,9 @@
       if (existing) {
         populateForm(existing);
         editingExisting = true;
-        document.getElementById('btn-edit').style.display = '';
-        document.getElementById('form-card').style.display = 'none';
+        document.getElementById('btn-edit').style.display = 'none';
+        document.getElementById('btn-cancel-edit').style.display = 'none';
+        document.getElementById('form-card').style.display = '';
       } else {
         document.getElementById('form-card').style.display = '';
         document.getElementById('btn-edit').style.display = 'none';
