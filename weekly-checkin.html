@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weekly Check-In — Personal Hub</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -28,7 +28,7 @@
       --radius: 7px;
     }
 
-    body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh; }
+    body { background: var(--paper); color: var(--ink); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; min-height: 100vh; font-size: 14px; }
     a { color: inherit; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
@@ -98,7 +98,7 @@
     /* ── CARDS ── */
     .card { background: var(--card); border: 1px solid var(--subtle); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
     .card-header { padding: 1.1rem 1.5rem 0.8rem; border-bottom: 1px solid var(--subtle); display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; }
-    .card-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; }
+    .card-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: -0.01em; }
     .card-body { padding: 1.3rem 1.5rem; }
     @media (max-width: 500px) { .card-body { padding: 1rem; } }
 
@@ -113,7 +113,7 @@
     .slider-meta { display: flex; justify-content: space-between; align-items: center; }
     .slider-label { font-size: 0.78rem; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 0.35rem; }
     .slider-icon { font-size: 1rem; line-height: 1; }
-    .slider-value { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; color: var(--blue); min-width: 1.8rem; text-align: right; }
+    .slider-value { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1rem; color: var(--blue); min-width: 1.8rem; text-align: right; }
 
     input[type="range"] {
       -webkit-appearance: none; appearance: none; width: 100%; height: 4px;
@@ -130,13 +130,13 @@
     .num-row { display: flex; flex-direction: column; gap: 0.4rem; }
     .num-label { font-size: 0.78rem; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 0.35rem; }
     .num-input-wrap { display: flex; align-items: center; gap: 0.5rem; }
-    .num-input { font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 600; width: 70px; padding: 0.4rem 0.6rem; border: 1px solid var(--border); border-radius: 5px; background: var(--paper); color: var(--ink); text-align: center; transition: border-color 0.15s, box-shadow 0.15s; }
+    .num-input { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; width: 70px; padding: 0.4rem 0.6rem; border: 1px solid var(--border); border-radius: 5px; background: var(--paper); color: var(--ink); text-align: center; transition: border-color 0.15s, box-shadow 0.15s; }
     .num-input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,51,153,0.1); }
     .num-hint { font-size: 0.65rem; color: var(--light); }
 
     /* Achievements input */
     .achieve-input-row { display: flex; gap: 0.5rem; margin-bottom: 0.6rem; }
-    .achieve-input { flex: 1; font-family: 'Source Serif 4', serif; font-size: 0.85rem; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 5px; background: var(--paper); color: var(--ink); transition: border-color 0.15s, box-shadow 0.15s; }
+    .achieve-input { flex: 1; font-family: 'Inter', sans-serif; font-size: 0.85rem; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 5px; background: var(--paper); color: var(--ink); transition: border-color 0.15s, box-shadow 0.15s; }
     .achieve-input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,51,153,0.1); }
     .achieve-list { display: flex; flex-wrap: wrap; gap: 0.4rem; min-height: 1rem; }
     .achieve-chip { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.75rem; background: rgba(0,51,153,0.08); border: 1px solid rgba(0,51,153,0.18); color: var(--ink); padding: 0.22rem 0.55rem 0.22rem 0.7rem; border-radius: 20px; }
@@ -144,14 +144,14 @@
     .achieve-chip button:hover { color: var(--red); }
 
     /* Notes textarea */
-    .notes-textarea { width: 100%; font-family: 'Source Serif 4', serif; font-size: 0.87rem; line-height: 1.65; padding: 0.65rem 0.85rem; border: 1px solid var(--border); border-radius: 5px; background: var(--paper); color: var(--ink); resize: vertical; min-height: 80px; transition: border-color 0.15s, box-shadow 0.15s; }
+    .notes-textarea { width: 100%; font-family: 'Inter', sans-serif; font-size: 0.87rem; line-height: 1.65; padding: 0.65rem 0.85rem; border: 1px solid var(--border); border-radius: 5px; background: var(--paper); color: var(--ink); resize: vertical; min-height: 80px; transition: border-color 0.15s, box-shadow 0.15s; }
     .notes-textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,51,153,0.1); }
 
     /* Submit */
     .form-actions { margin-top: 1.4rem; display: flex; gap: 0.6rem; align-items: center; }
-    .btn-submit { font-family: 'Source Serif 4', serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.6rem 1.4rem; background: var(--blue); color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background 0.15s, box-shadow 0.15s; }
+    .btn-submit { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.6rem 1.4rem; background: var(--blue); color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background 0.15s, box-shadow 0.15s; }
     .btn-submit:hover { background: #002280; box-shadow: 0 2px 10px rgba(0,51,153,0.3); }
-    .btn-cancel { font-family: 'Source Serif 4', serif; font-size: 0.75rem; font-weight: 600; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 5px; padding: 0.55rem 0.9rem; cursor: pointer; transition: background 0.15s; }
+    .btn-cancel { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 5px; padding: 0.55rem 0.9rem; cursor: pointer; transition: background 0.15s; }
     .btn-cancel:hover { background: var(--subtle); }
 
     /* Week label in card header */
@@ -173,7 +173,7 @@
     /* ── STATS ROW ── */
     .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 2.2rem; box-shadow: var(--shadow-sm); }
     .stat-cell { background: var(--card); padding: 1.1rem 1.2rem; display: flex; flex-direction: column; gap: 0.2rem; }
-    .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; line-height: 1; }
+    .stat-num { font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 800; line-height: 1; }
     .stat-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--light); }
     @media (max-width: 600px) { .stats-row { grid-template-columns: 1fr 1fr; } }
 
@@ -189,7 +189,7 @@
     .history-card { background: var(--card); border: 1px solid var(--subtle); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow 0.2s; }
     .history-card:hover { box-shadow: var(--shadow-md); }
     .history-card-header { display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 0.8rem 1rem; padding: 0.85rem 1.2rem; cursor: pointer; user-select: none; }
-    .history-score-badge { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.3rem; line-height: 1; min-width: 2.2rem; text-align: center; }
+    .history-score-badge { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.3rem; line-height: 1; min-width: 2.2rem; text-align: center; }
     .history-week-date { font-size: 0.8rem; font-weight: 600; color: var(--ink); }
     .history-week-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
     .history-mini-stats { display: flex; gap: 0.7rem; flex-wrap: wrap; }
@@ -201,7 +201,7 @@
     .history-detail-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 0.6rem; margin-top: 0.9rem; }
     .history-detail-item { background: var(--paper); border-radius: 5px; padding: 0.5rem 0.7rem; display: flex; flex-direction: column; gap: 0.1rem; }
     .history-detail-icon { font-size: 1rem; }
-    .history-detail-val { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.05rem; line-height: 1.1; }
+    .history-detail-val { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.05rem; line-height: 1.1; }
     .history-detail-name { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--light); }
     .history-achievements { margin-top: 0.8rem; }
     .history-achievements-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; display: block; }
@@ -211,15 +211,15 @@
     .history-delete-btn:hover { color: var(--red); }
 
     /* Buttons */
-    .btn-edit { font-family: 'Source Serif 4', serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3rem 0.75rem; border: 1px solid var(--border); border-radius: 5px; background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; }
+    .btn-edit { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.3rem 0.75rem; border: 1px solid var(--border); border-radius: 5px; background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; }
     .btn-edit:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-    .btn-sm-blue { font-family: 'Source Serif 4', serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.35rem 0.75rem; border: none; border-radius: 5px; background: var(--blue); color: #fff; cursor: pointer; transition: background 0.15s; }
+    .btn-sm-blue { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.35rem 0.75rem; border: none; border-radius: 5px; background: var(--blue); color: #fff; cursor: pointer; transition: background 0.15s; }
     .btn-sm-blue:hover { background: #002280; }
 
     /* No data / empty states */
     .empty-history { text-align: center; padding: 3rem 2rem; border: 1px dashed var(--border); border-radius: var(--radius); background: rgba(255,255,255,0.4); }
     .empty-icon { font-size: 2.4rem; opacity: 0.25; display: block; margin-bottom: 0.8rem; }
-    .empty-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .empty-title { font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
     .empty-text { font-size: 0.82rem; color: var(--muted); }
 
     /* ── COMPARISON ── */
@@ -231,7 +231,7 @@
 
     /* ── SECTION HEADING ── */
     .section-heading { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.3rem; }
-    .section-heading h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; white-space: nowrap; }
+    .section-heading h2 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.1rem; white-space: nowrap; }
     .section-rule { flex: 1; height: 1px; background: var(--subtle); }
 
     /* ── FOOTER ── */
@@ -828,8 +828,8 @@
         + ' stroke-dasharray="' + circ.toFixed(2) + '" stroke-dashoffset="' + initOffset + '"'
         + ' stroke-linecap="round" transform="rotate(-90 60 60)"'
         + ' id="score-arc-el" style="transition:stroke-dashoffset 0.9s cubic-bezier(0.22,1,0.36,1)"/>'
-        + '<text x="60" y="57" text-anchor="middle" font-family="Playfair Display,Georgia,serif" font-weight="900" font-size="26" fill="' + info.color + '" id="score-num-el">' + initScore + '</text>'
-        + '<text x="60" y="71" text-anchor="middle" font-family="Source Serif 4,Georgia,serif" font-size="9.5" fill="var(--light)">out of 100</text>'
+        + '<text x="60" y="57" text-anchor="middle" font-family="Inter,sans-serif" font-weight="900" font-size="26" fill="' + info.color + '" id="score-num-el">' + initScore + '</text>'
+        + '<text x="60" y="71" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="var(--light)">out of 100</text>'
         + '</svg>'
         + '<span class="score-label-text" style="color:' + info.color + '">' + info.label + '</span>'
         + '</div>'
@@ -929,7 +929,7 @@
       var grid = [0,25,50,75,100].map(function(v) {
         var y = yS(v);
         return '<line x1="'+pL+'" y1="'+y+'" x2="'+(W-pR)+'" y2="'+y+'" stroke="#ece8e0" stroke-width="1"/>'
-          + '<text x="'+(pL-6)+'" y="'+(y+3.5)+'" text-anchor="end" font-size="9" fill="#999" font-family="Source Serif 4,Georgia,serif">'+v+'</text>';
+          + '<text x="'+(pL-6)+'" y="'+(y+3.5)+'" text-anchor="end" font-size="9" fill="#999" font-family="Inter,sans-serif">'+v+'</text>';
       }).join('');
 
       var areaD = 'M'+xS(0)+','+yS(data[0].score)
@@ -946,7 +946,7 @@
 
       var xLabels = data.map(function(d,i) {
         if (n > 8 && i % 2 !== 0) return '';
-        return '<text x="'+xS(i)+'" y="'+(H-6)+'" text-anchor="middle" font-size="8.5" fill="#999" font-family="Source Serif 4,Georgia,serif">'+fmtDateShort(d.date)+'</text>';
+        return '<text x="'+xS(i)+'" y="'+(H-6)+'" text-anchor="middle" font-size="8.5" fill="#999" font-family="Inter,sans-serif">'+fmtDateShort(d.date)+'</text>';
       }).join('');
 
       chartEl.innerHTML = '<svg viewBox="0 0 '+W+' '+H+'" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">'
