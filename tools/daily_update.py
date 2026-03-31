@@ -218,6 +218,23 @@ def fetch_film_poster(title, year):
             continue
     return None
 
+def fetch_wikipedia_image(name):
+    """Fetch an image of a person or subject from Wikipedia (free, no API key needed)."""
+    variants = [name, name + ' (philosopher)', name + ' (politician)', name + ' (author)']
+    for variant in variants[:2]:  # only try first two to keep it fast
+        try:
+            slug = urllib.parse.quote(variant.replace(' ', '_'))
+            url = f'https://en.wikipedia.org/api/rest_v1/page/summary/{slug}'
+            req = urllib.request.Request(url, headers={'User-Agent': 'PersonalHub/1.0'})
+            with urllib.request.urlopen(req, timeout=8) as r:
+                data = json.loads(r.read())
+            thumb = data.get('originalimage', data.get('thumbnail', {})).get('source')
+            if thumb:
+                return thumb
+        except Exception:
+            continue
+    return None
+
 def fetch_pexels_image(query, orientation='landscape'):
     """Fetch a relevant photo from Pexels free API (requires PEXELS_API_KEY in .env)."""
     try:
@@ -563,11 +580,16 @@ window.PHILOSOPHY_DATA = {{
             js = js.replace('"__IMG_PHILOSOPHY__"', f'"{url}"', 1)
             log(f'  ✓ Philosophy image: {query[:40]}')
         if 'image: null' in js and phil_m:
-            query = phil_m.group(1)
-            url = fetch_pexels_image(query + ' philosopher portrait')
+            name = phil_m.group(1)
+            url = fetch_wikipedia_image(name)
+            if url:
+                log(f'  ✓ Philosopher image (Wikipedia): {name[:40]}')
+            else:
+                url = fetch_pexels_image(name + ' philosopher portrait')
+                if url:
+                    log(f'  ✓ Philosopher image (Pexels): {name[:40]}')
             if url:
                 js = js.replace('image: null', f'image: "{url}"', 1)
-                log(f'  ✓ Philosopher image: {query[:40]}')
     except Exception as e:
         log(f'  [warning] Philosophy image injection failed: {e}')
         js = js.replace("'__IMG_PHILOSOPHY__'", "'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&fit=crop&q=80'", 1)
