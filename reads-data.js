@@ -4,16 +4,16 @@
 var READS_DATA = {
   date: "2026-03-31",
   book: {
-    title: "The Histories",
-    author: "Herodotus",
-    year: -430,
-    genres: ["Ancient History", "Exploration", "Political History"],
-    desc: "Often called the first true work of history, Herodotus's sprawling masterpiece chronicles the wars between Greece and Persia while veering gloriously into ethnography, geography, folklore, and sheer wonder at the strangeness of the world. He travels—literally and narratively—from the pyramids of Egypt to the frozen steppes of Scythia, recording customs, marvels, and political intrigues with an insatiable curiosity that feels remarkably modern. What elevates The Histories beyond a war narrative is its profound meditation on the fragility of power, the role of fate, and the ways cultures see themselves reflected in the mirror of others. Herodotus is both a rigorous investigator and a born storyteller, weaving together eyewitness testimony, local legend, and his own skeptical commentary into something that reads as part epic journalism, part philosophical inquiry. Two and a half millennia on, his voice remains astonishingly vivid—warm, wry, digressive, and deeply human.",
-    whyRead: "As spring turns and the world feels newly unpredictable, there's no better companion than the father of history himself—reminding us that civilizations rise, collide, and transform, and that the best response is boundless curiosity.",
-    rating: 4.0,
+    title: "The Peloponnesian War",
+    author: "Donald Kagan",
+    year: 2003,
+    genres: ["Ancient History", "Political History", "Military History"],
+    desc: "Donald Kagan distills a lifetime of scholarship into this magisterial single-volume account of the epic struggle between Athens and Sparta that reshaped the ancient world. Far more than a military chronicle, the book is a penetrating study of how democratic and oligarchic societies make decisions under pressure — how hubris, miscalculation, and the fragility of alliances can unravel even the most powerful civilizations. Kagan brings extraordinary clarity to the political maneuvering of Pericles, the reckless ambition of Alcibiades, and the catastrophic Sicilian Expedition, making events from the fifth century BCE feel as tense and immediate as any modern geopolitical crisis. Drawing on Thucydides while also challenging him, Kagan offers a historian's historian take that is nonetheless supremely accessible to the general reader. The result is one of the finest works of ancient history written in the past century — sweeping in scope yet precise in its judgments.",
+    whyRead: "In an era of great-power rivalries and democratic self-doubt, Kagan's account of how Athens lost its way feels almost prophetically relevant — a masterclass in how free societies can be their own worst enemies.",
+    rating: 4.1,
     ratingSource: "Goodreads",
-    ratingCount: "55,000+",
-    coverUrl: "https://covers.openlibrary.org/b/id/9829028-L.jpg",
-    amazonUrl: "https://www.amazon.co.uk/dp/078618969X"
+    ratingCount: "8,000+",
+    coverUrl: "https://covers.openlibrary.org/b/id/8736-L.jpg",
+    amazonUrl: "https://www.amazon.co.uk/dp/0007115059"
   }
 };

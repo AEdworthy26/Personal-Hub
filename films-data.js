@@ -4,15 +4,15 @@
 var FILMS_DATA = {
   date: "2026-03-31",
   film: {
-    title: "Z",
-    director: "Costa-Gavras",
-    year: 1969,
-    genres: ["Political Thriller", "Drama"],
-    desc: "Based on the real-life assassination of Greek politician Grigoris Lambrakis, Costa-Gavras's electrifying political thriller dissects how state power conspires to silence dissent and then bury the truth. Told with the relentless pacing of a detective story, the film follows a magistrate's dogged investigation into what the authorities insist was a mere traffic accident, peeling back layers of military complicity and institutional corruption. Yves Montand is magnetic as the charismatic opposition leader, while Jean-Louis Trintignant brings quiet, steely resolve to the role of the investigating judge who refuses to look away. The film's formal brilliance — its fractured editing, documentary-like urgency, and Mikis Theodorakis's haunting score — created the template for the modern political thriller. Winner of both the Jury Prize at Cannes and the Academy Award for Best Foreign Language Film, Z remains devastatingly relevant, a furious cry against authoritarianism that loses none of its power across the decades.",
-    cast: ["Yves Montand", "Jean-Louis Trintignant", "Irene Papas"],
-    rating: 92,
+    title: "The Lives of Others",
+    director: "Florian Henckel von Donnersmarck",
+    year: 2006,
+    genres: ["Political Drama", "Thriller"],
+    desc: "Set in 1984 East Berlin, this mesmerizing German film follows a Stasi surveillance officer who becomes deeply absorbed in the lives of a playwright and his actress lover as he secretly monitors their apartment. What begins as a routine operation of state control slowly transforms into something far more dangerous — an awakening of conscience. Ulrich Mühe delivers one of cinema's greatest performances, conveying enormous emotional shifts through the subtlest flickers of expression, portraying a man whose entire worldview unravels in the silence of a listening post. The film is a profound meditation on art, freedom, and the quiet acts of moral courage that can survive even the most suffocating totalitarian machinery. Winner of the Academy Award for Best Foreign Language Film, it stands as one of the finest political thrillers ever made — a work that grows richer and more devastating with every revisit.",
+    cast: ["Ulrich Mühe", "Martina Gedeck", "Sebastian Koch"],
+    rating: 93,
     ratingSource: "Rotten Tomatoes",
-    ratingExtra: "2 Academy Awards including Best Foreign Language Film",
-    posterUrl: "https://upload.wikimedia.org/wikipedia/en/8/80/CostaGavrasZ.jpg"
+    ratingExtra: "1 Academy Award (Best Foreign Language Film)",
+    posterUrl: "https://upload.wikimedia.org/wikipedia/en/9/9f/Leben_der_anderen.jpg"
   }
 };

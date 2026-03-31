@@ -4,7 +4,7 @@
 window.QUIZ_DATA = {
   date: '2026-03-31',
   category: 'Ancient History',
-  question: 'Which ancient city, destroyed by volcanic eruption in the 17th century BCE, is often called the "Minoan Pompeii" and preserved remarkable multi-story buildings with elaborate frescoes?',
-  answer: 'Akrotiri on the island of Thera (modern Santorini)',
-  funFact: 'Akrotiri was buried under volcanic ash from the catastrophic eruption of Thera, one of the largest volcanic events in recorded history. Unlike Pompeii, no human remains have been found at the site, suggesting the inhabitants had enough warning to evacuate. The preserved frescoes depict stunning scenes of naval expeditions, boxing youths, and fields of saffron-gathering women, offering an unparalleled window into Bronze Age Aegean life.'
+  question: 'Which ancient Mesopotamian city, often considered the world\'s first true city, was home to the great ziggurat of Inanna and is credited with producing the earliest known written records around 3400 BCE?',
+  answer: 'Uruk',
+  funFact: 'At its peak around 2900 BCE, Uruk had a population of roughly 40,000–80,000 people, making it the largest settlement in the world at the time. The legendary King Gilgamesh was said to have built its famous city walls, and the city\'s name is believed to be the origin of the modern name "Iraq."'
 };
