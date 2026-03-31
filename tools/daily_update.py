@@ -946,9 +946,10 @@ var QUOTE_DATA = {{
 
 def gen_recipes():
     log("\n── Suggested Recipes")
-    prompt = f"""Generate exactly 3 chef-quality recipe suggestions for today ({TODAY}) for a personal recipe website.
-The user loves: bold flavours, proper technique, European and world cuisines, seasonal ingredients, impressive but achievable home cooking.
-Pick a varied spread — e.g. one meat, one fish/seafood, one vegetarian or lighter dish. Make them genuinely excellent, restaurant-calibre recipes with real depth.
+    prompt = f"""Generate exactly 3 recipe suggestions for today ({TODAY}) for a personal recipe website.
+The user loves: bold flavours, European and world cuisines, seasonal ingredients, and genuinely delicious food.
+Pick a varied spread — e.g. one meat, one fish/seafood, one vegetarian or lighter dish.
+The recipes should be high quality and taste impressive, but accessible to a confident home cook — avoid overly complex techniques, specialist equipment, or hard-to-find ingredients. Think the kind of recipe a good home cook would be proud to serve.
 
 Output ONLY valid JavaScript. No explanation, no markdown. Start directly with "window.SUGGESTED_RECIPES".
 
