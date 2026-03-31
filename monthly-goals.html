@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monthly Goals — Personal Hub</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -30,7 +30,7 @@
       --progress-track: #e0dbd0;
     }
 
-    body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh; }
+    body { background: var(--paper); color: var(--ink); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; min-height: 100vh; font-size: 14px; }
     a { color: inherit; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
@@ -120,7 +120,7 @@
     }
     .stat-item:last-child { border-right: none; }
     .stat-num {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 2.1rem;
       font-weight: 900;
       line-height: 1;
@@ -133,13 +133,13 @@
 
     /* ────────────────── MONTH LABEL ────────────────── */
     .month-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
-    .month-label h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem; white-space: nowrap; }
+    .month-label h2 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.2rem; white-space: nowrap; }
     .month-label-rule { flex: 1; height: 1px; background: var(--border); }
     .month-summary { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light); white-space: nowrap; }
 
     /* ────────────────── BUTTONS ────────────────── */
     .btn {
-      font-family: 'Source Serif 4', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
       padding: 0.4rem 0.85rem;
       border: 1px solid var(--border); border-radius: 2px;
@@ -156,7 +156,7 @@
     .btn-danger:hover { background: #a93226; border-color: #a93226; color: #fff; }
 
     .btn-add-goal {
-      font-family: 'Source Serif 4', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
       padding: 0.3rem 0.8rem;
       border: 1px solid var(--blue); border-radius: 2px;
@@ -184,11 +184,11 @@
     }
     .add-goal-panel.open { display: block; }
     @keyframes panel-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-    .add-goal-panel h3 { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 1rem; }
+    .add-goal-panel h3 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 1rem; }
     .form-row { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.85rem; }
     .form-row label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); }
     .form-row input[type="text"],
-    .form-row textarea { font-family: 'Source Serif 4', serif; font-size: 0.85rem; padding: 0.5rem 0.7rem; border: 1px solid var(--border); border-radius: 2px; background: var(--paper); color: var(--ink); outline: none; resize: vertical; transition: border-color 0.15s; }
+    .form-row textarea { font-family: 'Inter', sans-serif; font-size: 0.85rem; padding: 0.5rem 0.7rem; border: 1px solid var(--border); border-radius: 2px; background: var(--paper); color: var(--ink); outline: none; resize: vertical; transition: border-color 0.15s; }
     .form-row input:focus, .form-row textarea:focus { border-color: var(--blue); }
     .form-actions { display: flex; gap: 0.5rem; }
 
@@ -220,7 +220,7 @@
 
     /* ── Status select ── */
     .status-select {
-      font-family: 'Source Serif 4', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
       padding: 0.22rem 1.4rem 0.22rem 0.6rem;
       border: none; border-radius: 2px; cursor: pointer;
@@ -235,7 +235,7 @@
     /* ── Goal text — inline editable ── */
     .goal-title-block { flex: 1; min-width: 0; }
     .goal-title {
-      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.05rem;
+      font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.05rem;
       line-height: 1.25; margin-bottom: 0.35rem;
       cursor: text;
       border-bottom: 1px solid transparent;
@@ -334,7 +334,7 @@
     .add-step-form { display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
     .add-step-form input[type="text"] {
       flex: 1; min-width: 140px;
-      font-family: 'Source Serif 4', serif; font-size: 0.82rem;
+      font-family: 'Inter', sans-serif; font-size: 0.82rem;
       padding: 0.38rem 0.6rem;
       border: 1px solid var(--border); border-radius: 2px;
       background: var(--paper); color: var(--ink); outline: none; transition: border-color 0.15s;
@@ -342,7 +342,7 @@
     .add-step-form input[type="text"]:focus { border-color: var(--blue); }
     .add-step-form input[type="text"].error { border-color: #c0392b; }
     .add-step-form input[type="date"] {
-      font-family: 'Source Serif 4', serif; font-size: 0.78rem;
+      font-family: 'Inter', sans-serif; font-size: 0.78rem;
       padding: 0.38rem 0.5rem;
       border: 1px solid var(--border); border-radius: 2px;
       background: var(--paper); color: var(--muted); outline: none; transition: border-color 0.15s;
@@ -371,7 +371,7 @@
     .ticker-inner { overflow: hidden; flex: 1; display: flex; align-items: center; }
     .ticker-track { display: flex; align-items: center; white-space: nowrap; will-change: transform; animation: ticker-scroll 40s linear infinite; }
     .ticker-track:hover { animation-play-state: paused; cursor: default; }
-    .ticker-track a { color: #fff; font-family: 'Source Serif 4', serif; font-size: 0.78rem; font-weight: 600; padding: 0 2rem; text-decoration: none; transition: color 0.15s; }
+    .ticker-track a { color: #fff; font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 600; padding: 0 2rem; text-decoration: none; transition: color 0.15s; }
     .ticker-track a:hover { color: #e8000d; text-decoration: none; cursor: pointer; }
     .ticker-track .ticker-sep { color: #e8000d; font-size: 1rem; font-weight: 700; flex-shrink: 0; line-height: 1; }
     @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }

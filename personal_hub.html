@@ -1061,6 +1061,7 @@
         var statusLabel = { 'not-started': 'Not started', 'in-progress': 'In progress', 'completed': 'Completed' };
         var total     = goals.length;
         var completed = goals.filter(function(g){ return g.status === 'completed'; }).length;
+        var incomplete = goals.filter(function(g){ return g.status !== 'completed'; });
 
         var summaryLine = total
           ? total + ' ' + (total === 1 ? 'goal' : 'goals') + ' &nbsp;&middot;&nbsp; ' + completed + ' completed'
@@ -1069,8 +1070,10 @@
         var previewHTML = '';
         if (goals.length === 0) {
           previewHTML = '<p class="goals-preview-empty">No goals yet &mdash; <a href="monthly-goals.html">add your first</a>.</p>';
+        } else if (incomplete.length === 0) {
+          previewHTML = '<p class="goals-preview-empty">All goals completed this month! 🎉</p>';
         } else {
-          var items = goals.slice(0, 3).map(function(g) {
+          var items = incomplete.slice(0, 3).map(function(g) {
             var pct = Math.min(100, Math.max(0, g.progress || 0));
             var cls = g.status || 'not-started';
             return '<div class="goal-preview-item">'
@@ -1083,9 +1086,9 @@
               + '</div>';
           }).join('');
           previewHTML = '<div class="goal-preview-list">' + items + '</div>';
-          if (goals.length > 3) {
+          if (incomplete.length > 3) {
             previewHTML += '<span style="font-size:0.72rem;color:var(--light);margin-top:0.3rem;display:block;">+'
-              + (goals.length - 3) + ' more</span>';
+              + (incomplete.length - 3) + ' more</span>';
           }
         }
 
