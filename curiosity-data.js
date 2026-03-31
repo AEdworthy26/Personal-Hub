@@ -1,37 +1,67 @@
 // curiosity-data.js
-// Auto-updated 2026-03-30 — do not edit manually
+// Auto-updated 2026-03-31 — do not edit manually
 
 var CURIOSITY_DATA = {
-  date: "2026-03-30",
+  date: "2026-03-31",
   mainArticle: {
-    title: "The Tsar in Disguise: Peter the Great's Secret Journey Through Europe",
-    subtitle: "In 1697, the most powerful man in Russia disguised himself as a carpenter to learn how the West built its ships — and came home to transform an empire.",
-    image: "https://images.pexels.com/photos/30917889/pexels-photo-30917889.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    title: "The Last Emperor: How Constantinople Fell and the Modern World Began",
+    subtitle: "When Mehmed II's cannon breached the Theodosian Walls in 1453, eleven centuries of Roman civilization ended in a single night—and the Renaissance ignited from the wreckage.",
+    image: "https://images.pexels.com/photos/28380607/pexels-photo-28380607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     readTime: "6 min",
     content: [
-      { type: "paragraph", text: "In the spring of 1697, a delegation of 250 Russians set out westward across Europe under the banner of the Grand Embassy. Officially, the mission sought military allies against the Ottoman Empire. But buried within the convoy, traveling under the alias 'Pyotr Mikhailov' and listed as a junior official, was Tsar Peter I of Russia — a towering, restless man of twenty-four who had already decided that his country was a century behind the West and intended to do something about it personally." },
-      { type: "heading", text: "A Tsar Among Shipwrights" },
-      { type: "paragraph", text: "Peter's first destination of real consequence was the Dutch port of Zaandam, then the shipbuilding capital of the world, its skyline a forest of windmills and masts. He enrolled under his alias at the VOC yards in Amsterdam, picking up an adze and working alongside ordinary carpenters who — for a time at least — had no idea they were laboring beside an absolute monarch. The secret barely lasted weeks before crowds gathered to stare, forcing Peter to move operations and eventually decamp for England." },
-      { type: "heading", text: "Lessons in England and the Architecture of Power" },
-      { type: "paragraph", text: "In England, Peter was hosted by King William III and granted access to the Royal Observatory at Greenwich, the Royal Mint — then run by Isaac Newton — and the dockyards at Deptford, where he reportedly caused ruinous damage to the house lent to him. He attended Parliament, watched anatomical dissections with unsettling enthusiasm, and recruited hundreds of engineers, naval officers, and craftsmen to return with him to Russia. What Peter was absorbing was not merely technical knowledge but a model of institutional power: how a modern state could systematize expertise and deploy it as an instrument of national strength." },
-      { type: "heading", text: "The Revolution Imposed From Above" },
-      { type: "paragraph", text: "Peter returned to Russia in August 1698 to find a Streltsy rebellion in progress, which he suppressed with characteristic ferocity before turning to the work of transformation. The Julian calendar was replaced, the Russian Orthodox Church restructured, and the old boyar aristocracy were famously shorn of their beards by imperial decree. New schools, a new navy, a new capital — Saint Petersburg, driven into Baltic marshland by conscripted labor — and a new designation for the state itself, the Russian Empire, all flowed from eighteen months of careful watching." },
-      { type: "heading", text: "The Meaning of the Journey" },
-      { type: "paragraph", text: "The Grand Embassy remains one of history's most extraordinary exercises in statecraft by immersion, a ruling autocrat voluntarily apprenticing himself to the knowledge of another civilization. No other European monarch of the era did anything remotely comparable, and the sheer strangeness of the act reflects Peter's conviction that prestige without capability was hollow. His reforms were brutal in execution and contradictory in spirit — a modernizing autocracy is still an autocracy — but the directness of the causal chain, from one man's curiosity to an empire's reinvention, is almost without parallel in the historical record." },
-      { type: "paragraph", text: "Whether Peter's revolution ultimately liberated Russia or simply imposed a new form of coercion dressed in Western costume is a debate that has never been fully resolved. What is not in doubt is the scale of the wager he made: that the survival of Russia depended on competing with Europe on Europe's own terms, learned at first hand, in its dockyards and laboratories and parliaments. That a single journey of eighteen months could redirect the destiny of the world's largest country is a testament to something the modern era often underestimates — the unreasonable, world-altering power of one person's will to learn." }
+      {
+        type: "paragraph",
+        text: "The city had survived for over a thousand years—plague, civil war, Crusader sack, and siege after siege. But on the morning of May 29, 1453, the Ottoman sultan Mehmed II watched his forces pour through a breach in the ancient Theodosian Walls, and eleven centuries of continuous Roman civilization came to an end. Constantinople, once the greatest Christian metropolis on earth and the guardian of the ancient world's accumulated learning, was no more. What happened in those final hours was not merely a military defeat—it was the hinge upon which the medieval world turned into the modern one."
+      },
+      {
+        type: "heading",
+        text: "The Walls That Time Forgot"
+      },
+      {
+        type: "paragraph",
+        text: "Mehmed II arrived before the walls in early April 1453 commanding an army that dwarfed anything the Byzantines could muster—estimates range from 80,000 to 200,000 men against a defending force of fewer than 10,000. The city's great weapon was its fortification: the triple-layered Theodosian Walls, constructed in the fifth century and never once breached by direct assault in a thousand years of sieges. Mehmed's answer to those walls was cast in bronze by a Hungarian engineer named Urban—a cannon so enormous it required sixty oxen to drag across Thrace and could fire only a handful of times each day. When it spoke, the sound carried for miles, and stone that had held for a millennium began, at last, to crack."
+      },
+      {
+        type: "heading",
+        text: "Fifty-Three Days"
+      },
+      {
+        type: "paragraph",
+        text: "For fifty-three days the Ottomans hammered the walls, and for fifty-three nights the Byzantines hauled earth and timber to patch the damage—a desperate, exhausting race that could have only one outcome. The defenders received almost no reinforcements from the West; Catholic Europe was absorbed in its own quarrels, and the promised Crusade never materialized. Inside the city, food ran short, morale frayed, and the dull percussion of Urban's great bombard became the city's relentless soundtrack. Emperor Constantine XI moved constantly along the battlements, inspiring his men by presence alone, each night knowing more clearly than the last that the end was approaching."
+      },
+      {
+        type: "heading",
+        text: "The Last Roman Emperor"
+      },
+      {
+        type: "paragraph",
+        text: "The final assault came before dawn on May 29: irregular troops first, to exhaust the defenders, then Mehmed's elite Janissaries in the decisive push through the rubble. At a critical moment, a small postern gate called the Kerkoporta was found unlatched—whether through treachery, carelessness, or the chaos of battle—and Ottoman troops flooded into the space behind the defensive line, collapsing it from within. Constantine XI reportedly stripped his imperial insignia, declared that the city was falling and that he would die with it, and charged into the melee; his body was never conclusively identified. He was the ninety-third and last emperor of Rome, and he died defending walls his predecessors had held for eleven centuries."
+      },
+      {
+        type: "heading",
+        text: "The Diaspora That Lit the Renaissance"
+      },
+      {
+        type: "paragraph",
+        text: "The fall sent immediate shockwaves across Europe, but its longer-term consequence was perhaps more profound than anyone watching the flames could have imagined. Scholars and monks fled westward carrying manuscripts—Plato, Aristotle, Archimedes, Ptolemy—texts preserved in Byzantine libraries through Europe's long medieval centuries that the Latin West had scarcely seen. Many historians argue that this sudden infusion of Greek learning into Italian cities directly accelerated the Renaissance, contributing to the intellectual revolution that would remake art, science, and philosophy. The fall of one world became, with terrible irony, the seed of another."
+      },
+      {
+        type: "paragraph",
+        text: "For the Ottoman Empire, 1453 was the triumphant opening of a golden age; Mehmed the Conqueror rebuilt and expanded the city, renaming it Istanbul and making it capital of a vast, cosmopolitan empire that would endure for four more centuries. For the Orthodox Christian world, May 29 remains a day of solemn mourning, a wound in cultural memory that has never fully healed. For historians, the fall of Constantinople is one of those rare events that genuinely marks a boundary between eras—the close of the ancient Roman world, however attenuated it had become across the centuries. Civilizations, however magnificent and however ancient, are not permanent; what endures is only what is carried forward by those who survive their ending."
+      }
     ]
   },
   personOfTheDay: {
-    name: "Vincent van Gogh",
-    lifespan: "1853–1890",
-    category: "Art",
-    image: "https://images.pexels.com/photos/3720778/pexels-photo-3720778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    bio: "Vincent Willem van Gogh was born on March 30, 1853, in Zundert, a small village in the Dutch province of Noord-Brabant, the son of a Protestant minister. He spent his twenties drifting through failed careers — art dealer, schoolteacher, lay preacher among the miners of the Borinage — before arriving at painting in his late twenties with the convert's all-consuming intensity. His early Dutch work was dark and earthbound, culminating in The Potato Eaters (1885), a portrait of peasant life rendered in the colors of soil.\n\nMoving to Paris in 1886 brought Van Gogh into contact with the Impressionists and Post-Impressionists, and the encounter electrified his palette. He adopted the broken brushwork and vivid chromaticism of his contemporaries, then pushed far beyond them into something more turbulent and emotionally direct. The years in the south of France — first in Arles, then confined to the Saint-Rémy asylum — produced Sunflowers, The Night Café, and The Starry Night at a rate of productivity that bordered on frenzy, even as his mental health broke down around him.\n\nVan Gogh died on July 29, 1890, at thirty-seven, two days after shooting himself in a wheat field outside Auvers-sur-Oise, having sold only a single painting in his lifetime. Within decades he would be recognized as one of the defining influences on modern art, and his letters — frank, searching, and genuinely beautiful — are read as a literary masterwork in their own right. The tragedy of his life has sometimes obscured the more remarkable fact: that in barely ten years of serious work, he produced over two thousand paintings and drawings of shattering originality."
+    name: "René Descartes",
+    lifespan: "1596–1650",
+    category: "Philosophy & Mathematics",
+    image: "https://images.pexels.com/photos/35666719/pexels-photo-35666719.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    bio: "René Descartes was born on March 31, 1596, in the small French town of La Haye en Touraine—now renamed Descartes in his honor—the son of a minor nobleman and member of the Breton parliament. Educated by Jesuits at the prestigious Collège Royal Henry-Le-Grand, he absorbed the scholastic philosophy of the age and grew profoundly dissatisfied with its foundations. After studying law at Poitiers and serving briefly as a soldier, he spent years wandering Europe, observing, thinking, and slowly constructing a new method for arriving at certain knowledge. On a famous November night in 1619, sheltered in a stove-heated room in Germany, he experienced a series of vivid dreams that he believed revealed the foundations of a marvelous new science—the germ of his life's work.\n\nDescartes settled in the Dutch Republic, then Europe's most intellectually tolerant nation, and spent two decades in productive obscurity. His 1637 Discourse on the Method introduced analytical geometry—the fusion of algebra and geometry that made calculus possible and furnished Newton with his essential tools—while his appendices demonstrated the method's power across optics and meteorology. His Meditations on First Philosophy (1641) then stripped away every assumption and rebuilt knowledge from a single unassailable certainty: cogito, ergo sum—'I think, therefore I am.' In placing the thinking mind at the bedrock of all knowledge, Descartes launched an epistemological revolution whose tremors are still felt in every philosophy classroom on earth.\n\nIn 1649, Queen Christina of Sweden invited Descartes to Stockholm as her personal philosophical tutor, and despite his lifelong habit of sleeping until noon, he was required to give lessons at five in the morning in an unheated palace. The harsh Swedish winter proved fatal; he contracted pneumonia and died on February 11, 1650, aged fifty-three, far from the warm Dutch rooms where he had done his greatest thinking. His legacy is vast and paradoxical: a devout Catholic who gave skepticism its modern method, a mathematician who transformed how humans perceive space, and a philosopher whose division of existence into mind and matter created a problem—the mind-body problem—that science and philosophy are still working to resolve."
   },
   onThisDay: {
-    headline: "SEWARD'S FOLLY: AMERICA BUYS ALASKA FOR TWO CENTS AN ACRE",
-    date: "March 30, 1867",
-    summary: "In the early hours of March 30, 1867, Secretary of State William H. Seward and Russian minister Eduard de Stoeckl signed the treaty by which the United States agreed to purchase Alaska from the Russian Empire for $7.2 million — roughly two cents per acre for 586,412 square miles of Arctic territory. The negotiation had begun the previous evening; Stoeckl arrived at Seward's Washington home to find the Secretary mid-game of whist, who reportedly swept the cards aside and declared that the State Department could be opened that very night. The treaty was signed before dawn.\n\nThe American press responded with open mockery. Newspapers christened the acquisition 'Seward's Folly,' 'Seward's Icebox,' and 'Walrussia' — a frozen wasteland of polar bears and permafrost that no sensible nation would want. Critics in Congress questioned why the United States would spend millions on a distant Arctic wilderness while the country was still binding the wounds of the Civil War. The Senate ratified the treaty, but the House delayed appropriating the purchase funds for over a year, deeply skeptical that any return could justify the outlay.\n\nHistory rendered a very different verdict. The Klondike gold rush of 1896 and subsequent Alaskan gold strikes alone dwarfed the original purchase price many times over. The territory's strategic importance became undeniable in 1942 when Japanese forces occupied the Aleutian islands of Attu and Kiska, confirming that Alaska sat astride the Pacific's northern approaches. When Alaska became the 49th state in 1959, its reserves of oil, natural gas, fish, timber, and minerals had long since transformed Seward's Folly into what many economists consider the most consequential real estate transaction in American history.",
-    image: "https://images.pexels.com/photos/18482092/pexels-photo-18482092.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    headline: "THE IRON LADY OPENS HER DOORS",
+    date: "March 31, 1889",
+    summary: "On March 31, 1889, Gustave Eiffel climbed to the very top of his newly completed tower on the Champ de Mars in Paris and planted a large French tricolor, claiming his creation for France and for engineering. The tower had been built in just over two years as the centerpiece of the 1889 Exposition Universelle, the World's Fair celebrating the centennial of the French Revolution. Standing 300 meters tall, it was by far the tallest man-made structure on earth, surpassing the Washington Monument by nearly double, and it had been assembled from 18,038 pieces of puddled iron joined by two and a half million rivets.\n\nThe Parisian intellectual establishment had been spectacularly hostile during its construction. A petition signed by prominent artists and writers—among them Guy de Maupassant, Alexandre Dumas fils, and the composer Charles Gounod—condemned the tower as a 'gigantic black factory chimney' and a 'dishonor to Paris,' and demanded it be torn down the moment the fair ended. Maupassant was said to lunch regularly at the tower's first-floor restaurant because it was the only spot in the city from which he could not see the thing. Yet the public disagreed with volcanic enthusiasm: nearly two million visitors climbed or rode the elevators in its first year alone, criticism dissolved, and the 'temporary' structure Eiffel had built on a twenty-year lease was never demolished. It remains the most visited paid monument on earth.",
+    image: "https://images.pexels.com/photos/10518957/pexels-photo-10518957.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
   }
 };

@@ -3,6 +3,6 @@
 
 var QUOTE_DATA = {
   date: "2026-03-31",
-  text: "The impediment to action advances action. What stands in the way becomes the way.",
-  author: "Marcus Aurelius"
+  text: "All of humanity's problems stem from man's inability to sit quietly in a room alone.",
+  author: "Blaise Pascal"
 };

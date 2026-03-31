@@ -1,15 +1,15 @@
 // films-data.js
-// Auto-updated 2026-03-30 — do not edit manually
+// Auto-updated 2026-03-31 — do not edit manually
 
 var FILMS_DATA = {
-  date: "2026-03-30",
+  date: "2026-03-31",
   film: {
     title: "The Battle of Algiers",
     director: "Gillo Pontecorvo",
     year: 1966,
-    genres: ["Political Drama", "Historical", "War Cinema"],
-    desc: "Shot with the grainy urgency of a newsreel, Pontecorvo's masterpiece reconstructs the Algerian independence struggle against French colonial rule with a moral seriousness that still feels radical today. Rather than settling for heroes and villains, the film grants full humanity to both the FLN insurgents planting bombs in cafés and the French paratroopers deploying torture to stop them — making it one of cinema's most unflinching examinations of political violence and its costs. The Pentagon famously screened it after 9/11 as a case study in counterinsurgency, a testament to how precisely it captures the logic of asymmetric conflict. Using mostly non-professional actors from the streets of Algiers, Pontecorvo achieves a documentary realism that makes every scene feel witnessed rather than staged. Ennio Morricone's percussive score drives the film like a heartbeat, and the cumulative effect is overwhelming — a work of art that also functions as history, ethics, and a warning.",
-    cast: ["Brahim Hadjadj", "Jean Martin", "Yacef Saâdi"],
+    genres: ["Political Drama", "War", "World Cinema"],
+    desc: "Pontecorvo's shattering account of the Algerian war of independence against French colonial rule is shot in gritty black-and-white with such documentary-like immediacy that it was mistaken for newsreel footage on its release. What distinguishes it from mere political cinema is its ferocious even-handedness — the Algerian resistance fighters and the French paratroopers sent to crush them are both rendered with psychological complexity and moral weight, refusing the comfort of easy heroes or villains. The film's portrait of urban guerrilla warfare, replete with Ennio Morricone's driving, percussive score, is so precise that it has been screened by military strategists, government officials, and insurgents alike in the decades since. Its labyrinthine Casbah streets pulse with the collective will of a people who refuse subjugation, yet Pontecorvo never flinches from the human cost on every side. Half a century on, it remains one of cinema's most urgent and morally serious works — a film that understands history as something ordinary people are forced to make under extraordinary pressure.",
+    cast: ["Brahim Hadjadj", "Jean Martin", "Yacef Saadi"],
     rating: 98,
     ratingSource: "Rotten Tomatoes",
     ratingExtra: "3 Academy Award Nominations",

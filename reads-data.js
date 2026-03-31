@@ -1,19 +1,19 @@
 // reads-data.js
-// Auto-updated 2026-03-30 — do not edit manually
+// Auto-updated 2026-03-31 — do not edit manually
 
 var READS_DATA = {
-  date: "2026-03-30",
+  date: "2026-03-31",
   book: {
-    title: "Rubicon: The Last Years of the Roman Republic",
-    author: "Tom Holland",
-    year: 2003,
-    genres: ["Ancient History", "Political History", "Biography"],
-    desc: "Tom Holland's Rubicon is an electrifying account of the Roman Republic's self-destruction — a five-century experiment in self-governance that finally buckled under the weight of empire, debt, and unchecked ambition. Caesar, Pompey, Cicero, Crassus, and Cato emerge as fully-realized characters whose rivalries and catastrophic miscalculations reshaped the Western world. Holland draws on Suetonius, Livy, and Plutarch with a scholar's rigour but writes with the propulsive energy of a political thriller, making the smoke-filled corridors of the Forum feel shockingly immediate. It is at once a story about remarkable individuals and a cold-eyed study in how republics die — not in a single dramatic moment, but through a long accumulation of broken norms.",
-    whyRead: "Few books make ancient history feel this urgent: the fall of the Republic is history's sharpest case study in what happens when institutions prove too fragile to contain individual ambition, and Holland makes sure you feel every step of the descent.",
+    title: "The Peloponnesian War",
+    author: "Thucydides",
+    year: -431,
+    genres: ["Ancient History", "Political History", "Military History"],
+    desc: "Thucydides' account of the catastrophic war between Athens and Sparta is not merely history — it is the founding document of political realism. Written by a general who lived through it, exiled for a military failure, and who spent twenty years observing both sides with cold, clear eyes, it reads with the urgency of a reporter embedded in events that would define Western civilisation. The Melian Dialogue alone — in which Athens tells a weaker city that the strong do what they can and the weak suffer what they must — has haunted statesmen and scholars for two and a half millennia. Its portrait of how democracies corrode under the pressures of war, faction, and imperial overreach feels less like antiquity and more like an uncomfortable mirror.",
+    whyRead: "At a moment when democratic institutions face stress and great powers jostle for dominance, Thucydides reads not as a history lesson but as a live diagnosis — the most honest book ever written about how civilisations fall apart.",
     rating: 4.1,
     ratingSource: "Goodreads",
-    ratingCount: "35,000+",
-    coverUrl: "https://covers.openlibrary.org/b/id/2380298-L.jpg",
-    amazonUrl: "https://www.amazon.co.uk/dp/034911563X"
+    ratingCount: "28,000+",
+    coverUrl: "https://covers.openlibrary.org/b/id/9585469-L.jpg",
+    amazonUrl: null
   }
 };

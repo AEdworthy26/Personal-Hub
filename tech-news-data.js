@@ -1,25 +1,49 @@
 // tech-news-data.js
-// Auto-updated 2026-03-30 — do not edit manually
+// Auto-updated 2026-03-31 — do not edit manually
 
 var TECH_NEWS = {
-  date: "2026-03-30",
+  date: "2026-03-31",
   main: {
-    title: "Tech CEOs Suddenly Love Blaming AI for Mass Job Cuts. Why?",
-    category: "Artificial Intelligence",
+    title: "Judge Blocks Pentagon's Bid to Ban Anthropic's AI Tools",
+    category: "Technology & Law",
     content: [
-      "A striking new pattern has emerged across the technology industry: chief executives are increasingly citing artificial intelligence as the driving force behind large-scale layoffs, a rhetorical shift that has drawn significant scrutiny from analysts and labour advocates alike. Rather than attributing workforce reductions to slowing growth, macroeconomic pressure, or post-pandemic overcorrection — explanations that dominated headlines just two years ago — executives are now framing cuts as an inevitable and even forward-looking response to AI-driven efficiency. The change in language is anything but subtle, and critics argue it is deeply calculated.",
-      "The strategic appeal of blaming AI is considerable. By positioning job cuts as the product of technological progress rather than managerial miscalculation, CEOs can simultaneously justify cost reductions and burnish their companies' reputations as cutting-edge innovators. It reframes a story about corporate failure into a story about corporate transformation. For investors, the message is doubly attractive: not only is the company leaner, but it is also actively deploying the technology that financial markets have spent years rewarding with soaring valuations.",
-      "There is, of course, a more practical dimension to the trend. AI tools genuinely are automating tasks that once required human labour — from software testing and data entry to customer service and content moderation. Several major technology firms have publicly confirmed that AI-assisted workflows have allowed them to reduce headcount in specific departments without a corresponding drop in output. But labour economists caution that the scale of cuts being attributed to AI frequently outpaces any honest accounting of what automation has actually replaced.",
-      "The framing also serves a secondary purpose: justifying continued and substantial investment in AI infrastructure. By telling a story in which AI eliminates jobs on one hand while demanding enormous capital expenditure on the other, tech leaders are making a case to shareholders for why profit margins may remain compressed even as the workforce shrinks. It is a narrative that asks investors to accept short-term pain in exchange for long-term dominance — a pitch Silicon Valley has made before, though rarely with this much conviction or this much at stake.",
-      "For workers, the shift in rhetoric carries real consequences. When job losses are attributed to an abstract technological force rather than specific business decisions, the accountability that employees, unions, and regulators might otherwise demand becomes harder to pin down. Labour advocates warn that the 'AI made us do it' framing risks normalising mass redundancies as a natural feature of technological progress, when in reality these are choices made by executives and boards with significant discretion over how and when to deploy automation. As AI capabilities continue to advance, how society responds to this framing — legally, politically, and culturally — may shape the trajectory of employment for a generation."
+      "A federal judge has rejected the Pentagon's attempt to enforce an immediate ban on Anthropic's artificial intelligence tools, delivering a significant legal setback to the government in what observers are calling a landmark confrontation between national security interests and the rapidly expanding AI industry. The ruling prevents the Department of Defense from moving forward with restrictions that Anthropic's legal team described as an effort to 'cripple' the company. The judge's decision, while not a final ruling on the underlying merits, signals that courts may be reluctant to allow sweeping governmental action against AI firms without a more thorough legal examination.",
+      "Anthropic, the AI safety company behind the Claude family of large language models, had argued that the Pentagon's proposed ban was overreaching and would cause irreparable harm to its business operations and the broader AI ecosystem. The company has positioned itself at the intersection of safety-conscious AI development and commercial deployment, and the case has drawn intense scrutiny from across the technology sector. Legal experts note that the ruling underscores the growing tension between government agencies seeking to assert control over AI tools and companies insisting on due process before any such restrictions can take effect.",
+      "The dispute reflects a broader and increasingly urgent debate about who controls access to powerful AI systems and under what circumstances governments can restrict their use. As AI tools become more deeply embedded in commercial software, healthcare, defence contracting, and public administration, the legal frameworks governing their regulation remain poorly defined. This case may ultimately set important precedents about the procedural rights of AI companies when faced with executive branch restrictions.",
+      "Anthropic was founded in 2021 by former OpenAI researchers, including Dario and Daniela Amodei, and has since raised billions in funding from investors including Google and Amazon. The company has cultivated a reputation for prioritising AI safety research alongside its commercial products, and has recently expanded its enterprise offerings significantly. A successful government ban would have had chilling implications not only for Anthropic but for the wider industry, potentially emboldening other agencies to pursue similar actions against competitors.",
+      "The case is expected to continue through the courts, with the Pentagon likely to mount further legal arguments in support of its position. For now, Anthropic may continue operating its tools without restriction while the litigation proceeds. The outcome will be closely watched by AI companies, civil liberties advocates, and defence policy analysts alike, as it touches on fundamental questions about innovation, national security, and the appropriate limits of governmental authority in the age of artificial intelligence."
     ],
-    image: "https://images.pexels.com/photos/34804018/pexels-photo-34804018.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image: "https://images.pexels.com/photos/34817076/pexels-photo-34817076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     source: "BBC News",
-    sourceUrl: "https://www.bbc.com/news/technology"
+    sourceUrl: "https://www.bbc.com/news"
   },
   secondary: [
-    { id: "tc1", title: "Judge Rejects Pentagon's Attempt to 'Cripple' Anthropic", summary: "A federal judge blocked the government from immediately enforcing a ban on Anthropic's AI tools, dealing a significant setback to the Pentagon's legal effort.", image: "https://images.pexels.com/photos/6632853/pexels-photo-6632853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "BBC News", url: "https://www.bbc.com/news/technology", category: "Artificial Intelligence" },
-    { id: "tc2", title: "Apple Subsidiary Fined £390,000 for Breaching Russia Sanctions", summary: "The UK government fined Apple Distribution International after it instructed a British bank to make payments worth £635,000 to a Russian streaming service in breach of Moscow sanctions.", image: "https://images.pexels.com/photos/32530125/pexels-photo-32530125.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "The Guardian", url: "https://www.theguardian.com/technology", category: "Regulation" },
-    { id: "tc3", title: "Keir Starmer Backs Ban on Addictive Social Media Features", summary: "The UK Prime Minister made his strongest intervention yet on social media regulation, saying addictive platform features 'shouldn't be permitted' and that the government will act.", image: "https://images.pexels.com/photos/267367/pexels-photo-267367.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "The Guardian", url: "https://www.theguardian.com/technology", category: "Policy" }
+    {
+      id: "tc1",
+      title: "Australia Accuses Meta, TikTok and Google of Defying Under-16 Social Media Ban",
+      summary: "Australian regulators have warned that major tech platforms are failing to enforce the country's landmark ban on social media use by under-16s, with surveys suggesting nearly 70% of affected children still have active accounts.",
+      image: "https://images.pexels.com/photos/34480552/pexels-photo-34480552.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      source: "The Guardian",
+      url: "https://www.theguardian.com/technology",
+      category: "Regulation"
+    },
+    {
+      id: "tc2",
+      title: "Tech CEOs Increasingly Blame AI for Mass Layoffs",
+      summary: "A growing number of technology company leaders are publicly attributing large-scale job cuts to the efficiencies gained from AI tools, while simultaneously using the narrative to justify further investment in automation.",
+      image: "https://images.pexels.com/photos/30869083/pexels-photo-30869083.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      source: "BBC News",
+      url: "https://www.bbc.com/news",
+      category: "Industry"
+    },
+    {
+      id: "tc3",
+      title: "Sony Raises PS5 Price by £90 Citing Global Economic Pressures",
+      summary: "Sony has announced a significant price increase for the PlayStation 5 in the UK, pushing the recommended retail price from £479.99 to £569.99 amid ongoing global supply chain and economic pressures.",
+      image: "https://images.pexels.com/photos/7564244/pexels-photo-7564244.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      source: "BBC News",
+      url: "https://www.bbc.com/news",
+      category: "Consumer Tech"
+    }
   ]
 };
