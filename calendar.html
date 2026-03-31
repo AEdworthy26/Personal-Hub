@@ -249,6 +249,21 @@
     .cat-btn { font-family: 'Inter', sans-serif; font-size: .7rem; font-weight: 600; padding: .28rem .75rem; border-radius: 20px; border: 1.5px solid; cursor: pointer; transition: all .12s; background: transparent; }
     .completed-row { display: flex; align-items: center; gap: .5rem; cursor: pointer; font-size: .83rem; color: var(--muted); font-weight: 500; }
     .completed-row input { width: 14px; height: 14px; cursor: pointer; }
+    /* ── All-day toggle ── */
+    .allday-row { display: flex; align-items: center; gap: .6rem; }
+    .allday-label { display: flex; align-items: center; gap: .6rem; cursor: pointer; font-size: .83rem; font-weight: 600; color: var(--ink); user-select: none; }
+    .allday-label input { display: none; }
+    .allday-track { width: 36px; height: 20px; background: var(--border); border-radius: 10px; position: relative; transition: background .2s; flex-shrink: 0; }
+    .allday-thumb { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #fff; top: 3px; left: 3px; transition: left .2s; box-shadow: 0 1px 3px rgba(0,0,0,.2); }
+    .allday-label input:checked ~ .allday-track { background: var(--blue); }
+    .allday-label input:checked ~ .allday-track .allday-thumb { left: 19px; }
+    /* ── Time select ── */
+    .time-select-wrap { display: flex; align-items: center; gap: 4px; background: var(--subtle); border: 1.5px solid var(--border); border-radius: 8px; padding: .3rem .6rem; transition: border-color .15s, box-shadow .15s; }
+    .time-select-wrap:focus-within { border-color: var(--blue); background: #fff; box-shadow: 0 0 0 3px rgba(0,82,204,.1); }
+    .time-select-wrap select { background: none; border: none; outline: none; font-family: inherit; font-size: .83rem; color: var(--ink); cursor: pointer; padding: 0; -webkit-appearance: none; appearance: none; text-align: center; }
+    .time-sep { font-weight: 700; color: var(--muted); font-size: .9rem; line-height: 1; }
+    /* ── Multi-day event banner ── */
+    .ev-chip.multi-day { border-left: 3px solid currentColor; }
     .modal-footer { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem 1.2rem; border-top: 1px solid var(--border); }
     .btn-delete { background: none; border: none; font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #ef4444; cursor: pointer; font-family: inherit; padding: .3rem .6rem; border-radius: 6px; }
     .btn-delete:hover { background: #fee2e2; }
@@ -428,10 +443,34 @@
           <div class="cat-btns" id="cat-btns"></div>
           <input type="hidden" id="f-category" value="work">
         </div>
-        <div class="f-row3">
-          <div><label class="f-label" for="f-date">Date *</label><input class="f-input" type="date" id="f-date" required></div>
-          <div><label class="f-label" for="f-start">Start</label><input class="f-input" type="time" id="f-start"></div>
-          <div><label class="f-label" for="f-end">End</label><input class="f-input" type="time" id="f-end"></div>
+        <div class="f-row2">
+          <div><label class="f-label" for="f-date">Start Date *</label><input class="f-input" type="date" id="f-date" required></div>
+          <div><label class="f-label" for="f-enddate">End Date</label><input class="f-input" type="date" id="f-enddate"></div>
+        </div>
+        <div class="allday-row">
+          <label class="allday-label">
+            <input type="checkbox" id="f-allday" onchange="window.toggleAllDay()">
+            <span class="allday-track"><span class="allday-thumb"></span></span>
+            All day
+          </label>
+        </div>
+        <div id="f-time-row" class="f-row2">
+          <div>
+            <label class="f-label">Start Time</label>
+            <div class="time-select-wrap" id="f-start-wrap">
+              <select id="f-start-h" aria-label="Start hour"></select>
+              <span class="time-sep">:</span>
+              <select id="f-start-m" aria-label="Start minute"></select>
+            </div>
+          </div>
+          <div>
+            <label class="f-label">End Time</label>
+            <div class="time-select-wrap" id="f-end-wrap">
+              <select id="f-end-h" aria-label="End hour"></select>
+              <span class="time-sep">:</span>
+              <select id="f-end-m" aria-label="End minute"></select>
+            </div>
+          </div>
         </div>
         <div><label class="f-label" for="f-venue">Venue / Location</label><input class="f-input" type="text" id="f-venue" placeholder="Where is it?"></div>
         <div class="f-row2">
@@ -517,6 +556,45 @@
     function formatMonth(y,m) { return new Date(y,m,1).toLocaleDateString('en-GB',{month:'long',year:'numeric'}); }
     function formatFull(iso) { return fromISO(iso).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}); }
 
+    // ── Time select helpers ───────────────────────────────────────────────────
+    function buildTimeSelects() {
+      ['f-start-h','f-end-h'].forEach(function(id) {
+        var sel = document.getElementById(id);
+        sel.innerHTML = '<option value="">--</option>';
+        for (var h = 0; h < 24; h++) {
+          var v = (h < 10 ? '0' : '') + h;
+          sel.innerHTML += '<option value="' + v + '">' + v + '</option>';
+        }
+      });
+      ['f-start-m','f-end-m'].forEach(function(id) {
+        var sel = document.getElementById(id);
+        sel.innerHTML = '<option value="">--</option>';
+        ['00','05','10','15','20','25','30','35','40','45','50','55'].forEach(function(m) {
+          sel.innerHTML += '<option value="' + m + '">' + m + '</option>';
+        });
+      });
+    }
+
+    function setTimeSelects(prefix, val) {
+      // val is "HH:MM" or empty
+      var h = '', m = '';
+      if (val && val.indexOf(':') > -1) { var p = val.split(':'); h = p[0]; m = p[1].slice(0,2); }
+      document.getElementById(prefix + '-h').value = h;
+      document.getElementById(prefix + '-m').value = m;
+    }
+
+    function getTimeFromSelects(prefix) {
+      var h = document.getElementById(prefix + '-h').value;
+      var m = document.getElementById(prefix + '-m').value;
+      if (!h) return null;
+      return h + ':' + (m || '00');
+    }
+
+    window.toggleAllDay = function() {
+      var allDay = document.getElementById('f-allday').checked;
+      document.getElementById('f-time-row').style.display = allDay ? 'none' : '';
+    };
+
     function getCalDays(y, m) {
       var first=new Date(y,m,1), last=new Date(y,m+1,0), days=[], pad=(first.getDay()+6)%7;
       for(var i=pad-1;i>=0;i--) days.push({date:new Date(y,m,-i),cur:false});
@@ -536,7 +614,19 @@
       var start=fromISO(s), end=fromISO(e), result=[];
       evs.forEach(function(ev) {
         var evD=fromISO(ev.date);
-        if(!ev.recurrence) { if(evD>=start&&evD<=end) result.push(ev); return; }
+        if(!ev.recurrence) {
+          if(evD>=start&&evD<=end) result.push(ev);
+          // Multi-day: add a copy for each additional day
+          if(ev.endDate && ev.endDate > ev.date) {
+            var mEnd=fromISO(ev.endDate), mCur=new Date(evD);
+            mCur.setDate(mCur.getDate()+1);
+            while(mCur<=mEnd&&mCur<=end) {
+              if(mCur>=start) result.push(Object.assign({},ev,{date:toISO(mCur),_multiSpan:true}));
+              mCur.setDate(mCur.getDate()+1);
+            }
+          }
+          return;
+        }
         var recurEnd=ev.recurrenceEnd?fromISO(ev.recurrenceEnd):end;
         var cur2=new Date(evD), i=0;
         while(cur2<=recurEnd&&cur2<=end&&i<500) {
@@ -548,7 +638,7 @@
           else break;
         }
       });
-      return result.sort(function(a,b){ return a.date!==b.date?a.date.localeCompare(b.date):(a.startTime||'').localeCompare(b.startTime||''); });
+      return result.sort(function(a,b){ return a.date!==b.date?a.date.localeCompare(b.date):(a.startTime||'zzz').localeCompare(b.startTime||'zzz'); });
     }
 
     function groupByDate(evs) {
@@ -786,7 +876,9 @@
             +' onclick="event.stopPropagation();window.openModal(\''+ev.id+'\')"'
             +' style="'+chipStyle+'">'
             +(isTodo?'<span style="margin-right:.2rem">&#9744;</span>':'')
-            +(ev.startTime&&!isTodo?'<span style="opacity:.8;margin-right:.2rem">'+formatTime(ev.startTime)+'</span>':'')+esc(ev.title)
+            +(ev.allDay?'<span style="opacity:.7;margin-right:.2rem;font-size:.65em">ALL DAY</span>':'')
+            +(ev._multiSpan?'<span style="opacity:.7;margin-right:.15rem">↩</span>':'')
+            +(ev.startTime&&!isTodo&&!ev.allDay?'<span style="opacity:.8;margin-right:.2rem">'+formatTime(ev.startTime)+'</span>':'')+esc(ev.title)
             +'</div>';
         }).join('');
         var style='';
@@ -950,7 +1042,7 @@
             +'<div class="agenda-ev-body">'
             +'<div class="agenda-ev-title'+(ev.completed?' done':'')+'" style="'+titleStyle+'">'+(isTodo?'&#9744; ':(ev.completed?'✓ ':'')+'')+esc(ev.title)
             +' <span class="ev-cat-pill" style="background:'+c.light+';color:'+(isTodo?'#64748b':c.bg)+'">'+c.label+'</span>'+(ev._r?' <span style="color:var(--light);font-size:.7rem">↻</span>':'')+'</div>'
-            +(ev.startTime||ev.venue?'<div class="agenda-ev-meta">'+(ev.startTime?'<span>🕐 '+formatTime(ev.startTime)+(ev.endTime?' – '+formatTime(ev.endTime):'')+'</span>':'')+(ev.venue?'<span>📍 '+esc(ev.venue)+'</span>':'')+'</div>':'')
+            +((ev.allDay||ev.startTime||ev.venue)?'<div class="agenda-ev-meta">'+(ev.allDay?'<span>🌅 All day'+(ev.endDate&&ev.endDate>ev.date?' → '+ev.endDate:'')+'</span>':(ev.startTime?'<span>🕐 '+formatTime(ev.startTime)+(ev.endTime?' – '+formatTime(ev.endTime):'')+'</span>':''))+(ev.venue?'<span>📍 '+esc(ev.venue)+'</span>':'')+'</div>':'')
             +(ev.notes&&!isTodo?'<div style="font-size:.72rem;color:var(--light);font-style:italic;margin-top:.2rem;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">'+esc(ev.notes)+'</div>':'')
             +'</div></div>';
         }).join('');
@@ -983,8 +1075,12 @@
       document.getElementById('btn-delete').style.display=ev?'':'none';
       document.getElementById('f-title').value=ev?ev.title:'';
       document.getElementById('f-date').value=ev?ev.date:toISO(cur);
-      document.getElementById('f-start').value=ev?(ev.startTime||''):'';
-      document.getElementById('f-end').value=ev?(ev.endTime||''):'';
+      document.getElementById('f-enddate').value=ev?(ev.endDate||''):'';
+      var allDay=ev?!!ev.allDay:false;
+      document.getElementById('f-allday').checked=allDay;
+      document.getElementById('f-time-row').style.display=allDay?'none':'';
+      setTimeSelects('f-start', ev?(ev.startTime||''):'');
+      setTimeSelects('f-end', ev?(ev.endTime||''):'');
       document.getElementById('f-venue').value=ev?(ev.venue||''):'';
       document.getElementById('f-notes').value=ev?(ev.notes||''):'';
       document.getElementById('f-reminder').value=ev&&ev.reminder!=null?ev.reminder:'';
@@ -1000,7 +1096,7 @@
     window.openModalDate = function(date, time) {
       window.openModal(null);
       document.getElementById('f-date').value=date;
-      if(time) document.getElementById('f-start').value=time;
+      if(time) setTimeSelects('f-start', time);
     };
 
     window.closeModal = function() {
@@ -1034,8 +1130,11 @@
       var ev={
         id: editingId||genId(),
         title:title, category:document.getElementById('f-category').value,
-        date:date, startTime:document.getElementById('f-start').value||null,
-        endTime:document.getElementById('f-end').value||null,
+        date:date,
+        endDate:(function(){ var ed=document.getElementById('f-enddate').value; return (ed&&ed>date)?ed:null; })(),
+        allDay:document.getElementById('f-allday').checked||false,
+        startTime:document.getElementById('f-allday').checked?null:getTimeFromSelects('f-start'),
+        endTime:document.getElementById('f-allday').checked?null:getTimeFromSelects('f-end'),
         venue:document.getElementById('f-venue').value.trim(),
         notes:document.getElementById('f-notes').value.trim(),
         reminder:document.getElementById('f-reminder').value?+document.getElementById('f-reminder').value:null,
@@ -1263,6 +1362,7 @@
       events.forEach(function(e){ if(e.date==='2026-04-02' && e.category==='social' && e.completed){ e.completed=false; fixed=true; } });
       if(fixed) save();
     })();
+    buildTimeSelects();
     document.getElementById('js-date').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
     renderAll();
     checkReminders();
