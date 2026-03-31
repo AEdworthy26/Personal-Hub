@@ -371,6 +371,8 @@ RSS = {
     'financial': [
         'https://feeds.bbci.co.uk/news/business/rss.xml',
         'https://www.theguardian.com/uk/business/rss',
+        'https://feeds.ft.com/rss/companies',
+        'https://feeds.reuters.com/reuters/businessNews',
     ],
     'tech': [
         'https://feeds.bbci.co.uk/news/technology/rss.xml',
@@ -380,7 +382,7 @@ RSS = {
 
 # ── News generator ─────────────────────────────────────────────────────────────
 
-def gen_news(category, var_name, img_key, secondary_ids):
+def gen_news(category, var_name, img_key, secondary_ids, focus_hint=''):
     """Fetch RSS and use Claude to write a structured news briefing."""
     log(f"\n── {category.replace('_', ' ').title()} news")
     articles = fetch_rss(*RSS[category])
@@ -399,7 +401,7 @@ Here are today's real headlines from reputable news sources:
 
 Output ONLY valid JavaScript — absolutely no explanation, no markdown, no preamble. Start directly with "var {var_name}".
 
-Use only real stories from the headlines above. Write 5 substantial, well-crafted paragraphs for the main story (each at least 3 sentences). Pick the most significant story as the main piece. Write 3 secondary stories with a one-sentence summary each.
+Use only real stories from the headlines above. Write 5 substantial, well-crafted paragraphs for the main story (each at least 3 sentences). Pick the most significant story as the main piece. Write 3 secondary stories with a one-sentence summary each.{(' ' + focus_hint) if focus_hint else ''}
 
 IMPORTANT: Each story above includes a URL field — use the exact URL provided for that story in the sourceUrl/url fields below.
 
@@ -818,8 +820,10 @@ def gen_reads():
         avoid += f', {prev_book} (yesterday\'s pick)'
 
     prompt = f"""Pick a single book to recommend today ({TODAY}) on a personal reading website.
-The user loves: ancient history, political history, exploration, remarkable lives, literary fiction, science, art, philosophy, sport, great biographies.
-Pick a genuinely excellent book — not the same as recent picks. Avoid: {avoid}.
+The user reads very broadly across all subjects and genres — do not default to history or ancient history.
+Range freely across: literary fiction, science, philosophy, politics, economics, nature, sport, art, music, travel, biography, memoir, true crime, psychology, sociology, technology, food, humour, and more.
+Aim for roughly 60% non-fiction, 40% fiction overall, but today just pick whichever is the most compelling choice.
+The book must be genuinely well-regarded (critically acclaimed or beloved by readers). Avoid obscure picks. Avoid: {avoid}.
 Write a rich 4-5 sentence description and explain why it's worth reading now.
 
 Output ONLY valid JavaScript. No explanation, no markdown. Start directly with "var READS_DATA".
@@ -883,8 +887,9 @@ def gen_films():
         avoid += f', {prev_film} (yesterday\'s pick)'
 
     prompt = f"""Pick a single film to recommend today ({TODAY}) on a personal reading website.
-The user loves: historical epics, political dramas, art-house cinema, intelligent thrillers, world cinema, films with real depth.
-Pick a genuinely great film — critically acclaimed, worth discovering or revisiting. Avoid: {avoid}.
+The user watches very broadly — do not default to historical epics or political dramas.
+Range freely across: comedy, romance, sci-fi, horror, animation, documentary, crime, fantasy, westerns, musicals, sports films, family films, world cinema, and more.
+The film must be genuinely well-regarded — critically acclaimed or a widely loved classic. Avoid: {avoid}.
 Write a rich 4-5 sentence description.
 
 Output ONLY valid JavaScript. No explanation, no markdown. Start directly with "var FILMS_DATA".
@@ -1122,15 +1127,15 @@ def main():
 
     # ── News files (RSS + AI summarise) ──────────────────────────────────────
     news_tasks = [
-        ('world',      'WORLD_NEWS',       'world',     ['s1','s2','s3'],   'world-news-data.js'),
-        ('uk_politics','UK_POLITICS_NEWS', 'uk',        ['uk1','uk2','uk3'],'uk-politics-news-data.js'),
-        ('us_politics','US_POLITICS_NEWS', 'us',        ['us1','us2','us3'],'us-politics-news-data.js'),
-        ('financial',  'FINANCIAL_NEWS',   'financial', ['fn1','fn2','fn3'],'financial-news-data.js'),
-        ('tech',       'TECH_NEWS',        'tech',      ['tc1','tc2','tc3'],'tech-news-data.js'),
+        ('world',      'WORLD_NEWS',       'world',     ['s1','s2','s3'],   'world-news-data.js',     ''),
+        ('uk_politics','UK_POLITICS_NEWS', 'uk',        ['uk1','uk2','uk3'],'uk-politics-news-data.js',''),
+        ('us_politics','US_POLITICS_NEWS', 'us',        ['us1','us2','us3'],'us-politics-news-data.js',''),
+        ('financial',  'FINANCIAL_NEWS',   'financial', ['fn1','fn2','fn3'],'financial-news-data.js',  'Prioritise stories about businesses, mergers and acquisitions, stocks and shares, and corporate earnings over general economic policy.'),
+        ('tech',       'TECH_NEWS',        'tech',      ['tc1','tc2','tc3'],'tech-news-data.js',       ''),
     ]
 
-    for category, var_name, img_key, ids, filename in news_tasks:
-        js = gen_news(category, var_name, img_key, ids)
+    for category, var_name, img_key, ids, filename, focus_hint in news_tasks:
+        js = gen_news(category, var_name, img_key, ids, focus_hint)
         if js:
             header = f"// {filename}\n// Auto-updated {TODAY} — do not edit manually\n\n"
             updated.append(write_file(filename, header + js + '\n'))
