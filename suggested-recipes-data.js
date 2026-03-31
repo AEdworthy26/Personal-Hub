@@ -11,7 +11,7 @@ window.SUGGESTED_RECIPES = [
     serves: '4',
     desc: 'Deeply savoury, fall-off-the-bone short ribs slowly braised in red wine and San Marzano tomatoes, tossed through wide ribbons of pappardelle and finished with gremolata.',
     emoji: '🍝',
-    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&fit=crop&q=80',
+    image: 'https://images.pexels.com/photos/33859574/pexels-photo-33859574.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     ingredients: [
       { name: 'Bone-in beef short ribs', quantity: 1.2, unit: 'kg' },
       { name: 'Pappardelle', quantity: 400, unit: 'g' },
@@ -51,7 +51,7 @@ window.SUGGESTED_RECIPES = [
     serves: '2',
     desc: 'Crisp-skinned sea bass on a bed of herb-crushed new potatoes, finished with a nutty brown butter sauce, burst cherry tomatoes, and salty-sharp fried capers.',
     emoji: '🐟',
-    image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&fit=crop&q=80',
+    image: 'https://images.pexels.com/photos/33469309/pexels-photo-33469309.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     ingredients: [
       { name: 'Sea bass fillets, skin on, pin-boned', quantity: 2, unit: '' },
       { name: 'New potatoes', quantity: 400, unit: 'g' },
@@ -83,7 +83,7 @@ window.SUGGESTED_RECIPES = [
     serves: '4',
     desc: 'Pillowy whipped ricotta on charred sourdough, topped with meltingly sweet slow-roasted heritage tomatoes and a vivid basil oil. Effortlessly elegant.',
     emoji: '🍅',
-    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&fit=crop&q=80',
+    image: 'https://images.pexels.com/photos/24554392/pexels-photo-24554392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     ingredients: [
       { name: 'Heritage or heirloom tomatoes, halved', quantity: 600, unit: 'g' },
       { name: 'Cherry tomatoes (mixed colours), halved', quantity: 200, unit: 'g' },
