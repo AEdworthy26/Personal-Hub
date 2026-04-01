@@ -414,8 +414,8 @@
     .logbook-entry-delete { background: none; border: none; color: #ccc; font-size: 1rem; line-height: 1; cursor: pointer; padding: 0.1rem 0.2rem; border-radius: 4px; flex-shrink: 0; transition: color 0.12s, background 0.12s; align-self: flex-start; }
     .logbook-entry-delete:hover { color: #c0392b; background: #ffe5e5; }
 
-    /* ── Logbook inline confirm ── */
-    .logbook-entry-confirm {
+    /* ── Inline confirm (shared) ── */
+    .inline-confirm {
       display: flex; align-items: center; gap: 0.7rem;
       padding: 0.55rem 1rem; background: #fff7f7;
       border: 1px solid rgba(192,57,43,0.18); border-left: 3px solid #c0392b;
@@ -423,18 +423,20 @@
       animation: slideDown 0.15s ease;
     }
     @keyframes slideDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
-    .logbook-entry-confirm-text {
+    .inline-confirm-text {
       flex: 1; font-family: 'Inter', sans-serif; font-size: 0.82rem; color: #5a2020;
     }
-    .logbook-entry-confirm-text strong { font-weight: 700; }
-    .logbook-confirm-yes, .logbook-confirm-no {
+    .inline-confirm-text strong { font-weight: 700; }
+    .inline-confirm-yes, .inline-confirm-no {
       font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 600;
       border: none; border-radius: 6px; padding: 0.3rem 0.75rem; cursor: pointer; transition: opacity 0.12s;
     }
-    .logbook-confirm-yes { background: #c0392b; color: #fff; }
-    .logbook-confirm-yes:hover { opacity: 0.85; }
-    .logbook-confirm-no { background: rgba(0,0,0,0.07); color: #444; }
-    .logbook-confirm-no:hover { background: rgba(0,0,0,0.13); }
+    .inline-confirm-yes { background: #c0392b; color: #fff; }
+    .inline-confirm-yes:hover { opacity: 0.85; }
+    .inline-confirm-no { background: rgba(0,0,0,0.07); color: #444; }
+    .inline-confirm-no:hover { background: rgba(0,0,0,0.13); }
+    /* Goal card confirm strip sits inside the card */
+    .goal-card-confirm { margin: 0.8rem 1.3rem 1rem; border-radius: 9px; }
 
     /* ── Undo toast ── */
     #logbook-undo-toast {
@@ -1096,11 +1098,42 @@
         return;
       }
 
-      // Delete goal
+      // Delete goal — inline confirm strip
       if (e.target.closest('.btn-delete-goal')) {
-        if (confirm('Delete this goal? This cannot be undone.')) {
-          animateRemove(card, () => deleteGoal(goalId));
-        }
+        // Cancel if confirm already open for this card
+        var existing = card.querySelector('.goal-card-confirm');
+        if (existing) { existing.remove(); return; }
+        // Close any other open confirms
+        document.querySelectorAll('.inline-confirm').forEach(function(s) { s.remove(); });
+        var strip = document.createElement('div');
+        strip.className = 'inline-confirm goal-card-confirm';
+        strip.dataset.id = goalId;
+        strip.innerHTML =
+          '<span class="inline-confirm-text">Delete <strong>' + esc(goals.find(function(g){return g.id===goalId;}).title) + '</strong>?</span>' +
+          '<button class="inline-confirm-no">Cancel</button>' +
+          '<button class="inline-confirm-yes">Delete</button>';
+        card.querySelector('.goal-card-inner').appendChild(strip);
+        return;
+      }
+
+      // Confirm / cancel goal delete
+      if (e.target.closest('.goal-card-confirm .inline-confirm-no')) {
+        var strip = card.querySelector('.goal-card-confirm');
+        if (strip) strip.remove();
+        return;
+      }
+      if (e.target.closest('.goal-card-confirm .inline-confirm-yes')) {
+        var strip = card.querySelector('.goal-card-confirm');
+        if (!strip) return;
+        var goal = goals.find(function(g) { return g.id === goalId; });
+        strip.remove();
+        if (!goal) return;
+        undoGoal = JSON.parse(JSON.stringify(goal));
+        animateRemove(card, function() {
+          deleteGoal(goalId);
+          renderLogbook();
+          showUndoToast(goal.title);
+        });
         return;
       }
 
@@ -1225,15 +1258,15 @@
 
     document.getElementById('logbook-entries').addEventListener('click', function(e) {
       // Cancel button on inline confirm
-      if (e.target.closest('.logbook-confirm-no')) {
-        var strip = e.target.closest('.logbook-entry-confirm');
+      if (e.target.closest('.inline-confirm-no')) {
+        var strip = e.target.closest('.inline-confirm');
         if (strip) strip.remove();
         return;
       }
 
       // Confirm button on inline confirm
-      if (e.target.closest('.logbook-confirm-yes')) {
-        var strip = e.target.closest('.logbook-entry-confirm');
+      if (e.target.closest('.inline-confirm-yes')) {
+        var strip = e.target.closest('.inline-confirm');
         if (!strip) return;
         var id = strip.dataset.id;
         var goal = goals.find(function(g) { return g.id === id; });
@@ -1257,15 +1290,15 @@
       if (!goal) return;
 
       // Remove any existing confirm strips
-      document.querySelectorAll('.logbook-entry-confirm').forEach(function(s) { s.remove(); });
+      document.querySelectorAll('.inline-confirm').forEach(function(s) { s.remove(); });
 
       var strip = document.createElement('div');
-      strip.className = 'logbook-entry-confirm';
+      strip.className = 'inline-confirm';
       strip.dataset.id = id;
       strip.innerHTML =
-        '<span class="logbook-entry-confirm-text">Remove <strong>' + escHtml(goal.title) + '</strong>?</span>' +
-        '<button class="logbook-confirm-no">Cancel</button>' +
-        '<button class="logbook-confirm-yes">Delete</button>';
+        '<span class="inline-confirm-text">Remove <strong>' + escHtml(goal.title) + '</strong>?</span>' +
+        '<button class="inline-confirm-no">Cancel</button>' +
+        '<button class="inline-confirm-yes">Delete</button>';
       entry.insertAdjacentElement('afterend', strip);
     });
 
