@@ -85,7 +85,7 @@
     .page-title { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 2rem; line-height: 1; letter-spacing: -0.03em; }
 
     /* ── DAY TABS ── */
-    .day-tabs { display: flex; gap: 0.3rem; margin-bottom: 1.4rem; overflow-x: auto; padding: 0.2rem; scrollbar-width: none; -ms-overflow-style: none; background: var(--card); border: 1px solid var(--border); border-radius: 9999px; width: fit-content; box-shadow: var(--shadow-sm); }
+    .day-tabs { display: flex; gap: 0.3rem; margin-bottom: 0.9rem; overflow-x: auto; padding: 0.2rem; scrollbar-width: none; -ms-overflow-style: none; background: var(--card); border: 1px solid var(--border); border-radius: 9999px; width: fit-content; box-shadow: var(--shadow-sm); }
     .day-tabs::-webkit-scrollbar { display: none; }
     .day-tab { border: none; border-radius: 9999px; padding: 0.38rem 1rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; background: transparent; color: var(--muted); transition: all 0.15s; white-space: nowrap; flex-shrink: 0; position: relative; }
     .day-tab:hover { color: var(--ink); background: var(--subtle); }
@@ -93,8 +93,9 @@
     .day-tab.today-tab:not(.active) { color: var(--blue); }
 
     /* ── MAIN GRID ── */
-    .planner-grid { display: grid; grid-template-columns: 280px 1fr; gap: 1.5rem; align-items: start; }
-    @media (max-width: 820px) { .planner-grid { grid-template-columns: 1fr; } }
+    .planner-grid { display: grid; grid-template-columns: 260px 1fr 240px; gap: 1.5rem; align-items: start; }
+    @media (max-width: 960px) { .planner-grid { grid-template-columns: 240px 1fr; } }
+    @media (max-width: 680px) { .planner-grid { grid-template-columns: 1fr; } }
 
     /* ── MEALS COLUMN ── */
     .meals-col-wrap { display: flex; flex-direction: column; gap: 0.9rem; }
@@ -120,6 +121,7 @@
     .right-col { display: flex; flex-direction: column; gap: 1rem; position: sticky; top: 56px; max-height: calc(100vh - 70px); overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
     .right-col::-webkit-scrollbar { width: 4px; }
     .right-col::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .summary-col { position: sticky; top: 56px; }
 
     /* ── DAY SUMMARY CARD ── */
     .day-summary-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; flex-shrink: 0; }
@@ -286,10 +288,7 @@
       <button class="week-nav-today" id="btn-this-week">This week</button>
     </div>
 
-    <!-- DAY SELECTOR TABS -->
-    <div class="day-tabs" id="day-tabs"></div>
-
-    <!-- MAIN GRID: SIDEBAR + MEALS -->
+    <!-- MAIN GRID -->
     <div class="planner-grid">
 
       <!-- LEFT: SHOPPING LIST -->
@@ -308,10 +307,15 @@
         </div>
       </div>
 
-      <!-- RIGHT: DAY SUMMARY + MEAL CARDS -->
+      <!-- MIDDLE: DAY TABS + MEAL CARDS -->
       <div class="meals-col-wrap">
-        <div class="day-summary-card" id="day-summary-card"></div>
+        <div class="day-tabs" id="day-tabs"></div>
         <div class="meals-col" id="meals-col"></div>
+      </div>
+
+      <!-- RIGHT: DAY SUMMARY -->
+      <div class="right-col summary-col">
+        <div class="day-summary-card" id="day-summary-card"></div>
       </div>
 
     </div>
