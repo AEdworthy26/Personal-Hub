@@ -321,7 +321,7 @@ def extract_rss_image(entry):
         return upgrade_image_url(img_m.group(1))
     return None
 
-def fetch_rss(*urls, max_per_feed=8):
+def fetch_rss(*urls, max_per_feed=4):
     """Fetch multiple RSS feeds, return combined list of article dicts."""
     import socket
     articles = []
@@ -347,7 +347,7 @@ def fetch_rss(*urls, max_per_feed=8):
             log(f"  [warning] RSS failed for {url}: {e}")
     return articles
 
-def articles_to_text(articles, max=10):
+def articles_to_text(articles, max=20):
     lines = []
     for i, a in enumerate(articles[:max], 1):
         lines.append(f"{i}. [{a['source']}] {a['title']}")
@@ -410,24 +410,43 @@ RSS = {
     'world': [
         'https://feeds.bbci.co.uk/news/world/rss.xml',
         'https://www.theguardian.com/world/rss',
+        'https://feeds.npr.org/1004/rss.xml',                      # NPR World
+        'https://rss.nytimes.com/services/xml/rss/nyt/World.xml',  # NYT World
+        'https://feeds.reuters.com/reuters/worldNews',             # Reuters World
+        'https://www.aljazeera.com/xml/rss/all.xml',               # Al Jazeera
     ],
     'uk_politics': [
         'https://feeds.bbci.co.uk/news/politics/rss.xml',
         'https://www.theguardian.com/politics/rss',
+        'https://www.independent.co.uk/news/uk/politics/rss',      # The Independent
+        'https://www.telegraph.co.uk/politics/rss.xml',            # The Telegraph
+        'https://feeds.skynews.com/feeds/rss/politics.xml',        # Sky News Politics
     ],
     'us_politics': [
         'https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml',
-        'https://feeds.npr.org/1014/rss.xml',
+        'https://feeds.npr.org/1014/rss.xml',                      # NPR Politics
+        'https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml', # NYT Politics
+        'https://feeds.washingtonpost.com/rss/politics',           # Washington Post
+        'https://thehill.com/rss/syndicator/19110',                # The Hill
+        'https://feeds.reuters.com/Reuters/PoliticsNews',          # Reuters Politics
     ],
     'financial': [
         'https://feeds.bbci.co.uk/news/business/rss.xml',
         'https://www.theguardian.com/uk/business/rss',
         'https://feeds.ft.com/rss/companies',
         'https://feeds.reuters.com/reuters/businessNews',
+        'https://rss.nytimes.com/services/xml/rss/nyt/Business.xml', # NYT Business
+        'https://feeds.marketwatch.com/marketwatch/topstories/',   # MarketWatch
+        'https://feeds.bloomberg.com/markets/news.rss',            # Bloomberg Markets
     ],
     'tech': [
         'https://feeds.bbci.co.uk/news/technology/rss.xml',
         'https://www.theguardian.com/uk/technology/rss',
+        'https://feeds.arstechnica.com/arstechnica/index',         # Ars Technica
+        'https://www.wired.com/feed/rss',                          # Wired
+        'https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml', # NYT Tech
+        'https://feeds.reuters.com/reuters/technologyNews',        # Reuters Tech
+        'https://feeds.feedburner.com/TechCrunch/',                # TechCrunch
     ],
 }
 
