@@ -262,17 +262,6 @@
     .goal-description[contenteditable="true"] { outline: none; border-bottom: 1px solid var(--blue); color: var(--ink); }
     .goal-desc-placeholder { font-size: 0.82rem; line-height: 1.65; color: var(--light); font-style: italic; cursor: text; }
 
-    /* ── Confirm delete strip ── */
-    .confirm-strip {
-      display: none;
-      align-items: center; gap: 0.7rem;
-      padding: 0.65rem 0.9rem;
-      background: #fff8f8; border: 1px solid #f0c0c0; border-radius: 9px;
-      animation: strip-in 0.14s ease;
-    }
-    @keyframes strip-in { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: translateY(0); } }
-    .goal-card.is-confirming .confirm-strip { display: flex; }
-    .confirm-msg { flex: 1; color: #c0392b; font-weight: 600; font-size: 0.78rem; }
 
     /* ── Progress ── */
     .progress-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
@@ -702,13 +691,6 @@
               </div>
             </div>
 
-            <!-- Inline delete confirmation (shown when is-confirming class is set) -->
-            <div class="confirm-strip">
-              <span class="confirm-msg">Delete this goal?</span>
-              <button class="btn btn-sm btn-danger btn-confirm-delete">Delete</button>
-              <button class="btn btn-sm btn-cancel-delete">Cancel</button>
-            </div>
-
             <div class="goal-progress">
               <div class="progress-row">
                 <span class="progress-label">Progress</span>
@@ -1058,21 +1040,11 @@
         return;
       }
 
-      // Delete goal — show inline confirmation
+      // Delete goal
       if (e.target.closest('.btn-delete-goal')) {
-        card.classList.toggle('is-confirming');
-        return;
-      }
-
-      // Confirm delete
-      if (e.target.closest('.btn-confirm-delete')) {
-        animateRemove(card, () => deleteGoal(goalId));
-        return;
-      }
-
-      // Cancel delete
-      if (e.target.closest('.btn-cancel-delete')) {
-        card.classList.remove('is-confirming');
+        if (confirm('Delete this goal? This cannot be undone.')) {
+          animateRemove(card, () => deleteGoal(goalId));
+        }
         return;
       }
 
