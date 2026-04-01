@@ -98,8 +98,8 @@
 
     /* EXERCISE CARD */
     .exercise-list { display: flex; flex-direction: column; gap: .7rem; margin-bottom: 1rem; }
-    .exercise-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.1rem; box-shadow: var(--shadow-sm); display: flex; align-items: flex-start; gap: .8rem; transition: box-shadow .15s; position: relative; overflow: hidden; }
-    .exercise-card:hover { box-shadow: var(--shadow-md); }
+    .exercise-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.1rem; box-shadow: var(--shadow-sm); display: flex; align-items: flex-start; gap: .8rem; transition: box-shadow .15s, border-color .15s; position: relative; overflow: hidden; cursor: pointer; }
+    .exercise-card:hover { box-shadow: var(--shadow-md); border-color: #2563eb; }
     .cat-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: var(--radius) 0 0 var(--radius); }
     .cat-bar-push { background: var(--push); }
     .cat-bar-pull { background: var(--pull); }
@@ -614,7 +614,7 @@
           var ws = wStr(ex);
           var ps = prStr(ex);
           var days = ex.days || [];
-          html += '<div class="exercise-card">'
+          html += '<div class="exercise-card" onclick="openEdit(\'' + cat + '\',\'' + ex.id + '\')">'
             + '<div class="cat-bar cat-bar-' + cat + '"></div>'
             + '<div class="exercise-card-body">'
             + '<div class="exercise-name">' + esc(ex.name) + '</div>'
@@ -628,8 +628,7 @@
           if (ps) html += '<span class="pr-badge">PR: ' + esc(ps) + '</span>';
           html += '</div></div>'
             + '<div class="exercise-actions">'
-            + '<button class="btn-icon" onclick="openEdit(\'' + cat + '\',\'' + ex.id + '\')">Edit</button>'
-            + '<button class="btn-icon del" onclick="delExercise(\'' + cat + '\',\'' + ex.id + '\')">✕</button>'
+            + '<button class="btn-icon del" onclick="event.stopPropagation();delExercise(\'' + cat + '\',\'' + ex.id + '\')">✕</button>'
             + '</div></div>';
         });
         html += '</div>';
