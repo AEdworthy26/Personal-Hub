@@ -452,10 +452,10 @@ RSS = {
 
 # ── News generator ─────────────────────────────────────────────────────────────
 
-def gen_news(category, var_name, img_key, secondary_ids, focus_hint=''):
+def gen_news(category, var_name, img_key, secondary_ids, focus_hint='', all_articles=None):
     """Fetch RSS and use Claude to write a structured news briefing."""
     log(f"\n── {category.replace('_', ' ').title()} news")
-    articles = fetch_rss(*RSS[category])
+    articles = all_articles if all_articles is not None else fetch_rss(*RSS[category])
     if not articles:
         log("  [skip] No articles fetched from RSS")
         return None
@@ -1247,6 +1247,13 @@ def main():
     PAUSE = 5  # seconds between Claude calls to avoid rate limits
 
     # ── News files (RSS + AI summarise) ──────────────────────────────────────
+    # Fetch all feeds once — every category gets the full pool so cross-category
+    # stories (e.g. a Sky News tech story in the UK Politics feed) are considered.
+    log("\n── Fetching all RSS feeds")
+    all_feed_urls = list(dict.fromkeys(url for feeds in RSS.values() for url in feeds))
+    all_articles = fetch_rss(*all_feed_urls)
+    log(f"  ✓ {len(all_articles)} articles fetched from {len(all_feed_urls)} feeds")
+
     news_tasks = [
         ('world',      'WORLD_NEWS',       'world',     ['s1','s2','s3'],   'world-news-data.js',     ''),
         ('uk_politics','UK_POLITICS_NEWS', 'uk',        ['uk1','uk2','uk3'],'uk-politics-news-data.js',''),
@@ -1256,7 +1263,7 @@ def main():
     ]
 
     for category, var_name, img_key, ids, filename, focus_hint in news_tasks:
-        js = gen_news(category, var_name, img_key, ids, focus_hint)
+        js = gen_news(category, var_name, img_key, ids, focus_hint, all_articles=all_articles)
         if js:
             header = f"// {filename}\n// Auto-updated {TODAY} — do not edit manually\n\n"
             updated.append(write_file(filename, header + js + '\n'))
