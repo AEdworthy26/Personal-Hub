@@ -143,11 +143,18 @@
 
     if (secondary.length > 0) {
       var cards = secondary.map(function (item, i) {
+        var thumbContent = imgOrPlaceholder(item.image, item.title, 'card-thumb', cfg.icon);
+        var thumbHTML = item.url
+          ? '<a href="' + esc(item.url) + '" target="_blank" rel="noopener" tabindex="-1" style="display:block;overflow:hidden;">' + thumbContent + '</a>'
+          : '<div>' + thumbContent + '</div>';
+        var titleHTML = item.url
+          ? '<a href="' + esc(item.url) + '" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" class="card-title-link"><h3 class="card-title">' + esc(item.title) + '</h3></a>'
+          : '<h3 class="card-title">' + esc(item.title) + '</h3>';
         return '<article class="news-card" style="animation-delay:' + (i * 120) + 'ms">'
-          + '<div class="card-thumb">' + imgOrPlaceholder(item.image, item.title, 'card-thumb', cfg.icon) + '</div>'
+          + '<div class="card-thumb">' + thumbHTML + '</div>'
           + '<div class="card-body">'
           +   (item.category ? '<span class="card-category">' + esc(item.category) + '</span>' : '')
-          +   '<h3 class="card-title">' + esc(item.title) + '</h3>'
+          +   titleHTML
           +   '<p class="card-summary">' + esc(item.summary) + '</p>'
           +   '<div class="card-footer">'
           +     (item.source ? '<span class="card-source">' + esc(item.source) + '</span>' : '<span></span>')
