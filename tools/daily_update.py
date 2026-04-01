@@ -560,6 +560,7 @@ window.PHILOSOPHY_DATA = {{
   date: '{TODAY}',
   mainTheory: {{
     title: 'TITLE',
+    subject: 'The primary philosopher, movement, or concept (e.g. \'Plato\', \'Stoicism\', \'The Allegory of the Cave\'). Used for image search.',
     subtitle: 'A compelling one-sentence hook subtitle.',
     readTime: 'X min',
     image: '__IMG_PHILOSOPHY__',
@@ -622,25 +623,33 @@ window.PHILOSOPHY_DATA = {{
     js = extract_js(call_claude(prompt, timeout=420))
     if not js:
         return None
-    # Inject Pexels image for the main theory based on its title
+    # Inject image for the main theory: Wikipedia first (person/place/concept), then Pexels
     try:
-        title_m = re.search(r'mainTheory\s*:\s*\{[^{]*?title\s*:\s*["\'](.+?)["\']', js, re.DOTALL)
-        phil_m  = re.search(r'philosopherOfTheDay\s*:\s*\{[^{]*?name\s*:\s*["\'](.+?)["\']', js, re.DOTALL)
+        title_m   = re.search(r'mainTheory\s*:\s*\{[^{]*?title\s*:\s*["\'](.+?)["\']', js, re.DOTALL)
+        subject_m = re.search(r'mainTheory\s*:\s*\{[^{]*?subject\s*:\s*["\'](.+?)["\']', js, re.DOTALL)
+        phil_m    = re.search(r'philosopherOfTheDay\s*:\s*\{[^{]*?name\s*:\s*["\'](.+?)["\']', js, re.DOTALL)
         if '__IMG_PHILOSOPHY__' in js:
-            query = (title_m.group(1) + ' philosophy') if title_m else 'philosophy ancient'
-            url = fetch_pexels_image(query) or 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&fit=crop&q=80'
+            title_str   = title_m.group(1)   if title_m   else ''
+            subject_str = subject_m.group(1) if subject_m else ''
+            search_term = subject_str or title_str or 'philosophy'
+            # Try Wikipedia first (great for named philosophers, concepts, places)
+            url = fetch_wikipedia_image(search_term)
+            if url:
+                log(f'  ✓ Philosophy main image (Wikipedia): {search_term[:40]}')
+            else:
+                url = fetch_pexels_image(search_term + ' philosophy') or 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&fit=crop&q=80'
+                log(f'  ✓ Philosophy main image (Pexels): {search_term[:40]}')
             js = js.replace("'__IMG_PHILOSOPHY__'", f"'{url}'", 1)
             js = js.replace('"__IMG_PHILOSOPHY__"', f'"{url}"', 1)
-            log(f'  ✓ Philosophy image: {query[:40]}')
         if 'image: null' in js and phil_m:
             name = phil_m.group(1)
             url = fetch_wikipedia_image(name)
             if url:
-                log(f'  ✓ Philosopher image (Wikipedia): {name[:40]}')
+                log(f'  ✓ Philosopher of day image (Wikipedia): {name[:40]}')
             else:
                 url = fetch_pexels_image(name + ' philosopher portrait')
                 if url:
-                    log(f'  ✓ Philosopher image (Pexels): {name[:40]}')
+                    log(f'  ✓ Philosopher of day image (Pexels): {name[:40]}')
             if url:
                 js = js.replace('image: null', f'image: "{url}"', 1)
     except Exception as e:
@@ -816,6 +825,7 @@ var CURIOSITY_DATA = {{
   date: "{TODAY}",
   mainArticle: {{
     title: "TITLE",
+    subject: "The primary person, place, or object the article is about (e.g. 'Julius Caesar', 'Pompeii', 'The Silk Road'). Used for image search.",
     subtitle: "A compelling subtitle hook.",
     image: "__IMG_CURIOSITY_MAIN__",
     readTime: "X min",
@@ -849,21 +859,32 @@ var CURIOSITY_DATA = {{
     js = extract_js(call_claude(prompt, timeout=420))
     if not js:
         return None
-    # Inject Pexels images based on article/event titles
+    # Inject images: Wikipedia first (person/place/event), then Pexels fallback
     try:
-        main_title_m = re.search(r'mainArticle\s*:\s*\{[^{]*?title\s*:\s*["\'](.+?)["\']', js, re.DOTALL)
-        otd_m        = re.search(r'onThisDay\s*:\s*\{[^{]*?headline\s*:\s*["\'](.+?)["\']', js, re.DOTALL)
-        person_m     = re.search(r'personOfTheDay\s*:\s*\{[^{]*?name\s*:\s*["\'](.+?)["\']', js, re.DOTALL)
+        main_title_m    = re.search(r'mainArticle\s*:\s*\{[^{]*?title\s*:\s*["\'](.+?)["\']', js, re.DOTALL)
+        main_subject_m  = re.search(r'mainArticle\s*:\s*\{[^{]*?subject\s*:\s*["\'](.+?)["\']', js, re.DOTALL)
+        otd_m           = re.search(r'onThisDay\s*:\s*\{[^{]*?headline\s*:\s*["\'](.+?)["\']', js, re.DOTALL)
+        person_m        = re.search(r'personOfTheDay\s*:\s*\{[^{]*?name\s*:\s*["\'](.+?)["\']', js, re.DOTALL)
         if '__IMG_CURIOSITY_MAIN__' in js:
-            query = main_title_m.group(1) if main_title_m else 'ancient history exploration'
-            url = fetch_pexels_image(query) or 'https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=1200&auto=format&fit=crop'
+            title_str   = main_title_m.group(1)   if main_title_m   else ''
+            subject_str = main_subject_m.group(1) if main_subject_m else ''
+            search_term = subject_str or title_str or 'ancient history exploration'
+            url = fetch_wikipedia_image(search_term)
+            if url:
+                log(f'  ✓ Curiosity main image (Wikipedia): {search_term[:40]}')
+            else:
+                url = fetch_pexels_image(search_term) or 'https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=1200&auto=format&fit=crop'
+                log(f'  ✓ Curiosity main image (Pexels): {search_term[:40]}')
             js = js.replace('"__IMG_CURIOSITY_MAIN__"', f'"{url}"', 1)
-            log(f'  ✓ Curiosity main image: {query[:40]}')
         if '__IMG_CURIOSITY_OTD__' in js:
-            query = otd_m.group(1) if otd_m else 'historical event'
-            url = fetch_pexels_image(query) or 'https://images.unsplash.com/photo-1489447068241-b3490214e879?w=800&auto=format&fit=crop'
+            otd_query = otd_m.group(1) if otd_m else 'historical event'
+            url = fetch_wikipedia_image(otd_query)
+            if url:
+                log(f'  ✓ On this day image (Wikipedia): {otd_query[:40]}')
+            else:
+                url = fetch_pexels_image(otd_query) or 'https://images.unsplash.com/photo-1489447068241-b3490214e879?w=800&auto=format&fit=crop'
+                log(f'  ✓ On this day image (Pexels): {otd_query[:40]}')
             js = js.replace('"__IMG_CURIOSITY_OTD__"', f'"{url}"', 1)
-            log(f'  ✓ On this day image: {query[:40]}')
         if 'image: null' in js and person_m:
             name = person_m.group(1)
             url = fetch_wikipedia_image(name)
