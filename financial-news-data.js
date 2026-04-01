@@ -1,49 +1,25 @@
 // financial-news-data.js
-// Auto-updated 2026-03-31 — do not edit manually
+// Auto-updated 2026-04-01 — do not edit manually
 
 var FINANCIAL_NEWS = {
-  date: "2026-03-31",
+  date: "2026-04-01",
   main: {
-    title: "Oil Nears Highest Price Since Start of Iran War as US Petrol Tops $4 a Gallon",
-    category: "Economics",
+    title: "Oil Falls Below $100 and Shares Jump on Hopes Iran War Will End Soon",
+    category: "Markets",
     content: [
-      "Oil prices are surging toward their highest levels since the outbreak of the US-Israel Iran war, as the ongoing conflict continues to choke off traffic through a critical maritime waterway. Brent crude has climbed sharply in recent sessions, driven by mounting fears that supply disruptions could deepen further if hostilities escalate. The rally is sending shockwaves through global energy markets and raising alarm among policymakers already grappling with inflationary pressures.",
-      "In the United States, the impact is being felt directly at the pump, with the average price of petrol surpassing $4 per gallon for the first time since 2022. American motorists are now paying significantly more to fill their tanks, eroding household budgets and threatening to dampen consumer spending. The spike echoes the energy crises of previous decades and has become a politically charged issue as officials debate the best course of action.",
-      "The disruption to shipping routes in the region has been particularly severe, with nearly all commercial traffic halted in a key waterway vital to global oil transit. Energy analysts warn that prolonged closures could tighten global supply even further, pushing prices to levels not seen in years. Tanker operators have been forced to reroute vessels along longer and costlier paths, adding further upward pressure to transportation and fuel costs worldwide.",
-      "The economic fallout is already extending well beyond energy markets. In the United Kingdom, Nationwide reported that while house prices rose 0.9% in March — the fastest pace in almost 18 months — the outlook is darkening rapidly as mortgage rates surge in response to the war's inflationary effects. Rising energy costs and borrowing rates are expected to hit consumer confidence hard, potentially stalling the housing recovery that had been building momentum through early 2026.",
-      "Central banks across the world face an increasingly difficult balancing act as they weigh the need to contain inflation against the risk of tipping war-battered economies into recession. Financial markets remain volatile, with investors pricing in the possibility of further supply shocks should the conflict widen. For now, consumers and businesses alike are bracing for a prolonged period of elevated energy costs, with no clear resolution to the geopolitical crisis in sight."
+      "Global oil prices tumbled sharply below the $100-per-barrel mark on Tuesday as optimism surged through financial markets that the devastating conflict between the United States and Iran could be approaching its end. Brent crude, which had risen by a record 64% in March as the war disrupted energy supplies across the Gulf region, saw its steepest single-day decline in months. The dramatic reversal came after President Trump claimed the war would conclude in 'two or three weeks,' while Secretary of State Marco Rubio signalled a broader reassessment of US foreign policy commitments.",
+      "Stock markets around the world rallied powerfully on the news, with London's FTSE 100 surging 1.8% in early trading and Wall Street futures pointing to significant gains at the open. Government bonds also rallied as investors recalibrated their expectations for inflation and economic growth in a post-conflict environment. The price of gold, which had soared during the crisis as a safe-haven asset, retreated as risk appetite returned to markets with remarkable speed.",
+      "The conflict has wreaked havoc on global energy markets since it escalated earlier this year, with Iran's strikes on Gulf states disrupting critical oil and gas infrastructure across the region. The energy price shock sent shockwaves through the global economy, driving up costs for businesses and consumers alike, and raising the spectre of a return to the kind of inflation that plagued economies in 2022 and 2023. UK food inflation alone is now projected to hit 9% this year as the war-driven surge in energy prices works its way through supply chains affecting fertiliser, transport, and production costs.",
+      "Despite the market optimism, analysts urged caution, noting that even if hostilities cease in the coming weeks, the economic damage has already been substantial and the recovery in energy supply chains will take months. Asia's migrant workers, who form the backbone of Gulf economies, are still debating whether it is safe to return to the region, raising questions about how quickly the affected states can resume normal economic activity. The human toll of the conflict has been particularly heavy for these communities, whose families back home depend on remittances from Gulf employment.",
+      "Chancellor Rachel Reeves, responding to the crisis at home, has scheduled an emergency meeting with the bosses of Britain's largest supermarkets on Wednesday to discuss the extent of potential price rises and shortages of household essentials. The UK government has hinted that energy bill support based on household income could be forthcoming, though Reeves told the BBC it was 'too early' to specify who would qualify and indicated any assistance would not arrive until autumn. For now, British consumers face what commentators have dubbed an 'awful April' — a shower of bill increases across water, council tax, and energy that coincide with a minimum wage rise to £12.71 an hour, offering some relief but far from enough to offset the cost-of-living squeeze."
     ],
-    image: "https://images.pexels.com/photos/17637243/pexels-photo-17637243.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    image: "https://images.pexels.com/photos/10149618/pexels-photo-10149618.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     source: "BBC News",
-    sourceUrl: "https://www.bbc.co.uk/news"
+    sourceUrl: "https://www.bbc.com/news/articles/c2489v97842o?at_medium=RSS&at_campaign=rss"
   },
   secondary: [
-    {
-      id: "fn1",
-      title: "Millions of UK Drivers to Receive Average £829 in Car Finance Compensation",
-      summary: "The UK's Financial Conduct Authority has announced that 12.1 million mis-sold motor finance deals will be eligible for redress under a new compensation scheme, with the average payout expected to be around £829.",
-      image: "https://images.pexels.com/photos/35345780/pexels-photo-35345780.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      source: "BBC News",
-      url: "https://www.bbc.co.uk/news",
-      category: "Finance"
-    },
-    {
-      id: "fn2",
-      title: "Investors Urge Thames Water to Open Bidding After Failed KKR Takeover",
-      summary: "Hong Kong's CK Infrastructure has called on regulators to intervene and open up the bidding process for troubled Thames Water after a takeover attempt led by KKR collapsed last year.",
-      image: "https://images.pexels.com/photos/3843216/pexels-photo-3843216.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      source: "The Guardian",
-      url: "https://www.theguardian.com/business",
-      category: "Business"
-    },
-    {
-      id: "fn3",
-      title: "Historic Pottery Maker Denby Appoints Administrators After 217 Years",
-      summary: "Denby, the iconic British pottery manufacturer founded over two centuries ago, has appointed FRP Advisory as administrators in what the company described as a necessary step to secure its future.",
-      image: "https://images.pexels.com/photos/7059608/pexels-photo-7059608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      source: "BBC News",
-      url: "https://www.bbc.co.uk/news",
-      category: "Business"
-    }
+    { id: "fn1", title: "Tech Giant Oracle Makes 'Significant' Job Cuts", summary: "Oracle, one of the world's largest technology companies, is reported to have cut thousands of jobs in a significant round of layoffs amid a challenging economic environment.", image: "https://images.pexels.com/photos/33371065/pexels-photo-33371065.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "BBC News", url: "https://www.bbc.com/news/articles/cm296jzzl9yo?at_medium=RSS&at_campaign=rss", category: "Technology" },
+    { id: "fn2", title: "IndiGo Names Former British Airways Chief Willie Walsh as CEO", summary: "Indian airline IndiGo has appointed Willie Walsh, the former head of British Airways and IAG, as its new chief executive, days after its previous CEO resigned amid a flight cancellation crisis.", image: "https://images.pexels.com/photos/28344568/pexels-photo-28344568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "BBC News", url: "https://www.bbc.com/news/articles/cz6739j210qo?at_medium=RSS&at_campaign=rss", category: "Corporate" },
+    { id: "fn3", title: "Estate Agents Accuse Rightmove of Charging Excessive Fees", summary: "Online property listing giant Rightmove is facing a class action lawsuit launched on behalf of potentially hundreds of estate agents who accuse the portal of charging excessive fees for its services.", image: "https://images.pexels.com/photos/8293754/pexels-photo-8293754.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "BBC News", url: "https://www.bbc.com/news/articles/cn0yle5rrp8o?at_medium=RSS&at_campaign=rss", category: "Business" }
   ]
 };

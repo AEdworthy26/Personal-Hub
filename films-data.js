@@ -1,18 +1,18 @@
 // films-data.js
-// Auto-updated 2026-03-31 — do not edit manually
+// Auto-updated 2026-04-01 — do not edit manually
 
 var FILMS_DATA = {
-  date: "2026-03-31",
+  date: "2026-04-01",
   film: {
-    title: "The Lives of Others",
-    director: "Florian Henckel von Donnersmarck",
-    year: 2006,
-    genres: ["Political Drama", "Thriller"],
-    desc: "Set in 1984 East Berlin, this mesmerizing German film follows a Stasi surveillance officer who becomes deeply absorbed in the lives of a playwright and his actress lover as he secretly monitors their apartment. What begins as a routine operation of state control slowly transforms into something far more dangerous — an awakening of conscience. Ulrich Mühe delivers one of cinema's greatest performances, conveying enormous emotional shifts through the subtlest flickers of expression, portraying a man whose entire worldview unravels in the silence of a listening post. The film is a profound meditation on art, freedom, and the quiet acts of moral courage that can survive even the most suffocating totalitarian machinery. Winner of the Academy Award for Best Foreign Language Film, it stands as one of the finest political thrillers ever made — a work that grows richer and more devastating with every revisit.",
-    cast: ["Ulrich Mühe", "Martina Gedeck", "Sebastian Koch"],
-    rating: 93,
+    title: "Spirited Away",
+    director: "Hayao Miyazaki",
+    year: 2001,
+    genres: ["Animation", "Fantasy", "Adventure"],
+    desc: "When ten-year-old Chihiro stumbles into a bathhouse for spirits after her parents are transformed into pigs, she must summon courage she never knew she had to survive a world of gods, witches, and shape-shifters. Hayao Miyazaki crafted what many consider the greatest animated film ever made — a story that works as a child's adventure, a coming-of-age parable, and a dreamlike meditation on greed, identity, and the power of remembering your own name. Every frame overflows with imagination: soot sprites hauling coal, a masked spirit gorging itself on loneliness, a dragon boy soaring through rain-washed skies. Joe Hisaishi's luminous score carries the film between moments of wonder and genuine menace with breathtaking grace. It remains the only hand-drawn and non-English-language film to win the Academy Award for Best Animated Feature, and its emotional resonance only deepens with each revisit.",
+    cast: ["Rumi Hiiragi", "Miyu Irino", "Mari Natsuki"],
+    rating: 97,
     ratingSource: "Rotten Tomatoes",
-    ratingExtra: "1 Academy Award (Best Foreign Language Film)",
-    posterUrl: "https://upload.wikimedia.org/wikipedia/en/9/9f/Leben_der_anderen.jpg"
+    ratingExtra: "1 Academy Award (Best Animated Feature)",
+    posterUrl: "https://upload.wikimedia.org/wikipedia/en/d/db/Spirited_Away_Japanese_poster.png"
   }
 };
