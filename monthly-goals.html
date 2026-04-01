@@ -102,74 +102,69 @@
 
     /* ────────────────── STATS BAR ────────────────── */
     .stats-bar {
-      display: flex;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      overflow: hidden;
-      background: var(--card-bg);
-      margin-bottom: 1.8rem;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+      margin-bottom: 2rem;
     }
     .stat-item {
-      flex: 1;
-      padding: 1.1rem 1.5rem;
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 0.18rem;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 14px;
+      padding: 1.1rem 1.3rem;
+      display: flex; flex-direction: column; gap: 0.25rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: relative; overflow: hidden;
     }
-    .stat-item:last-child { border-right: none; }
+    .stat-item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--blue), #1a4fd4); }
     .stat-num {
       font-family: 'Inter', sans-serif;
-      font-size: 2.1rem;
-      font-weight: 900;
-      line-height: 1;
-      color: var(--ink);
-      transition: color 0.3s;
+      font-size: 2.1rem; font-weight: 900; line-height: 1;
+      color: var(--ink); transition: color 0.3s;
     }
     .stat-num.blue  { color: var(--blue); }
     .stat-num.green { color: var(--green); }
-    .stat-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light); }
+    .stat-label { font-size: 0.59rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light); }
 
     /* ────────────────── MONTH LABEL ────────────────── */
-    .month-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
-    .month-label h2 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.2rem; white-space: nowrap; }
-    .month-label-rule { flex: 1; height: 1px; background: var(--border); }
-    .month-summary { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light); white-space: nowrap; }
+    .month-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem; }
+    .month-label h2 { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.15rem; white-space: nowrap; letter-spacing: -0.02em; }
+    .month-label-rule { flex: 1; height: 1px; background: rgba(0,0,0,0.08); }
+    .month-summary { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light); white-space: nowrap; }
 
     /* ────────────────── BUTTONS ────────────────── */
     .btn {
       font-family: 'Inter', sans-serif;
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 0.4rem 0.85rem;
-      border: 1px solid var(--border); border-radius: 2px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 0.45rem 1rem;
+      border: 1px solid var(--border); border-radius: 9999px;
       background: var(--paper); color: var(--ink);
-      cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; white-space: nowrap;
+      cursor: pointer; transition: all 0.15s; white-space: nowrap;
     }
     .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-    .btn-sm { padding: 0.25rem 0.65rem; font-size: 0.65rem; }
+    .btn-sm { padding: 0.28rem 0.75rem; font-size: 0.65rem; }
 
-    .btn-primary { background: var(--blue); color: #fff; border-color: var(--blue); }
-    .btn-primary:hover { background: #002280; border-color: #002280; color: #fff; }
+    .btn-primary { background: linear-gradient(135deg, var(--blue) 0%, #1a4fd4 100%); color: #fff; border-color: transparent; box-shadow: 0 2px 8px rgba(0,51,153,0.3); }
+    .btn-primary:hover { box-shadow: 0 4px 14px rgba(0,51,153,0.38); transform: translateY(-1px); background: linear-gradient(135deg, #002280 0%, var(--blue) 100%); color: #fff; border-color: transparent; }
 
-    .btn-danger { background: #c0392b; color: #fff; border-color: #c0392b; }
-    .btn-danger:hover { background: #a93226; border-color: #a93226; color: #fff; }
+    .btn-danger { background: #c0392b; color: #fff; border-color: transparent; }
+    .btn-danger:hover { background: #a93226; border-color: transparent; color: #fff; }
 
     .btn-add-goal {
       font-family: 'Inter', sans-serif;
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 0.3rem 0.8rem;
-      border: 1px solid var(--blue); border-radius: 2px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.35rem 0.95rem;
+      border: 1.5px solid var(--blue); border-radius: 9999px;
       background: transparent; color: var(--blue);
-      cursor: pointer; transition: background 0.15s, color 0.15s; white-space: nowrap; flex-shrink: 0;
+      cursor: pointer; transition: all 0.15s; white-space: nowrap; flex-shrink: 0;
     }
-    .btn-add-goal:hover { background: var(--blue); color: #fff; }
+    .btn-add-goal:hover { background: var(--blue); color: #fff; box-shadow: 0 2px 8px rgba(0,51,153,0.25); }
 
     .btn-icon {
-      width: 26px; height: 26px; padding: 0;
+      width: 28px; height: 28px; padding: 0;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.05rem; line-height: 1;
-      background: transparent; border: 1px solid transparent; border-radius: 2px;
+      background: transparent; border: 1px solid transparent; border-radius: 8px;
       color: var(--light); cursor: pointer;
       transition: background 0.15s, color 0.15s, border-color 0.15s; flex-shrink: 0;
     }
@@ -177,43 +172,55 @@
 
     /* ────────────────── ADD GOAL PANEL ────────────────── */
     .add-goal-panel {
-      background: var(--card-bg); border: 1px solid var(--border); border-top: 3px solid var(--blue);
-      border-radius: 2px; padding: 1.4rem 1.5rem; margin-bottom: 1.5rem;
-      display: none;
+      background: #fff; border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 14px; overflow: hidden;
+      margin-bottom: 1.5rem; display: none;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
       animation: panel-in 0.18s ease;
     }
     .add-goal-panel.open { display: block; }
     @keyframes panel-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-    .add-goal-panel h3 { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 1rem; }
-    .form-row { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.85rem; }
-    .form-row label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); }
+    .add-goal-panel h3 {
+      font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.01em;
+      padding: 0.9rem 1.3rem;
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #fff; margin-bottom: 0;
+    }
+    .add-goal-panel form { padding: 1.3rem 1.5rem; }
+    .form-row { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.9rem; }
+    .form-row label { font-size: 0.59rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--light); }
     .form-row input[type="text"],
-    .form-row textarea { font-family: 'Inter', sans-serif; font-size: 0.85rem; padding: 0.5rem 0.7rem; border: 1px solid var(--border); border-radius: 2px; background: var(--paper); color: var(--ink); outline: none; resize: vertical; transition: border-color 0.15s; }
-    .form-row input:focus, .form-row textarea:focus { border-color: var(--blue); }
+    .form-row textarea { font-family: 'Inter', sans-serif; font-size: 0.85rem; padding: 0.55rem 0.8rem; border: 1px solid var(--border); border-radius: 8px; background: var(--paper); color: var(--ink); outline: none; resize: vertical; transition: border-color 0.15s, box-shadow 0.15s; }
+    .form-row input:focus, .form-row textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,51,153,0.1); }
     .form-actions { display: flex; gap: 0.5rem; }
 
     /* ────────────────── GOALS GRID ────────────────── */
-    .goals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+    .goals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.3rem; }
     .goals-empty { grid-column: 1 / -1; text-align: center; color: var(--light); font-style: italic; padding: 3rem 0; font-size: 0.88rem; }
 
     /* ────────────────── GOAL CARD ────────────────── */
     .goal-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border); border-top: 3px solid var(--blue);
-      border-radius: 3px;
-      padding: 1.4rem 1.5rem 1.2rem;
-      display: flex; flex-direction: column; gap: 1rem;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-      transition: box-shadow 0.2s, transform 0.2s;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 14px;
+      padding: 0;
+      display: flex; flex-direction: column;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s, transform 0.15s;
       animation: card-in 0.22s ease;
+      overflow: hidden;
     }
-    .goal-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.09); }
+    .goal-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.11); transform: translateY(-2px); }
     @keyframes card-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     .goal-card.removing { animation: card-out 0.22s ease forwards; pointer-events: none; }
     @keyframes card-out { to { opacity: 0; transform: translateY(-4px) scale(0.98); } }
 
-    .goal-card.status-completed   { border-top-color: var(--green); }
-    .goal-card.status-not-started { border-top-color: #aaa; }
+    /* Coloured top accent bar */
+    .goal-card-accent { height: 4px; background: linear-gradient(90deg, var(--blue), #1a4fd4); flex-shrink: 0; }
+    .goal-card.status-completed   .goal-card-accent { background: linear-gradient(90deg, #1a6630, #2d9e4f); }
+    .goal-card.status-not-started .goal-card-accent { background: linear-gradient(90deg, #9ca3af, #d1d5db); }
+
+    .goal-card-inner { padding: 1.3rem 1.4rem 1.2rem; display: flex; flex-direction: column; gap: 1rem; flex: 1; }
 
     .goal-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
     .goal-card-actions { display: flex; align-items: flex-start; gap: 0.4rem; flex-shrink: 0; }
@@ -221,12 +228,12 @@
     /* ── Status select ── */
     .status-select {
       font-family: 'Inter', sans-serif;
-      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 0.22rem 1.4rem 0.22rem 0.6rem;
-      border: none; border-radius: 2px; cursor: pointer;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.28rem 1.5rem 0.28rem 0.7rem;
+      border: none; border-radius: 9999px; cursor: pointer;
       appearance: none; -webkit-appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%23888'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 0.4rem center; outline: none;
+      background-repeat: no-repeat; background-position: right 0.5rem center; outline: none;
     }
     .status-select.not-started { background-color: var(--status-not-started-bg); color: var(--status-not-started-text); }
     .status-select.in-progress  { background-color: var(--status-in-progress-bg);  color: var(--status-in-progress-text); }
@@ -259,8 +266,8 @@
     .confirm-strip {
       display: none;
       align-items: center; gap: 0.7rem;
-      padding: 0.6rem 0.8rem;
-      background: #fff8f8; border: 1px solid #f0c0c0; border-radius: 2px;
+      padding: 0.65rem 0.9rem;
+      background: #fff8f8; border: 1px solid #f0c0c0; border-radius: 9px;
       animation: strip-in 0.14s ease;
     }
     @keyframes strip-in { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: translateY(0); } }
@@ -268,14 +275,16 @@
     .confirm-msg { flex: 1; color: #c0392b; font-weight: 600; font-size: 0.78rem; }
 
     /* ── Progress ── */
-    .progress-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.4rem; }
-    .progress-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); }
-    .progress-pct { font-size: 0.78rem; font-weight: 700; color: var(--ink); }
-    .progress-track { width: 100%; height: 7px; background: var(--progress-track); border-radius: 4px; overflow: hidden; }
-    .progress-fill { height: 100%; border-radius: 4px; transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-    .goal-card.status-in-progress  .progress-fill { background: var(--blue); }
-    .goal-card.status-completed    .progress-fill { background: var(--green); }
-    .goal-card.status-not-started  .progress-fill { background: #aaa; }
+    .progress-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+    .progress-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light); }
+    .progress-pct { font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 800; color: var(--blue); }
+    .goal-card.status-completed   .progress-pct { color: var(--green); }
+    .goal-card.status-not-started .progress-pct { color: var(--light); }
+    .progress-track { width: 100%; height: 8px; background: var(--progress-track); border-radius: 6px; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 6px; transition: width 0.5s cubic-bezier(0.22,1,0.36,1); }
+    .goal-card.status-in-progress  .progress-fill { background: linear-gradient(90deg, var(--blue), #1a4fd4); }
+    .goal-card.status-completed    .progress-fill { background: linear-gradient(90deg, #1a6630, #2d9e4f); }
+    .goal-card.status-not-started  .progress-fill { background: linear-gradient(90deg, #9ca3af, #d1d5db); }
 
     .progress-slider {
       width: 100%; margin-top: 0.55rem; height: 4px;
@@ -298,21 +307,22 @@
     .goal-card.status-not-started .progress-slider::-moz-range-thumb { background: #aaa; box-shadow: 0 0 0 1.5px #aaa; }
 
     /* ── Steps ── */
-    .goal-steps { border-top: 1px solid var(--border); padding-top: 0.9rem; }
+    .goal-steps { border-top: 1px solid rgba(0,0,0,0.07); padding-top: 0.9rem; }
     .goal-steps summary { display: flex; align-items: center; justify-content: space-between; cursor: pointer; list-style: none; user-select: none; -webkit-user-select: none; }
     .goal-steps summary::-webkit-details-marker { display: none; }
-    .steps-heading { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); }
+    .steps-heading { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); display: flex; align-items: center; gap: 0.45rem; }
+    .steps-heading::before { content: ''; display: block; width: 3px; height: 0.75rem; background: var(--blue); border-radius: 2px; flex-shrink: 0; }
     .steps-meta { display: flex; align-items: center; gap: 0.4rem; }
-    .steps-count { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light); }
+    .steps-count { font-size: 0.62rem; background: rgba(0,51,153,0.08); color: var(--blue); border-radius: 9999px; padding: 0.1rem 0.5rem; font-weight: 700; }
     .steps-chevron { font-size: 0.6rem; color: var(--light); transition: transform 0.2s; }
     .goal-steps[open] .steps-chevron { transform: rotate(180deg); }
 
-    .steps-list { list-style: none; margin-top: 0.8rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .steps-list { list-style: none; margin-top: 0.8rem; display: flex; flex-direction: column; gap: 0.45rem; }
 
     .step-item {
       display: flex; align-items: flex-start; gap: 0.65rem;
-      padding: 0.6rem 0.75rem;
-      background: var(--paper); border: 1px solid var(--border); border-radius: 2px;
+      padding: 0.6rem 0.8rem;
+      background: var(--paper); border: 1px solid rgba(0,0,0,0.06); border-radius: 9px;
       transition: opacity 0.18s, transform 0.18s;
       animation: step-in 0.18s ease;
     }
@@ -327,7 +337,7 @@
 
     .step-body { flex: 1; min-width: 0; }
     .step-desc { font-size: 0.82rem; line-height: 1.5; color: var(--ink); display: block; }
-    .step-date { font-size: 0.68rem; color: var(--light); margin-top: 0.12rem; display: block; font-style: italic; }
+    .step-date { font-size: 0.65rem; color: var(--light); margin-top: 0.12rem; display: block; }
     .steps-empty { font-size: 0.78rem; color: var(--light); font-style: italic; padding: 0.4rem 0 0.2rem; margin-top: 0.6rem; }
 
     /* ── Add step form ── */
@@ -335,16 +345,16 @@
     .add-step-form input[type="text"] {
       flex: 1; min-width: 140px;
       font-family: 'Inter', sans-serif; font-size: 0.82rem;
-      padding: 0.38rem 0.6rem;
-      border: 1px solid var(--border); border-radius: 2px;
-      background: var(--paper); color: var(--ink); outline: none; transition: border-color 0.15s;
+      padding: 0.42rem 0.7rem;
+      border: 1px solid var(--border); border-radius: 8px;
+      background: var(--paper); color: var(--ink); outline: none; transition: border-color 0.15s, box-shadow 0.15s;
     }
-    .add-step-form input[type="text"]:focus { border-color: var(--blue); }
+    .add-step-form input[type="text"]:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,51,153,0.1); }
     .add-step-form input[type="text"].error { border-color: #c0392b; }
     .add-step-form input[type="date"] {
       font-family: 'Inter', sans-serif; font-size: 0.78rem;
-      padding: 0.38rem 0.5rem;
-      border: 1px solid var(--border); border-radius: 2px;
+      padding: 0.42rem 0.6rem;
+      border: 1px solid var(--border); border-radius: 8px;
       background: var(--paper); color: var(--muted); outline: none; transition: border-color 0.15s;
     }
     .add-step-form input[type="date"]:focus { border-color: var(--blue); }
@@ -355,27 +365,25 @@
     /* ────────────────── RESPONSIVE ────────────────── */
     @media (max-width: 700px) {
       .goals-grid { grid-template-columns: 1fr; }
-      .goal-card { padding: 1.1rem 1.1rem 1rem; }
+      .goal-card-inner { padding: 1rem 1.1rem 0.9rem; }
       .page-header h1 { font-size: 1.8rem; }
       .add-step-form { flex-direction: column; }
       .add-step-form input[type="date"] { width: 100%; }
-      .stats-bar { flex-direction: column; }
-      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
-      .stat-item:last-child { border-bottom: none; }
+      .stats-bar { grid-template-columns: 1fr; }
     }
     /* ────────────────── LOGBOOK ────────────────── */
     .logbook-section {
       margin-top: 3rem;
-      border-top: 3px double var(--rule);
+      border-top: 1px solid rgba(0,0,0,0.08);
       padding-top: 2rem;
     }
     .logbook-header {
       display: flex; align-items: center; gap: 1rem; margin-bottom: 1.8rem;
     }
     .logbook-header h2 {
-      font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.2rem; white-space: nowrap;
+      font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.1rem; white-space: nowrap; letter-spacing: -0.02em;
     }
-    .logbook-header-rule { flex: 1; height: 1px; background: var(--border); }
+    .logbook-header-rule { flex: 1; height: 1px; background: rgba(0,0,0,0.08); }
     .logbook-header-label {
       font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--light); white-space: nowrap;
@@ -386,17 +394,19 @@
     }
     .logbook-month-group { margin-bottom: 2rem; }
     .logbook-month-heading {
-      font-family: 'Inter', sans-serif; font-size: 0.62rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue);
-      margin-bottom: 0.9rem; padding-bottom: 0.35rem;
-      border-bottom: 1px solid var(--border);
+      font-family: 'Inter', sans-serif; font-size: 0.59rem; font-weight: 800;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue);
+      margin-bottom: 0.9rem; display: flex; align-items: center; gap: 0.55rem;
     }
+    .logbook-month-heading::before { content: ''; display: block; width: 3px; height: 0.75rem; background: var(--blue); border-radius: 2px; flex-shrink: 0; }
+    .logbook-month-heading::after { content: ''; flex: 1; height: 1px; background: rgba(0,51,153,0.12); }
     .logbook-entries { display: flex; flex-direction: column; gap: 0.6rem; }
     .logbook-entry {
-      background: var(--card-bg); border: 1px solid var(--border);
+      background: #fff; border: 1px solid rgba(0,0,0,0.07);
       border-left: 3px solid var(--green);
-      border-radius: 2px; padding: 0.85rem 1.1rem;
+      border-radius: 10px; padding: 0.9rem 1.2rem;
       display: flex; align-items: flex-start; gap: 1rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
     }
     .logbook-entry-icon { font-size: 1.1rem; line-height: 1; flex-shrink: 0; margin-top: 0.1rem; }
     .logbook-entry-body { flex: 1; min-width: 0; }
@@ -674,56 +684,59 @@
 
       return `
         <div class="goal-card status-${esc(goal.status)}" data-id="${esc(goal.id)}">
+          <div class="goal-card-accent"></div>
+          <div class="goal-card-inner">
 
-          <div class="goal-card-top">
-            <div class="goal-title-block">
-              <h2 class="goal-title">${esc(goal.title)}</h2>
-              ${descHTML}
+            <div class="goal-card-top">
+              <div class="goal-title-block">
+                <h2 class="goal-title">${esc(goal.title)}</h2>
+                ${descHTML}
+              </div>
+              <div class="goal-card-actions">
+                <select class="status-select ${esc(goal.status)}" aria-label="Goal status">
+                  <option value="not-started"${goal.status === 'not-started' ? ' selected' : ''}>Not Started</option>
+                  <option value="in-progress"${goal.status === 'in-progress'  ? ' selected' : ''}>In Progress</option>
+                  <option value="completed"  ${goal.status === 'completed'    ? ' selected' : ''}>Completed</option>
+                </select>
+                <button class="btn-icon btn-delete-goal" title="Delete goal" aria-label="Delete goal">&times;</button>
+              </div>
             </div>
-            <div class="goal-card-actions">
-              <select class="status-select ${esc(goal.status)}" aria-label="Goal status">
-                <option value="not-started"${goal.status === 'not-started' ? ' selected' : ''}>Not Started</option>
-                <option value="in-progress"${goal.status === 'in-progress'  ? ' selected' : ''}>In Progress</option>
-                <option value="completed"  ${goal.status === 'completed'    ? ' selected' : ''}>Completed</option>
-              </select>
-              <button class="btn-icon btn-delete-goal" title="Delete goal" aria-label="Delete goal">&times;</button>
+
+            <!-- Inline delete confirmation (shown when is-confirming class is set) -->
+            <div class="confirm-strip">
+              <span class="confirm-msg">Delete this goal?</span>
+              <button class="btn btn-sm btn-danger btn-confirm-delete">Delete</button>
+              <button class="btn btn-sm btn-cancel-delete">Cancel</button>
             </div>
+
+            <div class="goal-progress">
+              <div class="progress-row">
+                <span class="progress-label">Progress</span>
+                <span class="progress-pct">${pct}%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width:${pct}%"></div>
+              </div>
+              <input type="range" class="progress-slider" min="0" max="100" value="${pct}" aria-label="Adjust progress">
+            </div>
+
+            <details class="goal-steps"${stepsOpen ? ' open' : ''}>
+              <summary>
+                <span class="steps-heading">Steps Taken</span>
+                <span class="steps-meta">
+                  <span class="steps-count">${stepCount} ${stepCount === 1 ? 'step' : 'steps'}</span>
+                  <span class="steps-chevron">&#9660;</span>
+                </span>
+              </summary>
+              ${stepsBodyHTML}
+              <div class="add-step-form">
+                <input type="text"  class="step-input-desc" placeholder="Describe this step…" autocomplete="off" aria-label="Step description">
+                <input type="date"  class="step-input-date" aria-label="Step date (optional)">
+                <button class="btn btn-primary btn-add-step">+ Add Step</button>
+              </div>
+            </details>
+
           </div>
-
-          <!-- Inline delete confirmation (shown when is-confirming class is set) -->
-          <div class="confirm-strip">
-            <span class="confirm-msg">Delete this goal?</span>
-            <button class="btn btn-sm btn-danger btn-confirm-delete">Delete</button>
-            <button class="btn btn-sm btn-cancel-delete">Cancel</button>
-          </div>
-
-          <div class="goal-progress">
-            <div class="progress-row">
-              <span class="progress-label">Progress</span>
-              <span class="progress-pct">${pct}%</span>
-            </div>
-            <div class="progress-track">
-              <div class="progress-fill" style="width:${pct}%"></div>
-            </div>
-            <input type="range" class="progress-slider" min="0" max="100" value="${pct}" aria-label="Adjust progress">
-          </div>
-
-          <details class="goal-steps"${stepsOpen ? ' open' : ''}>
-            <summary>
-              <span class="steps-heading">Steps Taken</span>
-              <span class="steps-meta">
-                <span class="steps-count">${stepCount} ${stepCount === 1 ? 'step' : 'steps'}</span>
-                <span class="steps-chevron">&#9660;</span>
-              </span>
-            </summary>
-            ${stepsBodyHTML}
-            <div class="add-step-form">
-              <input type="text"  class="step-input-desc" placeholder="Describe this step…" autocomplete="off" aria-label="Step description">
-              <input type="date"  class="step-input-date" aria-label="Step date (optional)">
-              <button class="btn btn-primary btn-add-step">+ Add Step</button>
-            </div>
-          </details>
-
         </div>
       `;
     }
