@@ -164,13 +164,8 @@
     .shop-empty { padding: 1.4rem 1rem; text-align: center; color: var(--light); font-size: 0.76rem; font-style: italic; }
 
     /* ── WEEKLY OVERVIEW ── */
-    .week-overview-wrap { margin-top: 1.8rem; }
-    .week-toggle-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: none; border: 1px solid var(--border); border-radius: 9999px; padding: 0.38rem 1.1rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: all 0.15s; }
-    .week-toggle-btn:hover { border-color: var(--blue); color: var(--blue); }
-    .week-toggle-caret { font-size: 0.52rem; transition: transform 0.2s ease; display: inline-block; }
-    .week-toggle-btn.open .week-toggle-caret { transform: rotate(180deg); }
-    .week-overview-grid { margin-top: 1rem; display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.35s ease, opacity 0.25s ease; }
-    .week-overview-grid.open { max-height: 500px; opacity: 1; }
+    .week-overview-wrap { margin-bottom: 1.8rem; }
+    .week-overview-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; }
     .week-day-col { background: var(--card); border: 1.5px solid var(--border); border-radius: 8px; overflow: hidden; cursor: pointer; transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s; }
     .week-day-col:hover { border-color: var(--blue); transform: translateY(-2px); box-shadow: var(--shadow-md); }
     .week-day-col.wov-active { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(0,51,153,0.12); }
@@ -266,6 +261,11 @@
       <button class="btn-ghost btn-danger" id="btn-clear-week">Clear Week</button>
     </div>
 
+    <!-- WEEKLY OVERVIEW -->
+    <div class="week-overview-wrap">
+      <div class="week-overview-grid" id="week-overview-grid"></div>
+    </div>
+
     <!-- DAY SELECTOR TABS -->
     <div class="day-tabs" id="day-tabs"></div>
 
@@ -296,14 +296,6 @@
         </div>
 
       </div>
-    </div>
-
-    <!-- WEEKLY OVERVIEW -->
-    <div class="week-overview-wrap">
-      <button class="week-toggle-btn" id="week-toggle-btn">
-        Weekly Overview <span class="week-toggle-caret">▾</span>
-      </button>
-      <div class="week-overview-grid" id="week-overview-grid"></div>
     </div>
 
   </div><!-- /.page-wrap -->
@@ -435,7 +427,7 @@
           if (dot) dot.classList.toggle('visible', this.value.trim().length > 0);
           debounceSave();
           renderDaySummary();
-          if (document.getElementById('week-overview-grid').classList.contains('open')) renderWeekOverview();
+          renderWeekOverview();
         });
       });
 
@@ -563,7 +555,7 @@
       save();
       renderMeals();
       renderDaySummary();
-      if (document.getElementById('week-overview-grid').classList.contains('open')) renderWeekOverview();
+      renderWeekOverview();
     });
 
     document.getElementById('shop-add-form').addEventListener('submit', function (e) {
@@ -587,13 +579,6 @@
       save(); renderShopList();
     });
 
-    var weekOpen = false;
-    document.getElementById('week-toggle-btn').addEventListener('click', function () {
-      weekOpen = !weekOpen;
-      document.getElementById('week-overview-grid').classList.toggle('open', weekOpen);
-      this.classList.toggle('open', weekOpen);
-      if (weekOpen) renderWeekOverview();
-    });
 
     // ── Nav dropdowns ────────────────────────────────────────────────────────
     (function () {
@@ -617,6 +602,7 @@
 
     // ── Init ─────────────────────────────────────────────────────────────────
     load();
+    renderWeekOverview();
     renderTabs();
     renderMeals();
     renderDaySummary();
