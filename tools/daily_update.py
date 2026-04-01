@@ -88,7 +88,7 @@ def log(msg):
     with open(LOG_FILE, 'a') as f:
         f.write(line + '\n')
 
-def call_claude(prompt, timeout=180):
+def call_claude(prompt, timeout=180, max_tokens=4096):
     """Call Claude — uses Anthropic Python SDK (works locally and in GitHub Actions)."""
     api_key = os.environ.get('ANTHROPIC_API_KEY', '')
     if api_key:
@@ -98,7 +98,7 @@ def call_claude(prompt, timeout=180):
             try:
                 message = client.messages.create(
                     model='claude-opus-4-6',
-                    max_tokens=4096,
+                    max_tokens=max_tokens,
                     messages=[{'role': 'user', 'content': prompt}]
                 )
                 return message.content[0].text.strip()
@@ -687,7 +687,7 @@ var RICS_DATA = {{
   ]
 }};"""
 
-    return extract_js(call_claude(prompt, timeout=300))
+    return extract_js(call_claude(prompt, timeout=420, max_tokens=8192))
 
 
 def append_rics_log(rics_js):
@@ -1032,7 +1032,7 @@ window.SUGGESTED_RECIPES = [
     ]
   }}
 ];"""
-    js = extract_js(call_claude(prompt, timeout=180))
+    js = extract_js(call_claude(prompt, timeout=240, max_tokens=8192))
     if not js:
         return None
     # Inject Pexels images using each recipe title
@@ -1186,6 +1186,12 @@ def main():
         if js is None and filename == 'curiosity-data.js':
             log("  Retrying curiosity corner with extended timeout...")
             js = gen_curiosity()
+        if js is None and filename == 'rics-data.js':
+            log("  Retrying RICS study with extended timeout...")
+            js = gen_rics()
+        if js is None and filename == 'suggested-recipes-data.js':
+            log("  Retrying recipes with extended timeout...")
+            js = gen_recipes()
         if js:
             header = f"// {filename}\n// Auto-updated {TODAY} — do not edit manually\n\n"
             updated.append(write_file(filename, header + js + '\n'))
