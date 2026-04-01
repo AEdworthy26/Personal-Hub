@@ -133,6 +133,8 @@
     @media(max-width:600px){.card-grid{grid-template-columns:repeat(3,1fr);gap:.6rem}}
     .bk-card{background:var(--dark-card);border:1px solid var(--dark-border);border-radius:10px;overflow:hidden;transition:transform .2s,box-shadow .2s}
     .bk-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+    .bk-card.dragging{opacity:.4;box-shadow:0 8px 28px rgba(0,0,0,.5)}
+    .bk-card.drag-over{outline:2px solid var(--gold);outline-offset:-2px}
     .bk-cover{position:relative;width:100%;aspect-ratio:2/3;overflow:hidden}
     .bk-cover img{width:100%;height:100%;object-fit:cover;display:block}
     .bk-cover-bg{width:100%;height:100%;background:linear-gradient(160deg,#1c1915,#262018);display:flex;align-items:center;justify-content:center;padding:.8rem}
@@ -437,6 +439,8 @@ var SEED = [
 // ── Storage ───────────────────────────────────────────────────
 var LS_KEY = 'personal_hub_books_v2';
 var LS_ORDER = 'personal_hub_books_order';
+var LS_ORDER_READING = 'personal_hub_books_order_reading';
+var LS_ORDER_TOREAD  = 'personal_hub_books_order_toread';
 
 function loadBooks() {
   try {
@@ -461,18 +465,29 @@ function saveOrder(order) {
 
 var BOOKS = loadBooks();
 
-// Apply saved order to Read list
-var savedOrder = loadOrder();
-if (savedOrder) {
-  var orderMap = {};
-  savedOrder.forEach(function(id, i) { orderMap[id] = i; });
-  BOOKS.sort(function(a, b) {
-    if (a.status !== 'Read' || b.status !== 'Read') return 0;
-    var ai = orderMap[a.id] !== undefined ? orderMap[a.id] : 9999;
-    var bi = orderMap[b.id] !== undefined ? orderMap[b.id] : 9999;
-    return ai - bi;
-  });
+// Apply saved order for each status group
+function applyOrder(status, lsKey) {
+  try {
+    var raw = localStorage.getItem(lsKey);
+    if (!raw) return;
+    var order = JSON.parse(raw);
+    var orderMap = {};
+    order.forEach(function(id, i) { orderMap[id] = i; });
+    var group  = BOOKS.filter(function(b){ return b.status === status; });
+    var others = BOOKS.filter(function(b){ return b.status !== status; });
+    group.sort(function(a, b) {
+      var ai = orderMap[a.id] !== undefined ? orderMap[a.id] : 9999;
+      var bi = orderMap[b.id] !== undefined ? orderMap[b.id] : 9999;
+      return ai - bi;
+    });
+    BOOKS.length = 0;
+    group.forEach(function(b){ BOOKS.push(b); });
+    others.forEach(function(b){ BOOKS.push(b); });
+  } catch(e) {}
 }
+applyOrder('Read', LS_ORDER);
+applyOrder('Reading', LS_ORDER_READING);
+applyOrder('Want to read', LS_ORDER_TOREAD);
 
 // ── State ─────────────────────────────────────────────────────
 var activeTab = 'reading';
@@ -563,7 +578,7 @@ function renderCards(gridId, emptyId, books, status) {
     ? '<span class="bk-status-badge badge-reading">Reading</span>'
     : '<span class="bk-status-badge badge-toread">To Read</span>';
   grid.innerHTML = books.map(function(b) {
-    return '<div class="bk-card" data-edit="'+b.id+'" style="cursor:pointer;">'
+    return '<div class="bk-card" data-edit="'+b.id+'" draggable="true" style="cursor:pointer;">'
       +'<div class="bk-cover">'+coverFullHTML(b)+badge+'</div>'
       +'<div class="bk-body">'
       +'<div class="bk-title">'+esc(b.title)+'</div>'
@@ -571,6 +586,54 @@ function renderCards(gridId, emptyId, books, status) {
       +(b.genre?'<span class="bk-genre">'+esc(b.genre)+'</span>':'')
       +'</div></div>';
   }).join('');
+  initCardDrag(gridId, status);
+}
+
+function initCardDrag(gridId, status) {
+  var grid = document.getElementById(gridId);
+  var dragSrcCard = null;
+  var lsKey = status === 'Reading' ? LS_ORDER_READING : LS_ORDER_TOREAD;
+
+  grid.querySelectorAll('.bk-card').forEach(function(card) {
+    card.addEventListener('dragstart', function(e) {
+      dragSrcCard = card;
+      card.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    card.addEventListener('dragend', function() {
+      card.classList.remove('dragging');
+      grid.querySelectorAll('.bk-card').forEach(function(c){ c.classList.remove('drag-over'); });
+    });
+    card.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      if (card !== dragSrcCard) {
+        grid.querySelectorAll('.bk-card').forEach(function(c){ c.classList.remove('drag-over'); });
+        card.classList.add('drag-over');
+      }
+    });
+    card.addEventListener('drop', function(e) {
+      e.preventDefault();
+      if (!dragSrcCard || card === dragSrcCard) return;
+      var ids = Array.from(grid.querySelectorAll('.bk-card')).map(function(c){ return c.dataset.edit; });
+      var fromIdx = ids.indexOf(dragSrcCard.dataset.edit);
+      var toIdx   = ids.indexOf(card.dataset.edit);
+      var statusBooks  = BOOKS.filter(function(b){ return b.status === status; });
+      var otherBooks   = BOOKS.filter(function(b){ return b.status !== status; });
+      var moved = statusBooks.splice(fromIdx, 1)[0];
+      statusBooks.splice(toIdx, 0, moved);
+      BOOKS.length = 0;
+      statusBooks.forEach(function(b){ BOOKS.push(b); });
+      otherBooks.forEach(function(b){ BOOKS.push(b); });
+      saveBooks(BOOKS);
+      try { localStorage.setItem(lsKey, JSON.stringify(statusBooks.map(function(b){ return b.id; }))); } catch(e){}
+      render();
+    });
+    // prevent drag triggering edit
+    card.addEventListener('click', function(e) {
+      if (dragSrcCard) { dragSrcCard = null; return; }
+    });
+  });
 }
 
 function renderList(listId, emptyId, books) {
