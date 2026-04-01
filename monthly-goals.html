@@ -411,6 +411,8 @@
       font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--light);
     }
+    .logbook-entry-delete { background: none; border: none; color: #ccc; font-size: 1rem; line-height: 1; cursor: pointer; padding: 0.1rem 0.2rem; border-radius: 4px; flex-shrink: 0; transition: color 0.12s, background 0.12s; align-self: flex-start; }
+    .logbook-entry-delete:hover { color: #c0392b; background: #ffe5e5; }
 
     /* ── NEWS TICKER ── */
     .ticker-wrap { background: #111; overflow: hidden; display: flex; align-items: stretch; height: 2.4rem; }
@@ -977,13 +979,14 @@
           const dateLabel = g.completedDate
             ? new Date(g.completedDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
             : '';
-          html += `<div class="logbook-entry">
+          html += `<div class="logbook-entry" data-id="${escHtml(g.id)}">
             <div class="logbook-entry-icon">&#10003;</div>
             <div class="logbook-entry-body">
               <div class="logbook-entry-title">${escHtml(g.title)}</div>
               ${g.description ? `<div class="logbook-entry-desc">${escHtml(g.description)}</div>` : ''}
               ${dateLabel ? `<div class="logbook-entry-meta">Completed ${dateLabel}</div>` : ''}
             </div>
+            <button class="logbook-entry-delete" title="Remove from logbook">&times;</button>
           </div>`;
         });
         html += `</div></div>`;
@@ -1127,6 +1130,22 @@
 
     renderGoals(true); // true = animate progress bars on initial load
     renderLogbook();
+
+    // ── Logbook delete ──
+    document.getElementById('logbook-entries').addEventListener('click', function(e) {
+      const btn = e.target.closest('.logbook-entry-delete');
+      if (!btn) return;
+      const entry = btn.closest('.logbook-entry');
+      if (!entry) return;
+      const id = entry.dataset.id;
+      const goal = goals.find(g => g.id === id);
+      if (!goal) return;
+      if (confirm('Remove "' + goal.title + '" from the logbook? This will delete the goal.')) {
+        deleteGoal(id);
+        renderLogbook();
+        renderGoals();
+      }
+    });
 
     // ── Dropdown nav ──
     (function () {
