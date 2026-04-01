@@ -144,10 +144,6 @@
     .bk-title{font-family:'Playfair Display',serif;font-size:.82rem;font-weight:700;line-height:1.3;color:var(--dark-text);margin-bottom:.2rem}
     .bk-author{font-size:.64rem;letter-spacing:.07em;text-transform:uppercase;color:var(--dark-muted)}
     .bk-genre{display:inline-block;margin-top:.4rem;font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.13rem .4rem;background:rgba(255,255,255,.04);border:1px solid var(--dark-border);border-radius:2px;color:var(--dark-dim)}
-    .bk-actions{display:flex;gap:.35rem;margin-top:.55rem}
-    .bk-btn{flex:1;background:none;border:1px solid var(--dark-border);border-radius:5px;color:var(--dark-muted);cursor:pointer;padding:.28rem .4rem;font-size:.65rem;font-family:'Inter',system-ui,sans-serif;transition:all .15s;text-align:center}
-    .bk-btn:hover{border-color:rgba(200,163,72,.5);color:var(--gold)}
-    .bk-btn.del:hover{border-color:rgba(212,64,0,.5);color:var(--tomato)}
 
     /* ── EMPTY STATE ── */
     .empty-state{padding:4rem 2rem;text-align:center;color:var(--dark-dim)}
@@ -567,16 +563,13 @@ function renderCards(gridId, emptyId, books, status) {
     ? '<span class="bk-status-badge badge-reading">Reading</span>'
     : '<span class="bk-status-badge badge-toread">To Read</span>';
   grid.innerHTML = books.map(function(b) {
-    return '<div class="bk-card" data-id="'+b.id+'">'
+    return '<div class="bk-card" data-edit="'+b.id+'" style="cursor:pointer;">'
       +'<div class="bk-cover">'+coverFullHTML(b)+badge+'</div>'
       +'<div class="bk-body">'
       +'<div class="bk-title">'+esc(b.title)+'</div>'
       +'<div class="bk-author">'+esc(b.author||'')+'</div>'
       +(b.genre?'<span class="bk-genre">'+esc(b.genre)+'</span>':'')
-      +'<div class="bk-actions">'
-      +'<button class="bk-btn" data-edit="'+b.id+'">Edit</button>'
-      +'<button class="bk-btn del" data-del="'+b.id+'">Delete</button>'
-      +'</div></div></div>';
+      +'</div></div>';
   }).join('');
 }
 
