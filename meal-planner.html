@@ -189,13 +189,13 @@
     .week-day-col.wov-active { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,51,153,0.1), 0 4px 12px rgba(0,0,0,0.08); }
     .week-day-col.wov-today .week-col-head { background: linear-gradient(135deg, #003399 0%, #1a4fd4 100%); color: #fff; }
     .week-col-head { padding: 0.65rem 0.8rem; text-align: center; font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: linear-gradient(180deg, #f5f2eb 0%, #ede9e0 100%); color: var(--muted); border-bottom: 1px solid rgba(0,0,0,0.06); }
-    .week-col-body { padding: 0.8rem 0.85rem; display: flex; flex-direction: column; gap: 0.65rem; }
-    .wov-meal-row { font-family: 'Inter', sans-serif; }
-    .wov-meal-label { font-size: 0.55rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.1rem; display: block; }
+    .week-col-body { padding: 1rem 0.9rem; display: flex; flex-direction: column; justify-content: space-evenly; min-height: 130px; }
+    .wov-meal-row { font-family: 'Inter', sans-serif; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0.3rem 0; }
+    .wov-meal-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem; display: block; }
     .wov-meal-label-breakfast { color: #f97316; }
     .wov-meal-label-lunch     { color: #10b981; }
     .wov-meal-label-dinner    { color: #6366f1; }
-    .wov-meal-text { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.71rem; color: #c8c4bc; }
+    .wov-meal-text { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.76rem; color: #c8c4bc; max-width: 100%; }
     .wov-meal-row.wov-filled .wov-meal-text { color: var(--ink); font-weight: 500; }
     @media (max-width: 680px) { .week-overview-grid { grid-template-columns: repeat(4, 1fr); } }
 
