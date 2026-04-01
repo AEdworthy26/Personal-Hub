@@ -184,10 +184,15 @@
 
     /* ── CHART ── */
     .chart-wrap { margin-bottom: 2.5rem; }
-    .chart-inner { background: var(--card); border: 1px solid rgba(0,0,0,0.07); border-radius: var(--radius); padding: 1.3rem 1.5rem 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .chart-inner { background: var(--card); border: 1px solid rgba(0,0,0,0.07); border-radius: var(--radius); padding: 1.3rem 1.5rem 1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); position: relative; }
     .chart-svg-wrap { width: 100%; overflow: hidden; }
     .chart-empty { text-align: center; padding: 2.5rem; font-size: 0.85rem; color: var(--light); font-style: italic; }
     .chart-section-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.8rem; display: block; }
+    .chart-tooltip { position: absolute; background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 10px; padding: 0.6rem 0.9rem 0.55rem; box-shadow: 0 6px 24px rgba(0,0,0,0.13), 0 1px 4px rgba(0,0,0,0.06); pointer-events: none; opacity: 0; transition: opacity 0.12s; white-space: nowrap; z-index: 20; transform: translate(-50%, calc(-100% - 12px)); }
+    .chart-tooltip.visible { opacity: 1; }
+    .chart-tooltip-score { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.6rem; line-height: 1; }
+    .chart-tooltip-label { font-family: 'Inter', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; opacity: 0.75; }
+    .chart-tooltip-date { font-family: 'Inter', sans-serif; font-size: 0.62rem; color: #999; margin-top: 0.18rem; font-weight: 500; border-top: 1px solid #f0ede8; padding-top: 0.25rem; }
 
     /* ── HISTORY ── */
     .history-list { display: flex; flex-direction: column; gap: 0.8rem; }
@@ -958,8 +963,10 @@
 
       var dots = data.map(function(d,i) {
         var info = scoreInfo(d.score);
-        return '<circle cx="'+xS(i)+'" cy="'+yS(d.score)+'" r="4.5" fill="'+info.color+'" stroke="white" stroke-width="2">'
-          + '<title>'+fmtDateShort(d.date)+': '+d.score+'</title></circle>';
+        var cx = xS(i).toFixed(2), cy = yS(d.score).toFixed(2);
+        return '<circle cx="'+cx+'" cy="'+cy+'" r="4.5" fill="'+info.color+'" stroke="white" stroke-width="2" pointer-events="none"/>'
+          + '<circle cx="'+cx+'" cy="'+cy+'" r="14" fill="transparent" class="chart-dot-hover"'
+          + ' data-score="'+d.score+'" data-label="'+esc(info.label)+'" data-color="'+info.color+'" data-date="'+fmtDateShort(d.date)+'"/>';
       }).join('');
 
       var xLabels = data.map(function(d,i) {
@@ -974,6 +981,31 @@
         + '<path d="'+lineD+'" fill="none" stroke="var(--blue)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>'
         + dots + xLabels
         + '</svg>';
+
+      // Custom tooltip
+      var chartInner = chartEl.parentNode;
+      var oldTt = chartInner.querySelector('.chart-tooltip');
+      if (oldTt) oldTt.remove();
+      var tt = document.createElement('div');
+      tt.className = 'chart-tooltip';
+      chartInner.appendChild(tt);
+
+      chartEl.querySelectorAll('.chart-dot-hover').forEach(function(dot) {
+        dot.addEventListener('mouseenter', function() {
+          tt.innerHTML =
+            '<div class="chart-tooltip-score" style="color:' + dot.dataset.color + '">' + dot.dataset.score + '</div>'
+            + '<div class="chart-tooltip-label" style="color:' + dot.dataset.color + '">' + dot.dataset.label + '</div>'
+            + '<div class="chart-tooltip-date">' + dot.dataset.date + '</div>';
+          var dotRect = dot.getBoundingClientRect();
+          var containerRect = chartInner.getBoundingClientRect();
+          tt.style.left = (dotRect.left + dotRect.width / 2 - containerRect.left) + 'px';
+          tt.style.top  = (dotRect.top - containerRect.top) + 'px';
+          tt.classList.add('visible');
+        });
+        dot.addEventListener('mouseleave', function() {
+          tt.classList.remove('visible');
+        });
+      });
     }
 
     // ── History ───────────────────────────────────────────────────────────────
