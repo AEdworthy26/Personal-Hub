@@ -755,6 +755,16 @@ document.getElementById('modal-save-btn').addEventListener('click', function() {
     data.id = uid();
     BOOKS.push(data);
   }
+  // Re-sort Read books by rating whenever a rating is set
+  if (data.status === 'Read') {
+    var readBooks  = BOOKS.filter(function(b){ return b.status === 'Read'; });
+    var otherBooks = BOOKS.filter(function(b){ return b.status !== 'Read'; });
+    readBooks.sort(function(a, b){ return (b.rating || 0) - (a.rating || 0); });
+    BOOKS.length = 0;
+    readBooks.forEach(function(b){ BOOKS.push(b); });
+    otherBooks.forEach(function(b){ BOOKS.push(b); });
+    saveOrder(readBooks.map(function(b){ return b.id; }));
+  }
   saveBooks(BOOKS);
   closeModal();
   render();
