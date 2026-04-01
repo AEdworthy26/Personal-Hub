@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wishlist — Personal Hub</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap');
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -24,10 +24,10 @@
       --radius: 10px;
     }
 
-    body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; min-height: 100vh; }
+    body { background: var(--paper); color: var(--ink); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; min-height: 100vh; font-size: 14px; }
     a { color: inherit; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    button, input, select, textarea { font-family: 'Inter', system-ui, sans-serif; }
+    button, input, select, textarea { font-family: inherit; }
     button { cursor: pointer; }
 
     /* ── TICKER ── */
@@ -88,7 +88,7 @@
     .stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.8rem; }
     .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.2rem; box-shadow: var(--shadow-sm); }
     .stat-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light); margin-bottom: 0.35rem; }
-    .stat-value { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.8rem; line-height: 1; color: var(--ink); }
+    .stat-value { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.8rem; line-height: 1; color: var(--ink); }
     .stat-sub { font-size: 0.65rem; color: var(--muted); margin-top: 0.2rem; }
 
     /* ── FILTER BAR ── */
@@ -98,11 +98,11 @@
     .filter-search:focus { border-color: var(--blue); background: #fff; }
     .filter-select { border: 1px solid var(--border); border-radius: 6px; padding: 0.38rem 0.7rem; font-size: 0.78rem; background: var(--subtle); color: var(--ink); outline: none; cursor: pointer; transition: border-color 0.15s; }
     .filter-select:focus { border-color: var(--blue); }
-    .filter-total { margin-left: auto; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; color: var(--ink); white-space: nowrap; }
+    .filter-total { margin-left: auto; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1rem; color: var(--ink); white-space: nowrap; }
 
     /* ── SECTION HEADERS ── */
     .section-hd { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; padding-bottom: 0.45rem; border-bottom: 1px solid var(--border); }
-    .section-hd h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.25rem; line-height: 1; flex: 1; }
+    .section-hd h2 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.25rem; line-height: 1; flex: 1; }
     .count-pill { background: var(--ink); color: var(--paper); font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 9999px; font-family: 'Inter', sans-serif; }
     .count-pill.green { background: #15803d; }
 
@@ -133,8 +133,8 @@
     .wl-card.purchased { opacity: 0.5; }
     .wl-card.purchased .wl-title { text-decoration: line-through; }
     .wl-card-header { display: flex; align-items: flex-start; gap: 0.5rem; }
-    .wl-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; line-height: 1.3; flex: 1; color: var(--ink); }
-    .wl-price { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.3rem; color: var(--ink); white-space: nowrap; }
+    .wl-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1rem; line-height: 1.3; flex: 1; color: var(--ink); }
+    .wl-price { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.3rem; color: var(--ink); white-space: nowrap; }
     .wl-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
     .badge-pri { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.18rem 0.5rem; border-radius: 9999px; border: 1px solid; }
     .badge-pri.high   { background: #fef2f2; color: #dc2626; border-color: #fecaca; }
@@ -170,7 +170,7 @@
     .person-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); margin-bottom: 0.9rem; overflow: hidden; animation: fadeSlide 0.22s ease both; }
     .person-header { display: flex; align-items: center; gap: 0.7rem; padding: 0.9rem 1.1rem; cursor: pointer; user-select: none; transition: background 0.15s; }
     .person-header:hover { background: var(--subtle); }
-    .person-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.05rem; flex: 1; }
+    .person-name { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.05rem; flex: 1; }
     .person-notes-snip { font-size: 0.72rem; color: var(--muted); flex: 2; font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .person-item-count { font-size: 0.65rem; font-family: 'Inter', sans-serif; font-weight: 600; color: var(--light); white-space: nowrap; }
     .person-caret { font-size: 0.65rem; color: var(--light); transition: transform 0.2s; flex-shrink: 0; }
@@ -200,7 +200,7 @@
     .modal-card { background: var(--card); border-radius: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); width: 100%; max-width: 480px; overflow: hidden; animation: slideUp 0.22s ease both; }
     @keyframes slideUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
     .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.4rem 1rem; border-bottom: 1px solid var(--subtle); }
-    .modal-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem; }
+    .modal-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.2rem; }
     .modal-close { background: none; border: none; font-size: 1.3rem; color: var(--light); line-height: 1; padding: 0.2rem 0.4rem; border-radius: 5px; transition: color 0.15s, background 0.15s; }
     .modal-close:hover { color: var(--ink); background: var(--subtle); }
     .modal-body { padding: 1.2rem 1.4rem; display: flex; flex-direction: column; gap: 0.85rem; }
@@ -209,7 +209,7 @@
     .form-label .required { color: #dc2626; }
     .form-input { border: 1px solid var(--border); border-radius: 7px; padding: 0.45rem 0.75rem; font-size: 0.85rem; color: var(--ink); background: var(--subtle); outline: none; transition: border-color 0.15s, background 0.15s; }
     .form-input:focus { border-color: var(--blue); background: #fff; }
-    textarea.form-input { resize: vertical; min-height: 70px; font-family: 'Source Serif 4', Georgia, serif; }
+    textarea.form-input { resize: vertical; min-height: 70px; font-family: 'Inter', sans-serif; }
     .pill-selector { display: flex; gap: 0.35rem; flex-wrap: wrap; }
     .pill-opt { border: 1px solid var(--border); border-radius: 9999px; padding: 0.25rem 0.75rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; background: var(--subtle); color: var(--muted); transition: all 0.15s; }
     .pill-opt:hover { border-color: #aaa; color: var(--ink); }

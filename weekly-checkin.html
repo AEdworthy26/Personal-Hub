@@ -438,7 +438,7 @@
       <div id="score-col">
         <div class="card">
           <div class="card-header">
-            <span class="card-title">Your Score</span>
+            <span class="card-title" id="score-card-title">Your Score</span>
             <button type="button" id="btn-edit" class="btn-edit" style="display:none">Edit</button>
           </div>
           <div id="score-body"></div>
@@ -511,7 +511,9 @@
 
     function getThisSunday() {
       var d = new Date();
-      d.setDate(d.getDate() - d.getDay());
+      var day = d.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+      var daysUntilSunday = day === 0 ? 0 : 7 - day;
+      d.setDate(d.getDate() + daysUntilSunday);
       return d.toISOString().slice(0, 10);
     }
 
@@ -659,38 +661,47 @@
       document.getElementById('btn-week-next').style.opacity = isCurrentWeek ? '0.35' : '1';
     }
 
-    window.navWeek = function(dir) {
-      var d = new Date(selectedSunday + 'T12:00:00');
-      d.setDate(d.getDate() + dir * 7);
-      // Don't allow navigating into the future
-      if (d > new Date()) return;
-      selectedSunday = d.toISOString().slice(0, 10);
+    function setScoreCardTitle(text) {
+      var el = document.getElementById('score-card-title');
+      if (el) el.textContent = text;
+    }
+
+    function loadWeekIntoView() {
       updateWeekNav();
-      // Load existing entry for this week if any
       var existing = entries.find(function(e){ return e.date === selectedSunday; }) || null;
-      editingExisting = false;
+      // Form is always visible — just populate or reset it
+      document.getElementById('form-card').style.display = '';
+      document.getElementById('btn-edit').style.display = 'none';
       document.getElementById('btn-cancel-edit').style.display = 'none';
+      editingExisting = false;
       if (existing) {
         populateForm(existing);
         editingExisting = true;
-        document.getElementById('btn-cancel-edit').style.display = '';
+        setScoreCardTitle('Your Score');
         renderScoreCard(existing, false, false);
-        document.getElementById('btn-edit').style.display = '';
-        document.getElementById('form-card').style.display = 'none';
       } else {
-        // Reset form to defaults for blank week
+        // Blank form ready for new entry
         ['f-mood','f-sleep','f-eating','f-prod','f-social'].forEach(function(id){
-          var el = document.getElementById(id); if(el){ el.value=6; updateSliderFill(el); updateSliderVal(el); }
+          var el = document.getElementById(id);
+          if (el) { el.value = 6; updateSliderFill(el); updateSliderVal(el); }
         });
         document.getElementById('f-exercise').value = 0;
-        document.getElementById('f-study').value = 0;
-        document.getElementById('f-notes').value = '';
+        document.getElementById('f-study').value    = 0;
+        document.getElementById('f-notes').value    = '';
         formAchievements = [];
         renderAchieveList();
+        setScoreCardTitle('Your Score');
         renderScoreCard(null, false, false);
-        document.getElementById('btn-edit').style.display = 'none';
-        document.getElementById('form-card').style.display = '';
       }
+    }
+
+    window.navWeek = function(dir) {
+      var d = new Date(selectedSunday + 'T12:00:00');
+      d.setDate(d.getDate() + dir * 7);
+      // Don't allow navigating beyond the current week
+      if (d.toISOString().slice(0, 10) > getThisSunday()) return;
+      selectedSunday = d.toISOString().slice(0, 10);
+      loadWeekIntoView();
     };
 
     // ── Form state ────────────────────────────────────────────────────────────
@@ -1041,14 +1052,7 @@
     document.getElementById('btn-edit').addEventListener('click', showFormForEdit);
 
     document.getElementById('btn-cancel-edit').addEventListener('click', function() {
-      editingExisting = false;
-      document.getElementById('btn-cancel-edit').style.display = 'none';
-      document.getElementById('form-card').style.display = 'none';
-      var existing = getThisWeekEntry();
-      if (existing) {
-        renderScoreCard(existing, false, false);
-        document.getElementById('btn-edit').style.display = '';
-      }
+      loadWeekIntoView();
     });
 
     document.getElementById('btn-submit').addEventListener('click', function() {
@@ -1065,23 +1069,19 @@
       entries.unshift(d);
       saveEntries();
 
-      editingExisting = false;
+      editingExisting = true;
       document.getElementById('btn-cancel-edit').style.display = 'none';
-      formAchievements = [];
-      renderAchieveList();
-      document.getElementById('f-notes').value = '';
 
       // Only confetti for current week
       if (selectedSunday === getThisSunday()) launchConfetti();
 
+      setScoreCardTitle('Your Score');
       renderScoreCard(d, true, isPB);
       renderStats();
       renderChart();
       renderHistory();
       renderMilestones();
-
       updateWeekNav();
-      document.getElementById('btn-edit').style.display = '';
 
       // Scroll score into view on mobile
       var scoreCol = document.getElementById('score-col');
@@ -1092,24 +1092,11 @@
 
     // ── Init & render ─────────────────────────────────────────────────────────
     function renderAll() {
-      var existing = getThisWeekEntry();
-      renderScoreCard(existing, false, false);
       renderStats();
       renderChart();
       renderHistory();
       renderMilestones();
-      updateWeekNav();
-      if (existing) {
-        populateForm(existing);
-        editingExisting = true;
-        document.getElementById('btn-edit').style.display = 'none';
-        document.getElementById('btn-cancel-edit').style.display = 'none';
-        document.getElementById('form-card').style.display = '';
-      } else {
-        document.getElementById('form-card').style.display = '';
-        document.getElementById('btn-edit').style.display = 'none';
-        editingExisting = false;
-      }
+      loadWeekIntoView();
     }
 
     document.getElementById('js-date').textContent = new Date().toLocaleDateString('en-GB', {

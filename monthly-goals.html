@@ -363,6 +363,56 @@
       .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
       .stat-item:last-child { border-bottom: none; }
     }
+    /* ────────────────── LOGBOOK ────────────────── */
+    .logbook-section {
+      margin-top: 3rem;
+      border-top: 3px double var(--rule);
+      padding-top: 2rem;
+    }
+    .logbook-header {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1.8rem;
+    }
+    .logbook-header h2 {
+      font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.2rem; white-space: nowrap;
+    }
+    .logbook-header-rule { flex: 1; height: 1px; background: var(--border); }
+    .logbook-header-label {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--light); white-space: nowrap;
+    }
+    .logbook-empty {
+      text-align: center; color: var(--light); font-style: italic;
+      padding: 2.5rem 0; font-size: 0.88rem;
+    }
+    .logbook-month-group { margin-bottom: 2rem; }
+    .logbook-month-heading {
+      font-family: 'Inter', sans-serif; font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue);
+      margin-bottom: 0.9rem; padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .logbook-entries { display: flex; flex-direction: column; gap: 0.6rem; }
+    .logbook-entry {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: 2px; padding: 0.85rem 1.1rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .logbook-entry-icon { font-size: 1.1rem; line-height: 1; flex-shrink: 0; margin-top: 0.1rem; }
+    .logbook-entry-body { flex: 1; min-width: 0; }
+    .logbook-entry-title {
+      font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+    .logbook-entry-desc {
+      font-size: 0.78rem; color: var(--muted); line-height: 1.5;
+      margin-bottom: 0.25rem;
+    }
+    .logbook-entry-meta {
+      font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--light);
+    }
+
     /* ── NEWS TICKER ── */
     .ticker-wrap { background: #111; overflow: hidden; display: flex; align-items: stretch; height: 2.4rem; }
     .ticker-label { background: #e8000d; color: #fff; font-family: 'Source Serif 4', serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 1.2rem; display: flex; align-items: center; white-space: nowrap; flex-shrink: 0; gap: 0.5rem; }
@@ -494,6 +544,16 @@
 
     <!-- Goals grid (populated by JS) -->
     <div class="goals-grid" id="goals-grid"></div>
+
+    <!-- Logbook (completed goals) -->
+    <div class="logbook-section" id="goals-logbook">
+      <div class="logbook-header">
+        <h2>Completed Goals Logbook</h2>
+        <div class="logbook-header-rule"></div>
+        <span class="logbook-header-label">All time</span>
+      </div>
+      <div id="logbook-entries"></div>
+    </div>
   </div>
 
   <footer>Personal Hub &mdash; Alfie Edworthy &mdash; Private &amp; Confidential</footer>
@@ -820,11 +880,42 @@
     function setGoalStatus(goalId, status) {
       const goal = goals.find(g => g.id === goalId);
       if (!goal) return;
+      const wasCompleted = goal.status === 'completed';
       goal.status = status;
-      if (status === 'completed')   goal.progress = 100;
+      if (status === 'completed') {
+        goal.progress = 100;
+        // Auto-log as achievement if not already logged
+        if (!goal.achievementId) {
+          const achievementId = uid();
+          goal.achievementId = achievementId;
+          goal.completedDate = new Date().toISOString().slice(0, 10);
+          logGoalAsAchievement(goal, achievementId);
+        }
+      }
       if (status === 'not-started') goal.progress = 0;
       saveGoals();
       renderGoals();
+      renderLogbook();
+    }
+
+    function logGoalAsAchievement(goal, achievementId) {
+      const ACH_KEY = 'personal_hub_achievements';
+      let data = {};
+      try { data = JSON.parse(localStorage.getItem(ACH_KEY) || '{}'); } catch(e) {}
+      const dateStr = goal.completedDate || new Date().toISOString().slice(0, 10);
+      const monthKey = dateStr.slice(0, 7); // 'YYYY-MM'
+      if (!data[monthKey]) data[monthKey] = [];
+      // Avoid duplicates
+      if (!data[monthKey].find(a => a.id === achievementId)) {
+        data[monthKey].push({
+          id: achievementId,
+          title: goal.title,
+          description: goal.description || '',
+          date: dateStr,
+          category: 'Goal'
+        });
+      }
+      localStorage.setItem(ACH_KEY, JSON.stringify(data));
     }
 
     function setGoalProgress(goalId, pct) {
@@ -850,6 +941,62 @@
       goal.steps = goal.steps.filter(s => s.id !== stepId);
       saveGoals();
       renderGoals();
+    }
+
+
+    /* ═══════════════════════════════════════════════
+       LOGBOOK RENDER
+    ═══════════════════════════════════════════════ */
+    function renderLogbook() {
+      const container = document.getElementById('logbook-entries');
+      const completed = goals.filter(g => g.status === 'completed');
+
+      if (completed.length === 0) {
+        container.innerHTML = '<div class="logbook-empty">No completed goals yet — keep going!</div>';
+        return;
+      }
+
+      // Group by completion month (use completedDate if available, else today's month)
+      const groups = {};
+      const todayMonth = new Date().toISOString().slice(0, 7);
+      completed.forEach(g => {
+        const month = g.completedDate ? g.completedDate.slice(0, 7) : todayMonth;
+        if (!groups[month]) groups[month] = [];
+        groups[month].push(g);
+      });
+
+      // Sort months descending
+      const sortedMonths = Object.keys(groups).sort((a, b) => b.localeCompare(a));
+
+      let html = '';
+      sortedMonths.forEach(month => {
+        const [year, m] = month.split('-');
+        const label = new Date(parseInt(year), parseInt(m) - 1, 1)
+          .toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+        html += `<div class="logbook-month-group">
+          <div class="logbook-month-heading">${label}</div>
+          <div class="logbook-entries">`;
+        groups[month].forEach(g => {
+          const dateLabel = g.completedDate
+            ? new Date(g.completedDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+            : '';
+          html += `<div class="logbook-entry">
+            <div class="logbook-entry-icon">&#10003;</div>
+            <div class="logbook-entry-body">
+              <div class="logbook-entry-title">${escHtml(g.title)}</div>
+              ${g.description ? `<div class="logbook-entry-desc">${escHtml(g.description)}</div>` : ''}
+              ${dateLabel ? `<div class="logbook-entry-meta">Completed ${dateLabel}</div>` : ''}
+            </div>
+          </div>`;
+        });
+        html += `</div></div>`;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function escHtml(str) {
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
 
@@ -978,7 +1125,21 @@
     document.getElementById('js-month').textContent =
       now.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
 
+    // Backfill: any completed goal without achievementId gets logged now
+    let backfillChanged = false;
+    goals.forEach(g => {
+      if (g.status === 'completed' && !g.achievementId) {
+        const achievementId = uid();
+        g.achievementId = achievementId;
+        g.completedDate = g.completedDate || new Date().toISOString().slice(0, 10);
+        logGoalAsAchievement(g, achievementId);
+        backfillChanged = true;
+      }
+    });
+    if (backfillChanged) saveGoals();
+
     renderGoals(true); // true = animate progress bars on initial load
+    renderLogbook();
 
     // ── Dropdown nav ──
     (function () {
