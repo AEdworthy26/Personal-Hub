@@ -159,6 +159,12 @@ def extract_js(text):
     if not any(first_line.startswith(kw) for kw in ('var ', 'window.', 'const ', 'let ', '//')):
         log(f"  [error] Output doesn't look like JavaScript (starts with: {first_line[:60]!r}) — skipping")
         return None
+    # Reject if braces/brackets are unbalanced (truncated response)
+    brace_balance  = text.count('{') - text.count('}')
+    bracket_balance = text.count('[') - text.count(']')
+    if brace_balance != 0 or bracket_balance != 0:
+        log(f"  [error] JS is unbalanced (braces={brace_balance} arrays={bracket_balance}) — Claude response was likely truncated, skipping")
+        return None
     return text.strip()
 
 def write_file(filename, content):
