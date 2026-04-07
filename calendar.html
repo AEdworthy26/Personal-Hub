@@ -237,6 +237,21 @@
     /* ── Event Modal ── */
     .modal-overlay { position: fixed; inset: 0; background: rgba(15,23,42,.45); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 100; padding: 1rem; }
     .modal-overlay.open { display: flex; }
+    /* ── Delete confirm dialog ── */
+    .confirm-overlay { position: fixed; inset: 0; background: rgba(15,23,42,.55); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 200; padding: 1rem; }
+    .confirm-overlay.open { display: flex; }
+    .confirm-panel { background: var(--card); border-radius: 16px; box-shadow: 0 24px 80px rgba(0,0,0,.28); width: 100%; max-width: 360px; overflow: hidden; animation: modalIn .18s cubic-bezier(.22,1,.36,1); }
+    .confirm-header { padding: .9rem 1.2rem; background: linear-gradient(135deg, #1e293b 0%, #334155 100%); display: flex; align-items: center; gap: .55rem; }
+    .confirm-header-icon { width: 28px; height: 28px; background: rgba(239,68,68,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .85rem; }
+    .confirm-header-title { font-weight: 700; font-size: .85rem; color: #fff; }
+    .confirm-body { padding: 1.1rem 1.2rem .4rem; }
+    .confirm-body p { font-size: .875rem; color: var(--ink); margin: 0 0 .2rem; }
+    .confirm-event-name { font-weight: 700; color: var(--ink); font-size: .9rem; margin-top: .35rem; padding: .5rem .7rem; background: var(--bg); border-radius: 8px; border-left: 3px solid #ef4444; }
+    .confirm-footer { display: flex; gap: .6rem; justify-content: flex-end; padding: .9rem 1.2rem 1.1rem; }
+    .confirm-cancel { background: var(--bg); border: 1px solid var(--border); color: var(--ink); font-family: inherit; font-size: .82rem; font-weight: 600; padding: .5rem 1rem; border-radius: 8px; cursor: pointer; transition: background .15s; }
+    .confirm-cancel:hover { background: var(--border); }
+    .confirm-delete { background: #ef4444; border: none; color: #fff; font-family: inherit; font-size: .82rem; font-weight: 700; padding: .5rem 1.1rem; border-radius: 8px; cursor: pointer; transition: background .15s; }
+    .confirm-delete:hover { background: #dc2626; }
     .modal-panel { background: var(--card); border-radius: 18px; box-shadow: 0 24px 80px rgba(0,0,0,.22); width: 100%; max-width: 500px; max-height: 92vh; overflow-y: auto; animation: modalIn .2s cubic-bezier(.22,1,.36,1); }
     @keyframes modalIn { from { opacity:0; transform: scale(.96) translateY(10px); } to { opacity:1; transform: none; } }
     .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.5rem; background: linear-gradient(135deg, #1e293b 0%, #334155 100%); }
@@ -518,6 +533,24 @@
         <button class="modal-close" onclick="window.closeStats()">&#215;</button>
       </div>
       <div class="modal-body" id="stats-body"></div>
+    </div>
+  </div>
+
+  <!-- Delete confirm dialog -->
+  <div class="confirm-overlay" id="confirm-overlay">
+    <div class="confirm-panel">
+      <div class="confirm-header">
+        <div class="confirm-header-icon">🗑</div>
+        <div class="confirm-header-title">Delete Event</div>
+      </div>
+      <div class="confirm-body">
+        <p>Are you sure you want to delete this event?</p>
+        <div class="confirm-event-name" id="confirm-event-name"></div>
+      </div>
+      <div class="confirm-footer">
+        <button class="confirm-cancel" onclick="window.closeConfirm()">Cancel</button>
+        <button class="confirm-delete" id="confirm-delete-btn">Delete</button>
+      </div>
     </div>
   </div>
 
@@ -1157,10 +1190,23 @@
 
     window.deleteModalEvent = function() {
       if(!editingId) return;
-      if(!confirm('Delete this event?')) return;
-      events=events.filter(function(e){return e.id!==editingId;});
-      save(); window.closeModal(); renderAll();
+      var ev = events.find(function(e){ return e.id === editingId; });
+      document.getElementById('confirm-event-name').textContent = ev ? ev.title : 'This event';
+      document.getElementById('confirm-delete-btn').onclick = function() {
+        events = events.filter(function(e){ return e.id !== editingId; });
+        save(); window.closeConfirm(); window.closeModal(); renderAll();
+      };
+      document.getElementById('confirm-overlay').classList.add('open');
     };
+
+    window.closeConfirm = function() {
+      document.getElementById('confirm-overlay').classList.remove('open');
+    };
+
+    // Close confirm on backdrop click
+    document.getElementById('confirm-overlay').addEventListener('click', function(e) {
+      if (e.target === e.currentTarget) window.closeConfirm();
+    });
 
     // ── Stats modal ───────────────────────────────────────────────────────────
     window.openStats = function() {
