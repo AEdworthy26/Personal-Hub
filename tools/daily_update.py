@@ -322,9 +322,10 @@ def extract_rss_image(entry):
     return None
 
 def fetch_rss(*urls, max_per_feed=4):
-    """Fetch multiple RSS feeds, return combined list of article dicts."""
+    """Fetch multiple RSS feeds, return combined list of article dicts (deduplicated by title)."""
     import socket
     articles = []
+    seen_titles = set()
     for url in urls:
         try:
             old_timeout = socket.getdefaulttimeout()
@@ -334,10 +335,21 @@ def fetch_rss(*urls, max_per_feed=4):
             finally:
                 socket.setdefaulttimeout(old_timeout)
             for entry in feed.entries[:max_per_feed]:
+                title = entry.get('title', '').strip()
+                # Normalise for comparison: lowercase, strip punctuation
+                norm = re.sub(r'[^a-z0-9 ]', '', title.lower()).strip()
+                # Skip if we've seen a very similar title already
+                if norm in seen_titles:
+                    continue
+                # Also skip if first 6 words match an existing title (catches same story with slightly different headline)
+                prefix = ' '.join(norm.split()[:6])
+                if any(t.startswith(prefix) for t in seen_titles if prefix):
+                    continue
+                seen_titles.add(norm)
                 raw_summary = entry.get('summary', entry.get('description', ''))
                 clean_summary = re.sub(r'<[^>]+>', '', raw_summary).strip()
                 articles.append({
-                    'title':   entry.get('title', '').strip(),
+                    'title':   title,
                     'summary': clean_summary[:400],
                     'source':  feed.feed.get('title', url),
                     'link':    entry.get('link', ''),
