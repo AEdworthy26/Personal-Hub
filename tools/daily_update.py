@@ -154,7 +154,17 @@ def extract_js(text):
         if trailing:  # there is non-JS text after the last };
             log(f"  [info] Trimmed trailing prose ({len(trailing)} chars) from Claude output")
             text = text[:last_js + 2]
-    # Reject if the output doesn't start with a JS statement
+    # Strip any leading prose before the first JS statement
+    js_start = -1
+    for kw in ('var ', 'window.', 'const ', 'let '):
+        idx = text.find('\n' + kw)
+        if idx != -1 and (js_start == -1 or idx < js_start):
+            js_start = idx + 1  # skip the newline
+    if js_start > 0:
+        leading = text[:js_start].strip()
+        log(f"  [info] Stripped leading prose ({len(leading)} chars) from Claude output")
+        text = text[js_start:]
+    # Reject if the output still doesn't start with a JS statement
     first_line = text.lstrip().split('\n')[0]
     if not any(first_line.startswith(kw) for kw in ('var ', 'window.', 'const ', 'let ', '//')):
         log(f"  [error] Output doesn't look like JavaScript (starts with: {first_line[:60]!r}) — skipping")
