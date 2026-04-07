@@ -657,7 +657,7 @@ window.PHILOSOPHY_DATA = {{
     rivals: 'Their key intellectual rivals or critics in 1-2 sentences.'
   }}
 }};"""
-    js = extract_js(call_claude(prompt, timeout=420))
+    js = extract_js(call_claude(prompt, timeout=420, max_tokens=8192))
     if not js:
         return None
     # Inject image for the main theory: Wikipedia first (person/place/concept), then Pexels
@@ -893,7 +893,7 @@ var CURIOSITY_DATA = {{
     image: "__IMG_CURIOSITY_OTD__"
   }}
 }};"""
-    js = extract_js(call_claude(prompt, timeout=420))
+    js = extract_js(call_claude(prompt, timeout=420, max_tokens=8192))
     if not js:
         return None
     # Inject images: Wikipedia first (person/place/event), then Pexels fallback
