@@ -4,22 +4,46 @@
 var UK_POLITICS_NEWS = {
   date: "2026-04-08",
   main: {
-    title: "Oil Prices Plunge After US-Iran Ceasefire Deal, Raising Questions for UK Energy Policy",
+    title: "Six-Day Junior Doctors' Strike Begins, Causing NHS Disruption Across England",
     category: "Politics",
     content: [
-      "The dramatic plunge in global oil prices following the announcement of a two-week ceasefire between the United States and Iran is set to have significant ramifications for the UK economy and domestic political debate. Brent crude fell sharply after the deal to reopen the Strait of Hormuz was confirmed, easing weeks of anxiety that had gripped Westminster over spiralling energy costs and their impact on British households. Chancellor Rachel Reeves and her Treasury team are now urgently reassessing fiscal forecasts that had been drawn up against the backdrop of surging oil prices during the Persian Gulf crisis.",
-      "The conflict between the US and Iran had sent fuel prices at British pumps to their highest levels since the 2022 energy crisis, placing enormous pressure on the Labour government to intervene with emergency support for consumers. Opposition Conservative MPs had seized on the issue, accusing ministers of being too slow to act and calling for an immediate cut to fuel duty. The sudden drop in oil prices has eased some of that political pressure, though analysts caution that a two-week truce may prove fragile and prices could rebound quickly if negotiations collapse.",
-      "In the House of Commons, Prime Minister Keir Starmer welcomed the ceasefire but struck a cautious tone, telling MPs that the UK must not become complacent about its energy security. He reiterated the government's commitment to accelerating the transition to renewable energy sources, arguing that the volatility of recent weeks underscored the dangers of continued dependence on fossil fuels. Liberal Democrat leader Ed Davey called for a cross-party summit on long-term energy resilience, warning that Britain remained too exposed to geopolitical shocks in global oil markets.",
-      "The crisis has also reignited debate within Labour's own ranks about the pace of the government's green energy agenda. Backbench MPs from industrial constituencies have urged ministers to use the breathing space provided by lower oil prices to fast-track investment in domestic wind and nuclear capacity, rather than simply passing on savings to consumers. Meanwhile, Scottish First Minister John Swinney pressed for greater devolved control over energy policy, arguing that Scotland's renewable resources could insulate the UK from future price shocks if properly harnessed.",
-      "Beyond energy, the wider economic implications of the ceasefire deal are being closely watched at Westminster. The Bank of England had flagged elevated oil prices as a key risk to inflation, and the sudden reversal could influence the timing of any future interest rate decisions. For the government, the episode has served as a stark reminder that international events can rapidly reshape the domestic political landscape, with Treasury sources acknowledging that contingency planning for a prolonged conflict had been well advanced before the ceasefire was announced."
+      "A six-day strike by doctors has begun across England, with the NHS warning patients to expect significant disruption to services throughout the walkout. Health authorities are urging the public to use emergency services only when strictly necessary, while emphasising that confirmed appointments should still be attended as planned. The industrial action marks another flashpoint in the ongoing tensions between medical professionals and the government over pay, conditions, and workforce planning.",
+      "The strike has once again placed the government's management of the NHS at the centre of political debate, with opposition parties seizing on the action as evidence of chronic mismanagement and a failure to reach durable settlements with frontline staff. Ministers have faced repeated criticism over their handling of NHS pay disputes, and the resumption of strike action suggests that previously negotiated agreements have failed to resolve the underlying discontent within the medical workforce. Patients and health campaigners have warned that continued industrial action risks causing lasting harm to the health service's ability to deliver timely care.",
+      "Hospital trusts have been activating contingency plans to manage reduced staffing levels during the six-day period, with elective procedures and non-urgent appointments being rescheduled where possible. The NHS has acknowledged that some disruption is inevitable and has appealed for public understanding, stressing that emergency and critical care services will be maintained throughout the strike. Staff not involved in the action are expected to work to cover essential services, though unions have warned that the pressure on non-striking workers is unsustainable.",
+      "The strike comes at a difficult moment for the government, which is already navigating a series of domestic political pressures including welfare reform, public spending constraints, and internal party tensions. Health Secretary Wes Streeting has faced particular scrutiny over his handling of NHS industrial relations, having previously positioned himself as someone capable of forging a new relationship with health workers after years of acrimony. The fresh walkout undermines that narrative and hands political opponents fresh ammunition heading into a period of intense parliamentary scrutiny.",
+      "Health policy analysts have warned that successive rounds of strike action are compounding waiting list pressures that were already a defining political challenge for the Labour government. With patients facing renewed uncertainty over appointments and referrals, the human cost of the dispute is becoming increasingly visible. Resolving the standoff will require political will on both sides, but with negotiations apparently stalled, there is little immediate sign of a breakthrough that could bring the industrial action to an end."
     ],
-    image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/7c92/live/4b2bc340-32d8-11f1-b63d-15080c5ce187.jpg",
+    image: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1200&auto=format&fit=crop",
     source: "BBC News",
-    sourceUrl: "https://www.bbc.com/news/articles/c8r40y3rv75o?at_medium=RSS&at_campaign=rss"
+    sourceUrl: "https://www.bbc.com/news/articles/c8ej461k3e5o?at_medium=RSS&at_campaign=rss"
   },
   secondary: [
-    { id: "uk1", title: "World Welcomes US-Iran Ceasefire as UK Urges Lasting Peace", summary: "Countries including the UK have urged full commitment to the two-week ceasefire between the US and Iran, with British officials calling for sustained diplomatic efforts toward lasting peace in the Middle East.", image: "https://images.pexels.com/photos/35906818/pexels-photo-35906818.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/4/8/world-welcomes-us-iran-ceasefire-urges-lasting-peace-in-the-middle-east?traffic_source=rss", category: "International" },
-    { id: "uk2", title: "Democrats Raise Alarm Over Trump's Iran Rhetoric as UK Watches Closely", summary: "Dozens of US congressional Democrats have raised concerns over President Trump's rhetoric on Iran, with the escalating tensions having prompted anxious debate among British lawmakers about the UK's diplomatic stance.", image: "https://images.pexels.com/photos/11263489/pexels-photo-11263489.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "NPR", url: "https://www.npr.org/2026/04/07/g-s1-116722/congressional-democrats-raise-alarm-over-trumps-comments-on-iran", category: "International" },
-    { id: "uk3", title: "Netanyahu Says US-Iran Ceasefire Does Not Include Lebanon", summary: "Israeli Prime Minister Benjamin Netanyahu has declared that the US-Iran ceasefire does not extend to Lebanon, raising fresh concerns in Westminster about the broader regional stability that could affect British interests.", image: "https://images.pexels.com/photos/11828629/pexels-photo-11828629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "Al Jazeera", url: "https://www.aljazeera.com/news/2026/4/8/netanyahu-says-us-iran-ceasefire-does-not-include-lebanon?traffic_source=rss", category: "International" }
+    {
+      id: "uk1",
+      title: "Plan 2 Student Loan Interest Rates Capped at 6% in England",
+      summary: "The government has capped interest rates on Plan 2 and postgraduate student loans at 6% amid concerns about rising inflation pushing borrowing costs higher for graduates.",
+      image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/da87/live/79584fc0-3271-11f1-b297-95b0a0a8331e.jpg",
+      source: "BBC News",
+      url: "https://www.bbc.com/news/articles/crr1e5zqdyko?at_medium=RSS&at_campaign=rss",
+      category: "Politics"
+    },
+    {
+      id: "uk2",
+      title: "Starmer Ally Paves Way for Fresh Row with Labour Rebels Over Benefits Cuts",
+      summary: "Bridget Phillipson, a close ally of the Prime Minister, has signalled that further welfare reform is needed to get people back into work, setting up a fresh confrontation with Labour backbenchers opposed to benefit cuts.",
+      image: "https://static.independent.co.uk/2026/03/30/16/6caf0490c463ad8a3b328ff99bc81d01Y29udGVudHNlYXJjaGFwaSwxNzc0OTcxNDE0-2.84029254.jpg?width=1200&auto=webp&crop=3%3A2",
+      source: "The Independent",
+      url: "https://www.independent.co.uk/news/uk/politics/welfare-cuts-bridget-phillipson-two-child-benefit-cap-b2952469.html",
+      category: "Politics"
+    },
+    {
+      id: "uk3",
+      title: "Tories Vow to 'End Nonsense' of Four-Day Working Week for Council Staff",
+      summary: "Conservative leader Sir James Cleverly has pledged to ban four-day working weeks for council employees, arguing that taxpayers should not fund part-time services at full-time rates.",
+      image: "https://static.independent.co.uk/2024/01/10/16/GettyImages-1174462899.jpg?width=1200&auto=webp&crop=3%3A2",
+      source: "The Independent",
+      url: "https://www.independent.co.uk/news/uk/politics/four-day-work-week-ban-tories-james-cleverley-b2953079.html",
+      category: "Politics"
+    }
   ]
 };

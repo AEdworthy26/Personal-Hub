@@ -4,22 +4,46 @@
 var WORLD_NEWS = {
   date: "2026-04-08",
   main: {
-    title: "US, Iran and Israel Agree to Two-Week Ceasefire as Strait of Hormuz Set to Reopen",
-    category: "International",
+    title: "US and Iran Agree Two-Week Ceasefire, Averting Imminent Escalation",
+    category: "Geopolitics",
     content: [
-      "The United States and Iran have agreed to a provisional two-week ceasefire, pulling back from the brink of a wider conflagration just hours before President Trump's Tuesday evening deadline for Iran to reopen the strategically vital Strait of Hormuz. The deal, which Israel has also signed onto, suspends more than a month of coordinated US and Israeli strikes on Iranian territory and opens the door for the resumption of oil shipments through one of the world's most critical maritime chokepoints. Oil prices plunged immediately on the announcement, as markets priced in the prospect of restored Gulf energy flows after weeks of severe disruption.",
-      "The ceasefire comes at an enormous human and diplomatic cost. Among the most devastating episodes of the conflict was the US strike on a girls' school in the southern Iranian city of Minab, which killed 168 people and has become a rallying point for Iranian grief and anger. Iranians gathered in large numbers on Tuesday to commemorate the victims, with scenes of mourning broadcast widely across the Middle East and beyond, deepening international scrutiny of the conduct of the US-led campaign.",
-      "Global reaction to the truce has been a mixture of relief and caution. Countries across Europe, Asia and the Middle East welcomed the cessation of hostilities and urged both sides to commit fully to the terms, with Pakistan receiving particular praise for its role in facilitating behind-the-scenes negotiations. However, Israeli Prime Minister Benjamin Netanyahu moved swiftly to clarify that the ceasefire does not extend to Lebanon, signalling that Israeli military operations against Hezbollah and other Iranian-linked groups in the region will continue unabated.",
-      "In Washington, the political response was sharply divided. Democrats welcomed the truce but demanded accountability for the scale of destruction and civilian casualties inflicted during weeks of bombing, while also questioning whether President Trump's earlier threats to 'wipe out Iran's civilisation' had undermined America's moral authority. Most Republican lawmakers remained silent, though hawkish voices within the party expressed scepticism about entering negotiations with Tehran, warning that a temporary pause could allow Iran to regroup.",
-      "Analysts say the path to this ceasefire may have fundamentally altered global perceptions of the United States, with the BBC noting that the episode has reshaped how the rest of the world views American power and its willingness to use overwhelming force. The two-week window now raises urgent questions about whether a more lasting peace deal can be reached, or whether hostilities will resume once the truce expires. Meanwhile, the conflict's knock-on effects continue to ripple outward — Ukraine has ramped up attacks on Russian oil infrastructure, seeking to curb the windfall Moscow has reaped from surging energy prices during the Persian Gulf crisis."
+      "The United States, Iran, and Israel have agreed to a two-week ceasefire, halting more than forty days of coordinated US-Israeli strikes on Iranian territory. The deal was struck just an hour before a deadline set by President Trump, who had threatened to devastate Iran if it did not reopen the Strait of Hormuz. Under the terms of the truce, the US and Israel will suspend bombing operations while Iran has committed to allowing safe passage through the strategically vital waterway.",
+      "The ceasefire represents a significant de-escalation from a conflict that had rattled global energy markets and raised fears of a wider regional war. Oil prices tumbled by as much as fifteen percent on news of the agreement, reflecting how severely the closure of the Strait of Hormuz had disrupted global crude supply. Markets had been on edge since the US and Israel launched coordinated attacks on Iran over a month ago, and the provisional truce offered investors their first significant relief in weeks.",
+      "Analysts and diplomats have been quick to note the geopolitical complexity underlying what appears on the surface to be a pragmatic deal. The BBC has observed that the path to the ceasefire may have fundamentally altered how the rest of the world views American power and credibility — raising questions about Washington's willingness to sustain a prolonged military campaign. Trump's decision to step back from his threat to destroy Iranian civilian infrastructure, including power plants, was seen by many observers as a significant retreat from maximalist rhetoric.",
+      "Israel has clarified that the ceasefire does not extend to Lebanon, signalling that its broader regional military posture remains unchanged. The two-week window is widely seen as a fragile opening for negotiations rather than a durable resolution, with the underlying dispute over Iran's nuclear programme and its regional influence still unresolved. Congressional Democrats have raised alarm over the manner in which the conflict has been prosecuted, while most Republican lawmakers have remained silent on both the war and its uncertain conclusion.",
+      "The agreement also has significant implications for Ukraine, which had been ramping up attacks on Russian oil infrastructure in an effort to counteract the windfall Moscow was receiving from elevated energy prices driven by the Gulf conflict. Kyiv's strikes on Russian refineries and export terminals were a direct response to the way the Iran war had enriched the Kremlin's war chest. Whether the ceasefire holds — and how it reshapes the interlocking pressures across multiple theatres of global conflict — will be among the most consequential questions of the coming fortnight."
     ],
-    image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/7c92/live/4b2bc340-32d8-11f1-b63d-15080c5ce187.jpg",
-    source: "BBC News",
-    sourceUrl: "https://www.bbc.com/news/articles/ce84z6y3ke4o?at_medium=RSS&at_campaign=rss"
+    image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/2903/live/9dacbc50-32ec-11f1-99b6-23f4623af7b4.jpg",
+    source: "NPR",
+    sourceUrl: "https://www.npr.org/2026/04/08/nx-s1-5777291/iran-war-updates"
   },
   secondary: [
-    { id: "s1", title: "Pakistan Airstrike Hit Drug Rehab Centre in Kabul, Not Military Target, Investigations Suggest", summary: "Investigations indicate that a Pakistani airstrike described by Islamabad as hitting a military target in Afghanistan actually struck a drug rehabilitation centre, making it the deadliest attack in the country since the Taliban takeover as families search among remains for their relatives.", image: "https://static01.nyt.com/images/2026/04/01/multimedia/00int-kabul-strike-families-promo-mzbc/00int-kabul-strike-families-promo-mzbc-mediumSquareAt3X.jpg", source: "New York Times", url: "https://www.nytimes.com/2026/04/07/world/asia/kabul-drug-rehab-pakistan-airstrike.html", category: "Conflict" },
-    { id: "s2", title: "Ukraine Ramps Up Attacks on Russian Oil to Curb Iran War Windfall", summary: "Ukrainian forces are intensifying strikes against Russian oil refineries and shipping infrastructure, aiming to reduce the surge in revenue Moscow has gained from soaring energy prices caused by the Persian Gulf conflict.", image: "https://static01.nyt.com/images/2026/04/07/multimedia/07int-ukraine-russia-oil-01-qgfv/07int-ukraine-russia-oil-01-qgfv-mediumSquareAt3X.jpg", source: "New York Times", url: "https://www.nytimes.com/2026/04/07/world/europe/ukraine-attacks-russian-oil-exports.html", category: "Conflict" },
-    { id: "s3", title: "Burkina Faso's Military Ruler Tells Citizens to 'Forget About Democracy'", summary: "Captain Ibrahim Traoré, who seized power in a 2022 coup, declared in a state television interview that democracy is 'not for us,' deepening concerns about the erosion of democratic governance across West Africa's Sahel region.", image: "https://images.pexels.com/photos/35590706/pexels-photo-35590706.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "The Guardian", url: "https://www.theguardian.com/world/2026/apr/03/people-burkina-faso-should-forget-about-democracy-military-ruler-ibrahim-traore", category: "Politics" }
+    {
+      id: "s1",
+      title: "Pakistan Airstrike on Afghan Rehab Centre Kills Dozens",
+      summary: "An airstrike Pakistan says targeted a military installation struck what investigations indicate was a drug rehabilitation centre in Kabul, resulting in the deadliest attack in Afghanistan since the Taliban took power.",
+      image: "https://images.unsplash.com/photo-1526470498-9ae73c665de8?w=800&auto=format&fit=crop",
+      source: "The New York Times",
+      url: "https://www.nytimes.com/2026/04/07/world/asia/kabul-drug-rehab-pakistan-airstrike.html",
+      category: "Conflict"
+    },
+    {
+      id: "s2",
+      title: "Burkina Faso's Military Ruler Tells Citizens to 'Forget About Democracy'",
+      summary: "Ibrahim Traoré, who seized power in a 2022 coup, told state broadcaster that democracy 'is not for' the people of Burkina Faso, the latest authoritarian consolidation in a country that has seen two coups in under a year.",
+      image: "https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=800&auto=format&fit=crop",
+      source: "The Guardian",
+      url: "https://www.theguardian.com/world/2026/apr/03/people-burkina-faso-should-forget-about-democracy-military-ruler-ibrahim-traore",
+      category: "Politics"
+    },
+    {
+      id: "s3",
+      title: "Taiwan Opposition Leader Makes Rare Visit to China, Calls for Reconciliation",
+      summary: "KMT chief Cheng Li-wun, the first leader of the party to visit mainland China in a decade, arrived in Beijing calling for dialogue and hopes to secure a meeting with President Xi Jinping.",
+      image: "https://images.unsplash.com/photo-1568454537842-d933259bb258?w=800&auto=format&fit=crop",
+      source: "Al Jazeera",
+      url: "https://www.aljazeera.com/news/2026/4/8/on-rare-china-visit-taiwans-opposition-leader-calls-for-reconciliation?traffic_source=rss",
+      category: "Diplomacy"
+    }
   ]
 };
