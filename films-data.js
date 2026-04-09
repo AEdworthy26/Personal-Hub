@@ -1,18 +1,18 @@
 // films-data.js
-// Auto-updated 2026-04-08 — do not edit manually
+// Auto-updated 2026-04-09 — do not edit manually
 
 var FILMS_DATA = {
-  date: "2026-04-08",
+  date: "2026-04-09",
   film: {
-    title: "The Apartment",
-    director: "Billy Wilder",
-    year: 1960,
-    genres: ["Comedy", "Romance", "Drama"],
-    desc: "Billy Wilder's masterpiece follows C.C. Baxter, a lonely insurance clerk who climbs the corporate ladder by lending his apartment to executives for their extramarital affairs — until he falls for the one woman entangled in the arrangement. Jack Lemmon delivers one of cinema's most perfectly calibrated performances, threading the needle between slapstick physical comedy and genuine heartbreak with breathtaking ease. Shirley MacLaine matches him beat for beat as Fran Kubelik, the elevator operator whose warmth and wounded dignity give the film its emotional core. What begins as a sharp-witted satire of corporate America gradually deepens into something achingly tender — a story about two bruised people finding the courage to choose each other over the hollow promises of ambition and convenience. The final scene, with its famous last line, remains one of the most earned and emotionally perfect endings in all of cinema.",
-    cast: ["Jack Lemmon", "Shirley MacLaine", "Fred MacMurray"],
-    rating: 93,
+    title: "Spirited Away",
+    director: "Hayao Miyazaki",
+    year: 2001,
+    genres: ["Animation", "Fantasy", "Adventure"],
+    desc: "When ten-year-old Chihara stumbles into a mysterious spirit world after her parents are transformed into pigs, she must find the courage and resourcefulness to survive a realm of gods, witches, and shape-shifters. Hayao Miyazaki crafted what may be the most breathtaking animated film ever made — every frame overflows with invention, from the eerie grandeur of Yubaba's bathhouse to the quiet poetry of a train gliding across a flooded plain. Beneath its dazzling surface lies a deeply felt story about growing up, losing your name, and remembering who you are when everything familiar has been stripped away. Joe Hisaishi's luminous score elevates the wonder even further, turning moments of stillness into something transcendent. It remains the highest-grossing film in Japanese history and the only hand-drawn animated feature to win the Academy Award for Best Animated Feature.",
+    cast: ["Rumi Hiiragi", "Miyu Irino", "Mari Natsuki"],
+    rating: 97,
     ratingSource: "Rotten Tomatoes",
-    ratingExtra: "5 Academy Awards including Best Picture",
-    posterUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8b/The_Apartment_%281960_poster%29.jpg"
+    ratingExtra: "1 Academy Award (Best Animated Feature)",
+    posterUrl: "https://upload.wikimedia.org/wikipedia/en/d/db/Spirited_Away_Japanese_poster.png"
   }
 };

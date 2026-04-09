@@ -1,49 +1,25 @@
 // world-news-data.js
-// Auto-updated 2026-04-08 — do not edit manually
+// Auto-updated 2026-04-09 — do not edit manually
 
 var WORLD_NEWS = {
-  date: "2026-04-08",
+  date: "2026-04-09",
   main: {
-    title: "US and Iran Agree Two-Week Ceasefire, Averting Imminent Escalation",
-    category: "Geopolitics",
+    title: "US-Iran Ceasefire Holds Amid Confusion Over Strait of Hormuz and Deadly Israeli Strikes on Lebanon",
+    category: "International",
     content: [
-      "The United States, Iran, and Israel have agreed to a two-week ceasefire, halting more than forty days of coordinated US-Israeli strikes on Iranian territory. The deal was struck just an hour before a deadline set by President Trump, who had threatened to devastate Iran if it did not reopen the Strait of Hormuz. Under the terms of the truce, the US and Israel will suspend bombing operations while Iran has committed to allowing safe passage through the strategically vital waterway.",
-      "The ceasefire represents a significant de-escalation from a conflict that had rattled global energy markets and raised fears of a wider regional war. Oil prices tumbled by as much as fifteen percent on news of the agreement, reflecting how severely the closure of the Strait of Hormuz had disrupted global crude supply. Markets had been on edge since the US and Israel launched coordinated attacks on Iran over a month ago, and the provisional truce offered investors their first significant relief in weeks.",
-      "Analysts and diplomats have been quick to note the geopolitical complexity underlying what appears on the surface to be a pragmatic deal. The BBC has observed that the path to the ceasefire may have fundamentally altered how the rest of the world views American power and credibility — raising questions about Washington's willingness to sustain a prolonged military campaign. Trump's decision to step back from his threat to destroy Iranian civilian infrastructure, including power plants, was seen by many observers as a significant retreat from maximalist rhetoric.",
-      "Israel has clarified that the ceasefire does not extend to Lebanon, signalling that its broader regional military posture remains unchanged. The two-week window is widely seen as a fragile opening for negotiations rather than a durable resolution, with the underlying dispute over Iran's nuclear programme and its regional influence still unresolved. Congressional Democrats have raised alarm over the manner in which the conflict has been prosecuted, while most Republican lawmakers have remained silent on both the war and its uncertain conclusion.",
-      "The agreement also has significant implications for Ukraine, which had been ramping up attacks on Russian oil infrastructure in an effort to counteract the windfall Moscow was receiving from elevated energy prices driven by the Gulf conflict. Kyiv's strikes on Russian refineries and export terminals were a direct response to the way the Iran war had enriched the Kremlin's war chest. Whether the ceasefire holds — and how it reshapes the interlocking pressures across multiple theatres of global conflict — will be among the most consequential questions of the coming fortnight."
+      "A fragile two-week ceasefire between the United States and Iran has taken effect after more than a month of coordinated US and Israeli military strikes against Iranian targets, but the truce is already being tested by conflicting signals from both sides. The provisional agreement, brokered under intense international pressure, came just hours after President Trump threatened to destroy Iran's 'whole civilization.' While global markets rallied — with oil prices plunging and stocks soaring — the status of the strategically vital Strait of Hormuz remains unclear, with US and Iranian officials issuing duelling threats to resume hostilities if the ceasefire collapses.",
+      "The ceasefire has done little to halt violence across the broader region. Within hours of the truce announcement, Israel launched a devastating wave of airstrikes across Lebanon, killing at least 182 people in attacks targeting the southern suburbs of Beirut, southern Lebanon, and the eastern Bekaa Valley. A 13-year-old girl in Beirut captured the terrifying moment the bombardment began on Snapchat, footage that has since been viewed millions of times and has intensified global condemnation of the escalating campaign.",
+      "Analysts say the ceasefire gives President Trump a potential off-ramp from a war that has failed to achieve its stated objectives. Trump's original war goals included dismantling Iran's nuclear programme, destroying its military capabilities, and triggering regime change — none of which have been accomplished according to multiple assessments. The path to the truce may have fundamentally altered how the rest of the world views American power and reliability, with allies and adversaries alike recalibrating their strategic calculations.",
+      "Trump's frustration with NATO allies has boiled over in the wake of the conflict. Meeting with NATO Secretary General Mark Rutte in what was described as a 'very frank' exchange, the US president accused the alliance of failing to support Washington during the Iran war, declaring that NATO 'wasn't there when we needed them.' Trump also renewed his threats regarding Greenland, further straining transatlantic relations at a moment when Western unity is already under severe pressure. Hundreds of vehicles drove through Istanbul in a Turkish convoy condemning what organisers called the 'lawless aggression' of the US and Israel.",
+      "The global economic impact of even a temporary pause in hostilities has been immediate and dramatic. Investors around the world breathed a collective sigh of relief at the prospect of peace and an easing of the energy crisis that had sent fuel prices spiralling during weeks of conflict near some of the world's most critical oil shipping routes. However, with both Washington and Tehran warning that attacks could resume if the other side violates the ceasefire terms, and with Israel continuing major military operations in Lebanon apparently outside the scope of the agreement, the durability of this fragile truce remains deeply uncertain."
     ],
-    image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/2903/live/9dacbc50-32ec-11f1-99b6-23f4623af7b4.jpg",
-    source: "NPR",
-    sourceUrl: "https://www.npr.org/2026/04/08/nx-s1-5777291/iran-war-updates"
+    image: "https://static01.nyt.com/images/2026/04/08/multimedia/08israel-iran-promo6p/08israel-iran-promo4p-mphc-mediumSquareAt3X.jpg",
+    source: "New York Times",
+    sourceUrl: "https://www.nytimes.com/live/2026/04/08/world/iran-war-trump-news"
   },
   secondary: [
-    {
-      id: "s1",
-      title: "Pakistan Airstrike on Afghan Rehab Centre Kills Dozens",
-      summary: "An airstrike Pakistan says targeted a military installation struck what investigations indicate was a drug rehabilitation centre in Kabul, resulting in the deadliest attack in Afghanistan since the Taliban took power.",
-      image: "https://images.unsplash.com/photo-1526470498-9ae73c665de8?w=800&auto=format&fit=crop",
-      source: "The New York Times",
-      url: "https://www.nytimes.com/2026/04/07/world/asia/kabul-drug-rehab-pakistan-airstrike.html",
-      category: "Conflict"
-    },
-    {
-      id: "s2",
-      title: "Burkina Faso's Military Ruler Tells Citizens to 'Forget About Democracy'",
-      summary: "Ibrahim Traoré, who seized power in a 2022 coup, told state broadcaster that democracy 'is not for' the people of Burkina Faso, the latest authoritarian consolidation in a country that has seen two coups in under a year.",
-      image: "https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=800&auto=format&fit=crop",
-      source: "The Guardian",
-      url: "https://www.theguardian.com/world/2026/apr/03/people-burkina-faso-should-forget-about-democracy-military-ruler-ibrahim-traore",
-      category: "Politics"
-    },
-    {
-      id: "s3",
-      title: "Taiwan Opposition Leader Makes Rare Visit to China, Calls for Reconciliation",
-      summary: "KMT chief Cheng Li-wun, the first leader of the party to visit mainland China in a decade, arrived in Beijing calling for dialogue and hopes to secure a meeting with President Xi Jinping.",
-      image: "https://images.unsplash.com/photo-1568454537842-d933259bb258?w=800&auto=format&fit=crop",
-      source: "Al Jazeera",
-      url: "https://www.aljazeera.com/news/2026/4/8/on-rare-china-visit-taiwans-opposition-leader-calls-for-reconciliation?traffic_source=rss",
-      category: "Diplomacy"
-    }
+    { id: "s1", title: "At Least 182 Killed Across Lebanon in Massive Wave of Israeli Strikes", summary: "Israel launched extensive airstrikes hitting Beirut's southern suburbs, southern Lebanon, and the Bekaa Valley hours after the US-Iran ceasefire was announced, killing at least 182 people.", image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/a1c0/live/d9445160-3341-11f1-9d5c-8ba507d7dbde.jpg", source: "BBC News", url: "https://www.bbc.com/news/articles/c0j6d538l6qo?at_medium=RSS&at_campaign=rss", category: "Conflict" },
+    { id: "s2", title: "Burkina Faso's Military Ruler Tells Citizens to 'Forget About Democracy'", summary: "Captain Ibrahim Traoré, who seized power in a 2022 coup, told state media that democracy is 'not for us,' drawing condemnation from rights groups and deepening concerns about democratic backsliding in West Africa.", image: "https://images.pexels.com/photos/14887285/pexels-photo-14887285.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "The Guardian", url: "https://www.theguardian.com/world/2026/apr/03/people-burkina-faso-should-forget-about-democracy-military-ruler-ibrahim-traore", category: "Politics" },
+    { id: "s3", title: "Australia's Decorated Ex-Soldier Ben Roberts-Smith to Stand Trial for Alleged War Crimes", summary: "Once celebrated as one of Australia's greatest war heroes, Ben Roberts-Smith will now face trial for alleged war crimes committed during military operations in Afghanistan.", image: "https://images.pexels.com/photos/1766215/pexels-photo-1766215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "NPR", url: "https://www.npr.org/2026/04/08/nx-s1-5776855/once-seen-as-a-war-hero-australian-ex-soldier-will-stand-trial-for-alleged-war-crimes", category: "Justice" }
   ]
 };

@@ -3,6 +3,44 @@
 
 var RICS_LOG = [
   {
+    "date": "2026-04-09",
+    "topic": "S106 Viability Review Mechanisms: Overage Clauses and Deferred Affordable Housing in RP-Led Schemes",
+    "module": "Planning and Development Management",
+    "level": 3,
+    "apc_competency": "Planning and Development Management (Level 3)",
+    "focus": "This lesson examines the mechanics of S106 viability review mechanisms \u2014 particularly late-stage (near-completion) and mid-term reviews \u2014 and how overage/clawback clauses interact with housing association delivery models. Understanding these mechanisms is critical for the APC because assessors expect candidates to demonstrate how they advise on, negotiate, and manage viability reviews that directly affect the quantum of affordable housing delivered.",
+    "image": "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1200&auto=format&fit=crop",
+    "summary": [
+      "Viability Review Mechanisms (VRMs) are standard in S106 agreements where affordable housing is below policy; they allow LPAs to clawback surplus profit as additional affordable units or commuted sums.",
+      "Overage calculations compare actual GDV and costs against original FVA assumptions, with surplus above a benchmark profit threshold (typically 17\u201320% on GDV) shared per an agreed formula, capped at policy-compliant affordable housing levels.",
+      "For RP-led schemes, VRMs create specific complexities around internal transfer values, Homes England grant eligibility for additional units, and potential conflicts where the RP is both developer and affordable housing recipient.",
+      "Negotiation of VRM trigger points, profit thresholds, cost verification processes, and delivery mechanisms is a critical skill \u2014 always model worst-case overage scenarios in initial appraisals.",
+      "Maintain auditable records of sales revenues, build costs, and affordable unit transfer values throughout the development to support the VRM review process and any independent assessor appointment."
+    ],
+    "qa": [
+      {
+        "q": "Can you explain how you would model the financial impact of a late-stage viability review mechanism on a Latimer scheme's development appraisal?",
+        "a": "I would include a contingency line in the appraisal representing the potential overage liability. Using Argus Developer or our bespoke Excel toolkit, I run sensitivity analyses at +5%, +10%, and +15% above base-case market GDV. At each scenario, I calculate the surplus above the agreed benchmark profit (e.g., 20% on GDV), apply the agreed sharing formula (commonly 60:40 developer:LPA), and model the resulting commuted sum or cost of delivering additional affordable units. I present the risk-adjusted IRR under each scenario to Latimer's investment committee, ensuring decision-makers understand that a VRM is an active financial risk, not a remote contingency. On a recent 150-unit scheme, this analysis showed that a 10% GDV uplift would trigger a \u00a3900k overage payment, reducing the developer margin from 18% to 16.2%."
+      },
+      {
+        "q": "What is the difference between an early-stage and a late-stage viability review, and when would each be appropriate?",
+        "a": "An early-stage review is triggered if a scheme has not substantially commenced within a defined period \u2014 typically 18\u201324 months \u2014 reflecting the risk that market conditions may have improved since consent, meaning more affordable housing could be viable. A late-stage review is triggered near practical completion or at a defined sales threshold (e.g., 75% of market units sold), using actual rather than projected sales data. The GLA SPG recommends both for Viability Tested Route schemes. For phased developments, mid-term reviews at each phase are also appropriate. Late-stage reviews are more robust because they use actual evidence, but early-stage reviews protect against land banking. In RP-led schemes, early-stage reviews are less relevant because RPs typically commence promptly to meet AHP programme milestones."
+      },
+      {
+        "q": "How do you handle the situation where a viability review triggers additional affordable housing, but Homes England grant was not allocated for those units?",
+        "a": "This is a real practical challenge. If the VRM triggers additional affordable units, I would first check the AHP contract to determine whether a variation is possible \u2014 Homes England can agree to contract variations for additional units if they meet programme criteria and are within the strategic partnership allocation. If grant is unavailable, the additional units must be funded from the overage surplus itself or from Clarion's own cross-subsidy. I would negotiate S106 wording upfront that allows the overage obligation to be satisfied through a commuted sum rather than on-site delivery if grant funding is not available, giving the RP flexibility. In practice, I would also ensure the original appraisal includes a sensitivity for unfunded additional affordable units to avoid any surprises."
+      },
+      {
+        "q": "An LPA argues that your affordable unit transfer values in the VRM review are too low. How do you respond?",
+        "a": "I would provide evidence-based justification. Transfer values for affordable rented units are derived from capitalised net rental income using a yield that reflects RP borrowing costs \u2014 typically a discount rate of 5.5\u20136.5% applied to net rent after management, maintenance, and void assumptions. For shared ownership, I would evidence the first tranche sale price (typically 25\u201340% of OMV) plus capitalised rent on the unsold equity. I would benchmark these values against comparable RP acquisition prices in the borough \u2014 data available from Homes England's CORE system and from RP transaction records. If the LPA's concern is that our internal transfer price is artificially depressed, I would demonstrate that the values align with what any arm's-length RP would pay, supported by independent valuation if necessary. Transparency is key \u2014 the S106 should specify the methodology for calculating affordable values at the review stage."
+      },
+      {
+        "q": "How does the revised NPPF (2024) affect your approach to negotiating S106 viability review mechanisms?",
+        "a": "The December 2024 NPPF revision strengthened paragraph 58 to explicitly require review mechanisms on schemes where viability arguments reduce affordable housing below policy. This means I can no longer negotiate VRM-free S106 agreements on viability-tested schemes \u2014 it is now a clear policy expectation. In practice, I focus negotiations on the detailed terms rather than trying to exclude VRMs entirely. Key areas include: ensuring the profit benchmark aligns with RICS guidance (typically 15\u201320% on GDV); securing a cap at policy-compliant levels so there is no risk of exceeding the original target; agreeing cost verification methodology that includes verified abnormal costs; and ensuring the review timeline aligns with our sales programme so we have actual data to work with. The NPPF change also strengthens the LPA's hand in planning committee, so I ensure our viability consultants draft VRM wording that is commercially workable before heads of terms are agreed."
+      }
+    ]
+  },
+  {
     "date": "2026-04-08",
     "topic": "S106 Viability Reviews: Late-Stage Review Mechanisms and Clawback in Affordable Housing Delivery",
     "module": "Planning and Development Management",
