@@ -177,6 +177,29 @@ def extract_js(text):
         return None
     return text.strip()
 
+def recent_values(filename, field, days=7):
+    """Read the last N days of a field from a data file via git log, to avoid repeating content."""
+    values = []
+    try:
+        log_out = subprocess.run(
+            ['git', '-C', REPO_DIR, 'log', '--pretty=format:%H', f'--since={days} days ago', '--', filename],
+            capture_output=True, text=True
+        ).stdout.strip().split('\n')
+        for commit in log_out:
+            if not commit:
+                continue
+            content = subprocess.run(
+                ['git', '-C', REPO_DIR, 'show', f'{commit}:{filename}'],
+                capture_output=True, text=True
+            ).stdout
+            match = re.search(field + r'[:\s]+["\']([^"\']{4,80})["\']', content)
+            if match and match.group(1) not in values:
+                values.append(match.group(1))
+    except Exception:
+        pass
+    return values
+
+
 def write_file(filename, content):
     path = os.path.join(REPO_DIR, filename)
     with open(path, 'w', encoding='utf-8') as f:
@@ -576,9 +599,14 @@ var {var_name} = {{
 
 def gen_quiz():
     log("\n── Quiz of the day")
+    recent_q = recent_values('quiz-data.js', 'question')
+    avoid_q = '\n'.join(f'- {q}' for q in recent_q) if recent_q else 'None'
     prompt = f"""Generate a general knowledge question of the day for {TODAY}.
 Choose from topics the user enjoys: Ancient History, History, British Politics, Geography, Sport, Literature, Science, Art, Music, Philosophy.
 Make sure the question is genuinely interesting and non-trivial — not too easy.
+
+IMPORTANT — do NOT repeat or closely resemble any of these recent questions:
+{avoid_q}
 
 Output ONLY this JavaScript. No explanation, no markdown. Start directly with "window.QUIZ_DATA".
 
@@ -594,8 +622,14 @@ window.QUIZ_DATA = {{
 
 def gen_philosophy():
     log("\n── Philosophy Corner")
+    recent_titles = recent_values('philosophy-data.js', 'title', days=30)
+    avoid = '\n'.join(f'- {t}' for t in recent_titles) if recent_titles else 'None'
     prompt = f"""Generate a daily philosophy article for a personal learning website. Today is {TODAY}.
-Choose a significant philosophical theory, thinker, or concept. Avoid: Kant's Categorical Imperative (already covered).
+Choose a significant philosophical theory, thinker, or concept.
+
+IMPORTANT — do NOT repeat any of these recently covered topics:
+{avoid}
+
 Write in the style of a high-quality long-read magazine — engaging, intelligent, structured with subheadings.
 Main article: EXACTLY 8 content blocks (mix of paragraphs and headings). Each paragraph: 4-5 sentences.
 Counter theories: 2 real philosophers who challenged this theory, 2-3 paragraph argument each.
@@ -859,8 +893,13 @@ def append_rics_log(rics_js):
 
 def gen_curiosity():
     log("\n── Curiosity Corner")
+    recent_titles = recent_values('curiosity-data.js', 'title', days=30)
+    avoid = '\n'.join(f'- {t}' for t in recent_titles) if recent_titles else 'None'
     prompt = f"""Generate curiosity corner content for a personal learning website. Today is {TODAY}.
 The user loves: ancient history, political history, exploration, remarkable lives, science, art, great events.
+
+IMPORTANT — do NOT repeat any of these recently covered main article topics:
+{avoid}
 Write in the style of a high-quality long-read. The main article should have EXACTLY 8 content blocks — no more.
 Each paragraph should be 3-4 sentences (not longer). Keep the bio to 3 paragraphs.
 The onThisDay section must be a REAL event that actually happened on {datetime.date.today().strftime('%B %-d')} in history.
@@ -951,21 +990,9 @@ var CURIOSITY_DATA = {{
 
 def gen_reads():
     log("\n── Book of the Day")
-    # Read yesterday's book so Claude avoids repeating it
-    prev_book = ''
-    try:
-        reads_path = os.path.join(REPO_DIR, 'reads-data.js')
-        if os.path.exists(reads_path):
-            with open(reads_path) as _f:
-                _content = _f.read()
-            _m = re.search(r'title:\s*["\'](.+?)["\']', _content)
-            if _m:
-                prev_book = _m.group(1)
-    except Exception:
-        pass
-    avoid = 'Sapiens, Wolf Hall, Rubicon'
-    if prev_book:
-        avoid += f', {prev_book} (yesterday\'s pick)'
+    recent_books = recent_values('reads-data.js', 'title', days=30)
+    avoid_list = ['Sapiens', 'Wolf Hall', 'Rubicon'] + recent_books
+    avoid = ', '.join(avoid_list)
 
     prompt = f"""Pick a single book to recommend today ({TODAY}) on a personal reading website.
 The user reads very broadly across all subjects and genres — do not default to history or ancient history.
@@ -1018,21 +1045,9 @@ var READS_DATA = {{
 
 def gen_films():
     log("\n── Film of the Day")
-    # Read yesterday's film so we can tell Claude to avoid it
-    prev_film = ''
-    try:
-        films_path = os.path.join(REPO_DIR, 'films-data.js')
-        if os.path.exists(films_path):
-            with open(films_path) as _f:
-                _content = _f.read()
-            _m = re.search(r'title:\s*["\'](.+?)["\']', _content)
-            if _m:
-                prev_film = _m.group(1)
-    except Exception:
-        pass
-    avoid = 'No Country for Old Men, Lawrence of Arabia, The Battle of Algiers'
-    if prev_film:
-        avoid += f', {prev_film} (yesterday\'s pick)'
+    recent_films = recent_values('films-data.js', 'title', days=30)
+    avoid_list = ['No Country for Old Men', 'Lawrence of Arabia', 'The Battle of Algiers'] + recent_films
+    avoid = ', '.join(avoid_list)
 
     prompt = f"""Pick a single film to recommend today ({TODAY}) on a personal reading website.
 The user watches very broadly — do not default to historical epics or political dramas.
