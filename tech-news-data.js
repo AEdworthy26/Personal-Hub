@@ -4,22 +4,46 @@
 var TECH_NEWS = {
   date: "2026-04-09",
   main: {
-    title: "Meta's Superintelligence Lab Unveils Its First Public Model, Muse Spark",
+    title: "Anthropic's New AI Model 'Mythos' Declared a Cybersecurity Reckoning",
     category: "Artificial Intelligence",
     content: [
-      "Meta has released Muse Spark, the first publicly available AI model to emerge from its dedicated Superintelligence Lab, marking a significant milestone in the company's ambitious push toward artificial general intelligence. The model demonstrates substantial improvements over Meta's previous AI offerings across a range of benchmarks, including reasoning, multimodal understanding, and natural language processing. The release signals that Meta's heavy investment in its superintelligence research division, formed to compete directly with OpenAI and Google DeepMind, is beginning to bear tangible fruit.",
-      "Despite the strong benchmark results, Meta has been candid about Muse Spark's limitations, acknowledging what it describes as 'performance gaps' in agentic tasks and coding capabilities. In coding evaluations, the model reportedly lags behind leading rivals from OpenAI, Anthropic, and Google, an area that has become a critical differentiator in the intensely competitive AI landscape. The admission is notable for its transparency, as major AI labs have increasingly faced scrutiny over cherry-picked benchmarks and selective disclosures about model performance.",
-      "The Superintelligence Lab, which Meta established in late 2025 under the leadership of veteran AI researcher Yann LeCun's broader organization, was created with the explicit goal of developing AI systems that could eventually match or exceed human cognitive abilities across all domains. Muse Spark is positioned as a foundational step in that journey rather than the destination itself. Meta executives have indicated that the model will serve as a platform for iterative improvement, with more capable successors expected in rapid succession throughout 2026.",
-      "The release comes at a particularly competitive moment in the AI industry. Just days earlier, Anthropic announced its own new model, Mythos, which the company described as a cybersecurity 'reckoning' due to its unprecedented ability to identify and prevent cyberattacks. Meanwhile, Google continues to expand its AI Overviews feature in search, and OpenAI has been pushing the conversation about AI's societal impact by encouraging companies to experiment with four-day work weeks. The pace of major model releases from leading labs has accelerated dramatically, with each company vying for dominance in enterprise adoption and developer ecosystems.",
-      "For Meta, Muse Spark also represents a strategic bet on open and semi-open AI development, continuing the approach the company pioneered with its LLaMA model family. By making the model publicly available, Meta hopes to attract a broad community of developers and researchers who will build applications on top of its technology, potentially creating a competitive moat through ecosystem scale rather than model secrecy alone. Industry analysts will be watching closely to see whether Muse Spark can gain meaningful traction against entrenched rivals, particularly as enterprise customers become more discerning about which AI platforms to build their businesses around."
+      "Anthropic has unveiled a powerful new artificial intelligence model called Mythos, describing it as a potential turning point — or 'reckoning' — for the cybersecurity industry. The company announced the model on Tuesday, claiming it represents a significant leap in capability over its predecessors. Rather than releasing it immediately to the public, Anthropic has chosen a more cautious path, partnering with a curated group of organisations to explore its potential and manage its risks.",
+      "Anthropic said it is working with 40 companies to investigate how Mythos could be used to detect and prevent cyberattacks before they occur. The model is reportedly capable of analysing complex threat landscapes, identifying vulnerabilities, and reasoning about attack vectors at a level that previous AI systems could not match. This makes it both a powerful defensive tool and a technology that carries serious risks if it were to fall into the wrong hands.",
+      "The decision to withhold Mythos from public release while conducting controlled trials signals a broader shift in how frontier AI labs are approaching deployment. Anthropic has long positioned itself as a safety-focused counterweight to more aggressive release strategies in the industry. By gate-keeping access and working with vetted partners first, the company is attempting to demonstrate that powerful AI can be rolled out responsibly without sacrificing competitive momentum.",
+      "The cybersecurity framing is particularly notable at a time when state-sponsored hacking and critical infrastructure attacks are escalating globally. Separate reports this week have highlighted Iranian-linked hackers disrupting US industrial sites and Russian operatives exploiting consumer routers for espionage. Against that backdrop, an AI system capable of reasoning about offensive security at a high level is both urgently needed and potentially dangerous in equal measure.",
+      "Industry analysts will be watching closely to see how Mythos performs in real-world trials and whether Anthropic's selective deployment approach proves viable as a model for other labs. The announcement intensifies an already fierce race among AI companies to produce systems that can operate effectively in high-stakes, adversarial environments. If Mythos lives up to its billing, it could reshape the cybersecurity landscape — and raise hard questions about where the line between defensive AI and offensive AI truly lies."
     ],
-    image: "https://images.pexels.com/photos/4389971/pexels-photo-4389971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    source: "New York Times",
-    sourceUrl: "https://www.nytimes.com/2026/04/08/technology/meta-muse-spark-ai-model.html"
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop",
+    source: "The New York Times",
+    sourceUrl: "https://www.nytimes.com/2026/04/07/technology/anthropic-claims-its-new-ai-model-mythos-is-a-cybersecurity-reckoning.html"
   },
   secondary: [
-    { id: "tc1", title: "Anthropic Claims Its New AI Model Mythos Is a Cybersecurity 'Reckoning'", summary: "Anthropic announced its powerful new AI model Mythos, which it says can transform cybersecurity defense, though the company is withholding a full public release while working with 40 companies to explore its potential.", image: "https://static01.nyt.com/images/2026/04/06/business/ROOSE-claude/ROOSE-claude-mediumSquareAt3X.jpg", source: "New York Times", url: "https://www.nytimes.com/2026/04/07/technology/anthropic-claims-its-new-ai-model-mythos-is-a-cybersecurity-reckoning.html", category: "Artificial Intelligence" },
-    { id: "tc2", title: "Iran-Linked Hackers Disrupt Operations at US Critical Infrastructure Sites", summary: "Hackers with ties to Iran have escalated cyberattacks against US industrial and critical infrastructure facilities as geopolitical tensions between the US, Israel, and Iran intensify.", image: "https://cdn.arstechnica.net/wp-content/uploads/2026/03/iranhax-1152x648.jpg", source: "Ars Technica", url: "https://arstechnica.com/security/2026/04/iran-linked-hackers-disrupt-operations-at-us-critical-infrastructure-sites/", category: "Cybersecurity" },
-    { id: "tc3", title: "OpenAI Encourages Firms to Trial Four-Day Weeks to Adapt to AI Era", summary: "OpenAI has published early policy ideas urging businesses to experiment with four-day work weeks as AI systems become more capable and reshape the nature of work.", image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/7854/live/619d5ad0-3279-11f1-b6b5-c5856fa3f77a.jpg", source: "BBC News", url: "https://www.bbc.com/news/articles/c8x71ejrp92o?at_medium=RSS&at_campaign=rss", category: "Artificial Intelligence" }
+    {
+      id: "tc1",
+      title: "Meta Launches Muse Spark, Its First AI Model From Its Superintelligence Lab",
+      summary: "Meta has unveiled Muse Spark, the first model to emerge from its dedicated superintelligence research division, though the model trails competitors on coding benchmarks despite surpassing earlier Meta AI systems.",
+      image: "https://static01.nyt.com/images/2026/04/08/multimedia/META-AI-1-kgqt/META-AI-1-kgqt-mediumSquareAt3X.jpg",
+      source: "The New York Times",
+      url: "https://www.nytimes.com/2026/04/08/technology/meta-muse-spark-ai-model.html",
+      category: "Artificial Intelligence"
+    },
+    {
+      id: "tc2",
+      title: "SpaceX Targets $2 Trillion Valuation as It Courts Retail Investors Ahead of IPO",
+      summary: "Elon Musk's SpaceX plans to host a June event for 1,500 retail investors as part of its campaign to justify a record-breaking $2 trillion stock market valuation ahead of a highly anticipated public flotation.",
+      image: "https://i.guim.co.uk/img/media/3e9276486f2feb79e5a0b682ebcc6c64f79bffc4/2052_434_3361_2689/master/3361.jpg?width=1200&quality=85&auto=format&fit=max&s=fd25b6e7fbf27546e083ab45b2614a07",
+      source: "The Guardian",
+      url: "https://www.theguardian.com/science/2026/apr/07/spacex-2tn-valuation-retail-investor-ipo-elon-musk",
+      category: "Space & Industry"
+    },
+    {
+      id: "tc3",
+      title: "Iran-Linked Hackers Disrupt US Critical Infrastructure Sites",
+      summary: "Hackers with ties to Iran have disrupted operations at multiple US critical infrastructure facilities, with attacks escalating in parallel with rising tensions between the US, Israel, and Iran.",
+      image: "https://cdn.arstechnica.net/wp-content/uploads/2026/03/iranhax-1152x648.jpg",
+      source: "Ars Technica",
+      url: "https://arstechnica.com/security/2026/04/iran-linked-hackers-disrupt-operations-at-us-critical-infrastructure-sites/",
+      category: "Cybersecurity"
+    }
   ]
 };

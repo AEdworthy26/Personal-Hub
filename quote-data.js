@@ -3,6 +3,6 @@
 
 var QUOTE_DATA = {
   date: "2026-04-09",
-  text: "One must be a sea, to receive a polluted stream without becoming impure.",
-  author: "Friedrich Nietzsche"
+  text: "That which has always been accepted by everyone, everywhere, is almost certain to be wrong.",
+  author: "Paul Valéry"
 };
