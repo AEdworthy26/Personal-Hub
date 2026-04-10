@@ -1,49 +1,25 @@
 // tech-news-data.js
-// Auto-updated 2026-04-09 — do not edit manually
+// Auto-updated 2026-04-10 — do not edit manually
 
 var TECH_NEWS = {
-  date: "2026-04-09",
+  date: "2026-04-10",
   main: {
-    title: "Anthropic's New AI Model 'Mythos' Declared a Cybersecurity Reckoning",
+    title: "Anthropic Claims Its New AI Model Mythos Is a Cybersecurity 'Reckoning'",
     category: "Artificial Intelligence",
     content: [
-      "Anthropic has unveiled a powerful new artificial intelligence model called Mythos, describing it as a potential turning point — or 'reckoning' — for the cybersecurity industry. The company announced the model on Tuesday, claiming it represents a significant leap in capability over its predecessors. Rather than releasing it immediately to the public, Anthropic has chosen a more cautious path, partnering with a curated group of organisations to explore its potential and manage its risks.",
-      "Anthropic said it is working with 40 companies to investigate how Mythos could be used to detect and prevent cyberattacks before they occur. The model is reportedly capable of analysing complex threat landscapes, identifying vulnerabilities, and reasoning about attack vectors at a level that previous AI systems could not match. This makes it both a powerful defensive tool and a technology that carries serious risks if it were to fall into the wrong hands.",
-      "The decision to withhold Mythos from public release while conducting controlled trials signals a broader shift in how frontier AI labs are approaching deployment. Anthropic has long positioned itself as a safety-focused counterweight to more aggressive release strategies in the industry. By gate-keeping access and working with vetted partners first, the company is attempting to demonstrate that powerful AI can be rolled out responsibly without sacrificing competitive momentum.",
-      "The cybersecurity framing is particularly notable at a time when state-sponsored hacking and critical infrastructure attacks are escalating globally. Separate reports this week have highlighted Iranian-linked hackers disrupting US industrial sites and Russian operatives exploiting consumer routers for espionage. Against that backdrop, an AI system capable of reasoning about offensive security at a high level is both urgently needed and potentially dangerous in equal measure.",
-      "Industry analysts will be watching closely to see how Mythos performs in real-world trials and whether Anthropic's selective deployment approach proves viable as a model for other labs. The announcement intensifies an already fierce race among AI companies to produce systems that can operate effectively in high-stakes, adversarial environments. If Mythos lives up to its billing, it could reshape the cybersecurity landscape — and raise hard questions about where the line between defensive AI and offensive AI truly lies."
+      "Anthropic has unveiled its latest artificial intelligence model, Claude Mythos, describing it as a potential turning point in the cybersecurity landscape. The company says Mythos has demonstrated an extraordinary ability to discover thousands of previously unknown vulnerabilities in widely used software applications, prompting Anthropic to take the unprecedented step of withholding the model from public release. Instead, the San Francisco-based AI firm is working directly with roughly 40 major companies to explore how the technology could be deployed defensively to prevent cyberattacks rather than enable them.",
+      "The capabilities of Mythos appear to go far beyond what previous AI models have achieved in the security domain. According to Anthropic, the model has exposed critical zero-day vulnerabilities — flaws for which no patch or fix currently exists — in commonly used applications across multiple industries. The sheer volume and severity of these discoveries have raised alarm bells within the cybersecurity community, with experts warning that such a tool in the wrong hands could enable widespread hacking campaigns targeting everything from corporate infrastructure to critical national systems.",
+      "Anthropic's decision to restrict access to Mythos reflects a growing tension within the AI industry between the drive to release powerful new models and the responsibility to prevent their misuse. The company has positioned the move as a model for responsible AI deployment, arguing that certain capabilities are simply too dangerous for unrestricted public access. This approach stands in contrast to the more open strategies pursued by some competitors, and it has reignited debate about whether AI labs should self-regulate or whether government oversight is needed to manage increasingly powerful systems.",
+      "Beyond its cybersecurity prowess, Mythos has also drawn attention for Anthropic's unconventional approach to its development. Reports indicate that the company subjected the model to approximately 20 hours of sessions with an actual psychiatrist as part of its alignment and safety testing process, with Anthropic describing Mythos as 'the most psychologically settled model we have trained to date.' This novel methodology suggests the company is exploring new frontiers in ensuring AI systems behave predictably and safely, going well beyond traditional benchmarking and red-teaming approaches.",
+      "The announcement comes at a turbulent time for Anthropic. A federal court this week denied the company's motion to lift a 'supply chain risk' label imposed by the Pentagon, a ruling that could limit its ability to secure lucrative defense contracts. Despite these legal setbacks, the Mythos reveal underscores Anthropic's ambition to position itself at the forefront of both AI capability and safety research. How regulators, competitors, and the broader tech industry respond to the model's restricted release could set important precedents for the governance of increasingly powerful AI systems in the years ahead."
     ],
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop",
-    source: "The New York Times",
-    sourceUrl: "https://www.nytimes.com/2026/04/07/technology/anthropic-claims-its-new-ai-model-mythos-is-a-cybersecurity-reckoning.html"
+    image: "https://static01.nyt.com/images/2026/04/06/business/ROOSE-claude/ROOSE-claude-mediumSquareAt3X.jpg",
+    source: "The Guardian",
+    sourceUrl: "https://www.theguardian.com/technology/2026/apr/08/anthropic-ai-cybersecurity-software"
   },
   secondary: [
-    {
-      id: "tc1",
-      title: "Meta Launches Muse Spark, Its First AI Model From Its Superintelligence Lab",
-      summary: "Meta has unveiled Muse Spark, the first model to emerge from its dedicated superintelligence research division, though the model trails competitors on coding benchmarks despite surpassing earlier Meta AI systems.",
-      image: "https://static01.nyt.com/images/2026/04/08/multimedia/META-AI-1-kgqt/META-AI-1-kgqt-mediumSquareAt3X.jpg",
-      source: "The New York Times",
-      url: "https://www.nytimes.com/2026/04/08/technology/meta-muse-spark-ai-model.html",
-      category: "Artificial Intelligence"
-    },
-    {
-      id: "tc2",
-      title: "SpaceX Targets $2 Trillion Valuation as It Courts Retail Investors Ahead of IPO",
-      summary: "Elon Musk's SpaceX plans to host a June event for 1,500 retail investors as part of its campaign to justify a record-breaking $2 trillion stock market valuation ahead of a highly anticipated public flotation.",
-      image: "https://i.guim.co.uk/img/media/3e9276486f2feb79e5a0b682ebcc6c64f79bffc4/2052_434_3361_2689/master/3361.jpg?width=1200&quality=85&auto=format&fit=max&s=fd25b6e7fbf27546e083ab45b2614a07",
-      source: "The Guardian",
-      url: "https://www.theguardian.com/science/2026/apr/07/spacex-2tn-valuation-retail-investor-ipo-elon-musk",
-      category: "Space & Industry"
-    },
-    {
-      id: "tc3",
-      title: "Iran-Linked Hackers Disrupt US Critical Infrastructure Sites",
-      summary: "Hackers with ties to Iran have disrupted operations at multiple US critical infrastructure facilities, with attacks escalating in parallel with rising tensions between the US, Israel, and Iran.",
-      image: "https://cdn.arstechnica.net/wp-content/uploads/2026/03/iranhax-1152x648.jpg",
-      source: "Ars Technica",
-      url: "https://arstechnica.com/security/2026/04/iran-linked-hackers-disrupt-operations-at-us-critical-infrastructure-sites/",
-      category: "Cybersecurity"
-    }
+    { id: "tc1", title: "Meta Unveils Muse Spark, Its First AI Model From the Superintelligence Lab", summary: "Meta released Muse Spark, the debut model from its new superintelligence research division, which outperforms its prior AI systems but still trails competitors in coding benchmarks.", image: "https://static01.nyt.com/images/2026/04/08/multimedia/META-AI-1-kgqt/META-AI-1-kgqt-mediumSquareAt3X.jpg", source: "New York Times", url: "https://www.nytimes.com/2026/04/08/technology/meta-muse-spark-ai-model.html", category: "Artificial Intelligence" },
+    { id: "tc2", title: "OpenAI Shelves Stargate UK Data Centre Deal Over Energy Costs and Regulation", summary: "OpenAI has paused its landmark UK data centre investment, citing high energy costs and regulatory hurdles in a major blow to Britain's ambitions of becoming an AI superpower.", image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/4825/live/fa97e0f0-3433-11f1-a18c-d7e9f5df98a8.jpg", source: "BBC News", url: "https://www.bbc.com/news/articles/clyd032ej70o?at_medium=RSS&at_campaign=rss", category: "AI Industry" },
+    { id: "tc3", title: "British Computer Scientist Adam Back Denies Being Bitcoin Creator Satoshi Nakamoto", summary: "London-born cryptographer Adam Back has firmly denied a New York Times investigation claiming to have identified him as the elusive creator of Bitcoin through detailed writing analysis.", image: "https://i.guim.co.uk/img/media/0db051212f35d81200970e91c7ca13ee3c717dec/1213_901_3706_2965/master/3706.jpg?width=1200&quality=85&auto=format&fit=max&s=dd04dd3c9d3ac27daf96ed762277609c", source: "The Guardian", url: "https://www.theguardian.com/technology/2026/apr/08/british-computer-scientist-adam-back-denies-he-is-bitcoin-developer-satoshi-nakamoto", category: "Cryptocurrency" }
   ]
 };

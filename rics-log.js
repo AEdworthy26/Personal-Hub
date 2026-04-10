@@ -3,6 +3,44 @@
 
 var RICS_LOG = [
   {
+    "date": "2026-04-10",
+    "topic": "S106 Viability Review Mechanisms: Late-Stage Reviews in Affordable Housing Schemes",
+    "module": "Planning and Development Management",
+    "level": 3,
+    "apc_competency": "Planning and Development Management (Level 3)",
+    "focus": "This lesson examines the mechanics, triggers, and negotiation strategies for late-stage (near-completion) S106 viability review mechanisms in affordable housing-led developments. Understanding these clauses is critical for housing associations like Latimer/Clarion that must protect affordable housing delivery while navigating LPA requirements for upward-only review provisions.",
+    "image": "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1200&auto=format&fit=crop",
+    "summary": [
+      "Late-stage VRMs compare actual outturn costs and revenues against original viability assumptions to capture surplus for additional affordable housing \u2014 typically triggered at 75-90% of private sales.",
+      "The surplus sharing ratio is commonly 60:40 (LPA:developer) with an upward-only cap at policy-compliant affordable housing levels \u2014 negotiate hard on the benchmark profit and cost definitions at S106 drafting stage.",
+      "Homes England AHP grant must be ring-fenced from the surplus calculation, and any additional affordable units arising from a VRM may not attract additional grant \u2014 flag this risk to your board early.",
+      "Prepare for the review proactively: obtain QS cost certificates early, use verified exchange data for sales, document arm's-length internal charges, and evidence all abnormal costs with variation orders.",
+      "At Level 3, demonstrate that you have personally led or advised on a VRM review \u2014 show the calculation, the negotiation, the outcome, and the advice given to your organisation."
+    ],
+    "qa": [
+      {
+        "q": "Can you explain how a late-stage viability review mechanism works in practice, using an example from your experience at Latimer?",
+        "a": "A late-stage VRM is triggered at a defined point (e.g., 75-80% of private sales) requiring the developer to submit an updated appraisal comparing actual revenues and costs against original assumptions. The surplus \u2014 actual profit above the benchmark profit level \u2014 is shared, typically 60:40 in favour of additional affordable housing. On a recent scheme, I prepared the review appraisal using QS-certified costs and verified sales exchange data, challenged the LPA's initial surplus figure by evidencing abnormal costs and a more realistic sales projection for remaining units, and negotiated the surplus down from \u00a31.8m to \u00a3900k payable as a commuted sum. I advised the board this outcome protected our target IRR while meeting planning obligations."
+      },
+      {
+        "q": "How do you ensure Homes England grant funding is not adversely affected by a S106 viability review?",
+        "a": "I ensure that the S106 drafting explicitly excludes Homes England grant from the revenue inputs in the review appraisal, so it does not artificially inflate the surplus. If the VRM results in additional affordable units, I assess whether these can be accommodated within the existing AHP contract or require a variation. If additional grant is unavailable, I model the additional units on a nil-grant basis and advise whether the scheme can absorb them. I also advocate for commuted sums over on-site units where possible to avoid disrupting the grant contract's unit count and tenure profile."
+      },
+      {
+        "q": "What is the typical surplus sharing ratio in a late-stage VRM, and is this negotiable?",
+        "a": "The GLA SPG establishes a 60:40 split (60% to affordable housing, 40% retained by the developer), which has become the de facto standard in London. Outside London, ratios vary \u2014 some LPAs adopt 50:50 or bespoke splits. It is negotiable at S106 heads of terms stage. As an RP delivering affordable housing, I would argue for a higher developer retention (e.g., 50:50) on the basis that surplus retained by the RP is reinvested in affordable housing delivery across the programme, unlike a private housebuilder distributing profits to shareholders."
+      },
+      {
+        "q": "What are the key areas of dispute in a late-stage viability review, and how would you manage them?",
+        "a": "Common disputes include: the benchmark profit level (e.g., whether the RP's lower return distorts the surplus); treatment of finance costs (actual drawdown vs. modelled); inclusion of abnormal costs; and projected revenues for unsold units. I manage these by ensuring the S106 clearly defines the methodology and inputs at drafting stage, obtaining robust QS cost certification, using RICS-compliant valuations for unsold units, and engaging early with the LPA's viability consultant to agree data inputs before formal submission. If agreement cannot be reached, I invoke the dispute resolution clause \u2014 typically referral to an independent surveyor as expert."
+      },
+      {
+        "q": "Should a housing association prefer a commuted sum or additional on-site affordable units from a VRM uplift, and why?",
+        "a": "Generally, a commuted sum is preferable for the RP because: (1) it avoids changing the scheme design and unit mix post-construction, which may be impractical; (2) it does not conflict with the Homes England grant contract which specifies a fixed unit count and tenure; (3) it provides the LPA with a flexible fund for off-site affordable delivery; and (4) it avoids the RP taking on additional affordable units without corresponding grant subsidy. However, if the LPA insists on on-site units, I would negotiate that the tenure is agreed at the review stage to match current Homes England priorities and the RP's financial capacity."
+      }
+    ]
+  },
+  {
     "date": "2026-04-09",
     "topic": "S106 Viability Review Mechanisms: Overage Clauses and Deferred Affordable Housing in RP-Led Schemes",
     "module": "Planning and Development Management",

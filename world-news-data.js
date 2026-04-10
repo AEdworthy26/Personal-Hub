@@ -1,49 +1,25 @@
 // world-news-data.js
-// Auto-updated 2026-04-09 — do not edit manually
+// Auto-updated 2026-04-10 — do not edit manually
 
 var WORLD_NEWS = {
-  date: "2026-04-09",
+  date: "2026-04-10",
   main: {
-    title: "US-Iran Ceasefire Holds Tenuously as Lebanon Faces Devastating Israeli Strikes",
+    title: "Fragile US-Iran Ceasefire Under Threat as Strait of Hormuz Standstill Persists and Israel Strikes Lebanon",
     category: "International",
     content: [
-      "A fragile two-week ceasefire between the United States and Iran has come into effect after more than 40 days of direct conflict, bringing a provisional pause to hostilities that have reshaped the geopolitical landscape of the Middle East. The truce was agreed hours after President Trump had threatened to destroy Iran's 'whole civilisation,' underscoring just how close both sides came to catastrophic escalation. The agreement represents a significant — if tenuous — off-ramp from a war that has rattled global energy markets and alarmed allies across the region.",
-      "The ceasefire has immediately been tested by confusion over the status of the Strait of Hormuz, the critical waterway through which a significant portion of the world's oil supply flows. Iranian and US officials have issued competing claims over the strait's navigational status, with Gulf states watching anxiously as the uncertainty casts a long shadow over the truce. Experts warn that any incident in the strait could rapidly unravel the agreement, which both sides have simultaneously threatened to abandon if provoked.",
-      "Even as the ink dried on the ceasefire, Lebanon declared a national day of mourning after Israeli strikes killed at least 254 people in a single day — the deadliest assault on the country since the current cycle of violence began. The attacks targeted the southern suburbs of Beirut, southern Lebanon, and the eastern Bekaa Valley, coming just hours after the US-Iran ceasefire announcement. Israel, which conducted coordinated strikes alongside the US against Iran at the outset of the conflict, was not party to the truce and made clear it would continue operations it deems necessary.",
-      "For Iran, the ceasefire comes at enormous cost. Analysts note that the deal may have fundamentally altered how the rest of the world perceives American power and reliability as a partner, with the path to the truce exposing deep fractures in Western alliance cohesion. Trump publicly criticised NATO during the conflict, saying the alliance 'wasn't there when we needed them' — a charge NATO Secretary-General described as the subject of a 'very frank' meeting with the US president. The episode has prompted urgent debate in European capitals about the durability of the transatlantic relationship.",
-      "The broader regional fallout remains deeply uncertain. Gulf states, while relieved at the pause in fighting, remain wary of any arrangement that grants Iran continued leverage over the Strait of Hormuz, a chokepoint critical to their own economies. North Korea, meanwhile, has seized on the moment to announce new weapons tests including ballistic missiles armed with cluster-bomb warheads, signalling that adversaries are watching the US-Iran dynamic closely and drawing their own conclusions. Whether the two-week ceasefire evolves into a durable settlement or merely delays further conflict is a question that will define the trajectory of Middle Eastern and global security in the months ahead."
+      "A fragile ceasefire between the United States and Iran is already showing deep cracks, with shipping in the Strait of Hormuz grinding to a standstill and both Washington and Tehran accusing each other of failing to honour the terms of the truce agreement. President Trump publicly accused Iran of 'doing a very poor job' managing the critical waterway, declaring that the situation is 'not the agreement we have.' The Strait of Hormuz, through which roughly a fifth of the world's oil passes daily, remains effectively paralysed, sending shockwaves through global energy markets and raising fears that the ceasefire could collapse before any lasting diplomatic framework is established.",
+      "Compounding the crisis, Israel has continued to launch strikes against Hezbollah targets in Lebanon, a move that Iran insists violates the spirit — if not the letter — of the ceasefire. Tehran has maintained that Lebanon should be covered by the truce, while the United States and Israel have explicitly said it is not, creating a dangerous ambiguity at the heart of the agreement. Iran's parliament speaker Mohammad Bagher Ghalibaf warned that 'time is running out,' signalling that continued Israeli military operations in Lebanon could push Tehran to abandon the ceasefire altogether.",
+      "The diplomatic situation remains extraordinarily complex, with multiple mediators working to prevent a complete unravelling. Pakistan, which played a pivotal role in bringing Washington and Tehran to the negotiating table in recent weeks, is continuing its mediation efforts. UK Prime Minister Keir Starmer arrived in Doha as part of a Gulf tour explicitly aimed at shoring up the ceasefire, reflecting the broad international concern that the truce may not survive its first week without urgent high-level diplomacy.",
+      "Despite the battering Iran's military infrastructure sustained during the conflict, analysts note that the country's theocratic leadership has emerged from the war projecting confidence, framing mere survival of the US-Israeli onslaught as a form of victory. Iran's leaders now hold new diplomatic cards, including their demonstrated ability to disrupt global shipping and energy supplies through the Strait of Hormuz. However, experts caution that the seeds of Iran's next crisis may already be planted, with internal pressures and a devastated economy threatening to undermine the regime's outward displays of strength.",
+      "The broader geopolitical implications of the conflict and its uneasy ceasefire are already being debated in capitals around the world. Critics have drawn comparisons to Britain's 1956 Suez Crisis, suggesting this could represent America's own 'Suez moment' — a turning point where a leading global power signals the beginning of its international decline. Whether or not that comparison holds, the Middle East's reshuffling is far from complete, with Israel and Lebanon set to begin peace talks even as Israeli forces continue striking Hezbollah positions, and with no common ground yet visible between the principal belligerents on the terms of any lasting peace."
     ],
-    image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/a1c0/live/d9445160-3341-11f1-9d5c-8ba507d7dbde.jpg",
-    source: "BBC News",
-    sourceUrl: "https://www.bbc.com/news/articles/cwyvp55xrlro?at_medium=RSS&at_campaign=rss"
+    image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/fb74/live/ad515bf0-347e-11f1-bbf7-7db5bb17fba6.jpg",
+    source: "Al Jazeera",
+    sourceUrl: "https://www.aljazeera.com/economy/2026/4/10/shipping-in-strait-of-hormuz-at-a-trickle-despite-us-iran-ceasefire?traffic_source=rss"
   },
   secondary: [
-    {
-      id: "s1",
-      title: "North Korea Tests Ballistic Missiles with Cluster-Bomb Warheads",
-      summary: "North Korea announced its latest weapons testing spree included ballistic missiles armed with cluster-bomb warheads, as Pyongyang presses ahead with expanding its nuclear-capable forces.",
-      image: "https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?w=800&auto=format&fit=crop",
-      source: "NPR",
-      url: "https://www.npr.org/2026/04/09/g-s1-116848/north-korea-says-its-latest-weapons-tests-included-missiles-with-cluster-bomb-warheads",
-      category: "Security"
-    },
-    {
-      id: "s2",
-      title: "Burkina Faso's Military Ruler Tells Citizens to Abandon Hope of Democracy",
-      summary: "Ibrahim Traoré, who seized power in a 2022 coup, told state television that democracy is 'not for us' and that the people of Burkina Faso should stop expecting a return to civilian rule.",
-      image: "https://images.unsplash.com/photo-1526470498-9ae73c665de8?w=800&auto=format&fit=crop",
-      source: "The Guardian",
-      url: "https://www.theguardian.com/world/2026/apr/03/people-burkina-faso-should-forget-about-democracy-military-ruler-ibrahim-traore",
-      category: "Politics"
-    },
-    {
-      id: "s3",
-      title: "Australian War Hero Ben Roberts-Smith to Stand Trial for Afghan War Crimes",
-      summary: "Once one of Australia's most celebrated soldiers, Ben Roberts-Smith will now face trial over alleged war crimes committed during the conflict in Afghanistan.",
-      image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&auto=format&fit=crop",
-      source: "NPR",
-      url: "https://www.npr.org/2026/04/08/nx-s1-5776855/once-seen-as-a-war-hero-australian-ex-soldier-will-stand-trial-for-alleged-war-crimes",
-      category: "International"
-    }
+    { id: "s1", title: "Iran's Battered Leaders Emerge From War Confident — and With New Cards", summary: "Despite devastating US-Israeli strikes, Iran's theocratic rulers are projecting victory by framing their survival as a triumph, though analysts warn internal economic and political pressures could quickly erode their position.", image: "https://images.pexels.com/photos/31262146/pexels-photo-31262146.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "New York Times", url: "https://www.nytimes.com/2026/04/09/world/middleeast/iran-war-leadership.html", category: "International" },
+    { id: "s2", title: "UK Says Russia Ran Submarine Operation Over Atlantic Cables and Pipelines", summary: "Defence Secretary John Healey revealed that Russia conducted submarine operations near undersea cables and pipelines in the Atlantic, though he stressed there is no evidence of damage to UK infrastructure.", image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/8200/live/9a0ba670-340d-11f1-8be7-8b0656c72753.jpg", source: "BBC News", url: "https://www.bbc.com/news/articles/cre13qn9z7do?at_medium=RSS&at_campaign=rss", category: "Security" },
+    { id: "s3", title: "Riot Police Push Back Protesters Demanding Higher Wages in Venezuela", summary: "Venezuelan security forces clashed with demonstrators in Caracas as citizens took to the streets to demand an increase to the country's minimum wage amid a deepening economic crisis.", image: "https://images.pexels.com/photos/11264510/pexels-photo-11264510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "Al Jazeera", url: "https://www.aljazeera.com/video/newsfeed/2026/4/10/riot-police-push-back-protesters-demanding-higher-wages-in-venezuela?traffic_source=rss", category: "International" }
   ]
 };

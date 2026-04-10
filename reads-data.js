@@ -1,19 +1,19 @@
 // reads-data.js
-// Auto-updated 2026-04-09 — do not edit manually
+// Auto-updated 2026-04-10 — do not edit manually
 
 var READS_DATA = {
-  date: "2026-04-09",
+  date: "2026-04-10",
   book: {
-    title: "The Comfort of Things",
-    author: "Daniel Miller",
-    year: 2008,
-    genres: ["Anthropology", "Sociology", "Non-Fiction"],
-    desc: "Anthropologist Daniel Miller spent a year knocking on doors along a single street in South London, asking ordinary people if he could look at their stuff — and what emerges is one of the most quietly revelatory books about modern life ever written. Each chapter profiles a different resident through the objects they keep: the photographs on the mantelpiece, the unworn clothes in the wardrobe, the shrine-like arrangements on a shelf. Miller's argument, built up through these intimate portraits, is that possessions are not shallow or materialistic — they are how people construct identity, grieve, love, and hold themselves together. The prose is lucid and warm, sitting somewhere between literary journalism and social science, and the cumulative effect is unexpectedly moving.",
-    whyRead: "At a moment when minimalism and decluttering are cultural obsessions, Miller makes the opposite case — that our things are us, and understanding that changes how you see every room you walk into.",
-    rating: 3.9,
+    title: "The Emperor of All Maladies: A Biography of Cancer",
+    author: "Siddhartha Mukherjee",
+    year: 2010,
+    genres: ["Science", "Biography", "Medicine"],
+    desc: "Siddhartha Mukherjee traces the entire arc of humanity's confrontation with cancer, from the earliest recorded cases in ancient Egypt to the cutting-edge targeted therapies of the twenty-first century. What elevates this far above a standard medical history is Mukherjee's literary ambition — he treats cancer as a character with its own cunning biography, weaving together the hubris and heartbreak of researchers, the politics of funding, and the intimate experiences of patients. The writing is luminous and propulsive, moving between the laboratory bench and the bedside with the pacing of a novel. It won the Pulitzer Prize for General Nonfiction, and deservedly so: it makes you understand not just a disease but the entire messy, heroic enterprise of modern medicine. You come away both sobered and strangely hopeful about what science can accomplish when it refuses to look away.",
+    whyRead: "In an era of accelerating breakthroughs in immunotherapy and AI-driven drug discovery, understanding how we got here — the failures, the politics, the sheer persistence — makes this the rare book that gets more relevant with every passing year.",
+    rating: 4.4,
     ratingSource: "Goodreads",
-    ratingCount: "2,000+",
-    coverUrl: "https://covers.openlibrary.org/b/id/8155661-L.jpg",
-    amazonUrl: "https://www.amazon.co.uk/dp/0723100993"
+    ratingCount: "190,000+",
+    coverUrl: "https://covers.openlibrary.org/b/id/11320203-L.jpg",
+    amazonUrl: "https://www.amazon.co.uk/dp/6073196512"
   }
 };

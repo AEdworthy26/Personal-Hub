@@ -1,49 +1,25 @@
 // us-politics-news-data.js
-// Auto-updated 2026-04-09 — do not edit manually
+// Auto-updated 2026-04-10 — do not edit manually
 
 var US_POLITICS_NEWS = {
-  date: "2026-04-09",
+  date: "2026-04-10",
   main: {
-    title: "MAGA Civil War: Conservative Leaders Turn Their Fire on Trump Over Iran",
+    title: "Trump Lashes Out at Conservative Allies as Iran War Opens Rift in MAGA Movement",
     category: "Politics",
     content: [
-      "The war with Iran has cracked open a fault line inside the MAGA movement that its most prominent figures can no longer paper over. What began as targeted criticism of the conflict's strategic rationale has escalated into something more politically combustible: direct, personal criticism of President Trump himself. For a movement that has long treated loyalty to Trump as its defining feature, the shift marks a genuinely unprecedented moment in the politics of his second term.",
-      "Some of the biggest names in the MAGA universe — commentators, influencers, and allied politicians who built their brands on unflinching support for the president — have now crossed a threshold they long avoided. Rather than limiting their dissent to questions of military strategy or the role of allies like Israel, they are pointing at Trump's own decision-making as the source of the problem. The language is cautious in some cases and incendiary in others, but the direction of the fire has changed.",
-      "The political stakes for Trump are significant. His coalition has always relied on the intensity of its true believers, and any erosion among that base threatens not just his approval ratings but the midterm prospects of Republican candidates who have tied themselves to his agenda. Democrats have already been overperforming in special elections across the country since Trump returned to the White House, and a fractured MAGA base could accelerate those losses.",
-      "The ceasefire announced this week between the U.S. and Iran has done little to quiet the critics within his own coalition. The deal is widely described as fragile, and with Vice President JD Vance heading to Pakistan to lead a new round of negotiations, the war remains an open political wound. For conservative critics, a shaky truce is not vindication — it is evidence that the entire enterprise was poorly conceived and executed, and that Trump's erratic diplomatic careening produced a messy outcome that satisfied no one.",
-      "The episode raises deeper questions about the durability of Trump's political dominance over the Republican Party and the conservative media ecosystem he helped reshape. Previous challenges to his authority — impeachments, indictments, primary challenges — ultimately strengthened his grip. An intra-movement rebellion rooted in a shooting war he initiated may prove harder to absorb, particularly if the ceasefire collapses or the human and financial costs of the conflict continue to mount. How Trump responds to critics on his own side will be one of the defining political storylines of the months ahead."
+      "President Donald Trump escalated a growing feud within his own political movement on Thursday, launching starkly personal attacks against prominent conservative media figures Tucker Carlson, Megyn Kelly, and others who have publicly criticized the administration's war with Iran. In a lengthy social media post on Truth Social, Trump accused his former allies of disloyalty and questioned their credibility, marking a dramatic rupture in relationships that were once pillars of his political coalition. The president also took aim at the editorial board of The Wall Street Journal, which has published critical analyses of the conflict's strategic rationale and execution.",
+      "The attacks underscore a deepening rift inside the MAGA movement over the Iran war, which has become one of the most divisive issues among Trump's base since the conflict began. Some of the biggest names in conservative media and politics have moved beyond criticizing the war itself to the rare and politically significant step of criticizing President Trump personally. This represents an almost unprecedented fracture, as Trump has historically maintained ironclad loyalty from the right-wing media ecosystem that helped propel him to power.",
+      "The conservative backlash centers on concerns that the war contradicts the 'America First' non-interventionist principles that defined Trump's original political appeal. Critics within the movement argue that the conflict, ostensibly aimed at stopping Iran from obtaining a nuclear weapon and degrading its military arsenal, has morphed into a broader engagement with unclear objectives and no defined exit strategy. The criticism has gained enough traction that it can no longer be dismissed as coming from fringe voices or traditional establishment Republicans.",
+      "The internal party turmoil comes at a particularly sensitive time for the White House, which is also dealing with revelations that staff were warned not to engage in insider trading or place bets on prediction markets amid the conflict. The New York Times reported that the directive followed a surge of suspiciously well-timed trades on oil and prediction markets just ahead of crucial moments in the war, raising serious ethical and potentially legal questions about information handling within the administration. These compounding controversies have put the White House on the defensive on multiple fronts simultaneously.",
+      "Political analysts say the fracture within the conservative movement could have lasting implications for Trump's governing coalition and his ability to maintain public support for the Iran campaign. Unlike previous policy disagreements that were quickly smoothed over, the personal nature of Trump's attacks — and the willingness of figures like Carlson to push back — suggests a more fundamental realignment may be underway. Whether Trump can reassemble his coalition or whether this marks the beginning of a sustained conservative opposition to his foreign policy remains one of the most consequential political questions facing Washington."
     ],
-    image: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=1200&auto=format&fit=crop",
-    source: "NPR",
-    sourceUrl: "https://www.npr.org/2026/04/08/nx-s1-5776713/in-criticism-of-the-war-in-iran-some-conservatives-focus-their-ire-on-trump-himself"
+    image: "https://static01.nyt.com/images/2026/04/09/multimedia/09dc-trading-lbvz/09dc-trading-lbvz-mediumSquareAt3X.jpg",
+    source: "New York Times",
+    sourceUrl: "https://www.nytimes.com/2026/04/09/us/politics/trump-tucker-carlson-candace-owens.html"
   },
   secondary: [
-    {
-      id: "us1",
-      title: "Democrats Keep Outperforming in Elections Across the Country",
-      summary: "Following wins in Georgia and Wisconsin, Democrats have now consistently overperformed their 2024 presidential margins in special elections throughout Trump's second term, raising alarm bells for Republicans ahead of the 2026 midterms.",
-      image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&auto=format&fit=crop",
-      source: "NPR",
-      url: "https://www.npr.org/2026/04/08/nx-s1-5770114/democrats-wisconsin-georgia-election-shift-overperformance-trump",
-      category: "Elections"
-    },
-    {
-      id: "us2",
-      title: "Dark Money Floods 2026 Midterms as Much of Funding Remains Untraceable",
-      summary: "A New York Times investigation finds that a substantial and growing share of the money flowing into 2026 midterm races cannot be traced to its original donors, raising fresh concerns about transparency and the influence of anonymous spending on American elections.",
-      image: "https://static01.nyt.com/images/2026/04/08/multimedia/newsletter-1-fpmk/newsletter-1-fpmk-mediumSquareAt3X.jpg",
-      source: "The New York Times",
-      url: "https://www.nytimes.com/2026/04/08/us/politics/midterms-elections-funding-pac.html",
-      category: "Elections"
-    },
-    {
-      id: "us3",
-      title: "Bill Gates Subpoenaed for Epstein Probe as Pam Bondi Testimony Postponed",
-      summary: "Bill Gates will testify before the House Oversight Committee in June as part of its Epstein investigation, while the Justice Department announced that former Attorney General Pam Bondi will not appear before the committee in the near term.",
-      image: "https://images.unsplash.com/photo-1568454537842-d933259bb258?w=800&auto=format&fit=crop",
-      source: "NPR",
-      url: "https://www.npr.org/2026/04/08/nx-s1-5777585/bill-gates-pam-bondi-epstein-house-oversight",
-      category: "Congress"
-    }
+    { id: "us1", title: "White House Warns Staff Against Prediction Market Bets Amid Suspicious War-Related Trades", summary: "The White House issued a directive telling staff not to place bets on prediction markets after a surge of suspiciously well-timed trades on oil and gambling platforms coincided with key moments in the Iran conflict.", image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/a3c2/live/8014eb80-3487-11f1-9bc8-f978f899d2ab.jpg", source: "New York Times", url: "https://www.nytimes.com/2026/04/09/us/politics/white-house-prediction-markets.html", category: "Politics" },
+    { id: "us2", title: "Melania Trump Denies Ties to Jeffrey Epstein in Rare White House Statement", summary: "First Lady Melania Trump made an unusual public appearance to deny that she had a relationship with the late sex offender Jeffrey Epstein or that he introduced her to President Trump, calling the rumors 'mean-spirited attempts to defame my reputation.'", image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/bea7/live/25543230-3457-11f1-8606-05fe34b06e1b.jpg", source: "NPR", url: "https://www.npr.org/2026/04/09/nx-s1-5779783/melania-trump-jeffrey-epstein", category: "Politics" },
+    { id: "us3", title: "DOJ Seeks to Overturn Ruling Protecting Washington Post Reporter's Devices", summary: "Federal prosecutors are pressing to conduct their own search of a Washington Post reporter's phone and laptops, seeking to overturn a magistrate judge's decision that shielded the seized devices in a leak investigation.", image: "https://images.pexels.com/photos/10464449/pexels-photo-10464449.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "Washington Post", url: "https://www.washingtonpost.com/national-security/2026/04/09/washington-post-natanson-search-doj/", category: "Politics" }
   ]
 };
