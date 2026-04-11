@@ -1,25 +1,49 @@
 // world-news-data.js
-// Auto-updated 2026-04-10 — do not edit manually
+// Auto-updated 2026-04-11 — do not edit manually
 
 var WORLD_NEWS = {
-  date: "2026-04-10",
+  date: "2026-04-11",
   main: {
-    title: "Fragile US-Iran Ceasefire Under Threat as Strait of Hormuz Standstill Persists and Israel Strikes Lebanon",
-    category: "International",
+    title: "US-Iran Peace Talks Begin in Islamabad as Vance Leads American Delegation",
+    category: "International Diplomacy",
     content: [
-      "A fragile ceasefire between the United States and Iran is already showing deep cracks, with shipping in the Strait of Hormuz grinding to a standstill and both Washington and Tehran accusing each other of failing to honour the terms of the truce agreement. President Trump publicly accused Iran of 'doing a very poor job' managing the critical waterway, declaring that the situation is 'not the agreement we have.' The Strait of Hormuz, through which roughly a fifth of the world's oil passes daily, remains effectively paralysed, sending shockwaves through global energy markets and raising fears that the ceasefire could collapse before any lasting diplomatic framework is established.",
-      "Compounding the crisis, Israel has continued to launch strikes against Hezbollah targets in Lebanon, a move that Iran insists violates the spirit — if not the letter — of the ceasefire. Tehran has maintained that Lebanon should be covered by the truce, while the United States and Israel have explicitly said it is not, creating a dangerous ambiguity at the heart of the agreement. Iran's parliament speaker Mohammad Bagher Ghalibaf warned that 'time is running out,' signalling that continued Israeli military operations in Lebanon could push Tehran to abandon the ceasefire altogether.",
-      "The diplomatic situation remains extraordinarily complex, with multiple mediators working to prevent a complete unravelling. Pakistan, which played a pivotal role in bringing Washington and Tehran to the negotiating table in recent weeks, is continuing its mediation efforts. UK Prime Minister Keir Starmer arrived in Doha as part of a Gulf tour explicitly aimed at shoring up the ceasefire, reflecting the broad international concern that the truce may not survive its first week without urgent high-level diplomacy.",
-      "Despite the battering Iran's military infrastructure sustained during the conflict, analysts note that the country's theocratic leadership has emerged from the war projecting confidence, framing mere survival of the US-Israeli onslaught as a form of victory. Iran's leaders now hold new diplomatic cards, including their demonstrated ability to disrupt global shipping and energy supplies through the Strait of Hormuz. However, experts caution that the seeds of Iran's next crisis may already be planted, with internal pressures and a devastated economy threatening to undermine the regime's outward displays of strength.",
-      "The broader geopolitical implications of the conflict and its uneasy ceasefire are already being debated in capitals around the world. Critics have drawn comparisons to Britain's 1956 Suez Crisis, suggesting this could represent America's own 'Suez moment' — a turning point where a leading global power signals the beginning of its international decline. Whether or not that comparison holds, the Middle East's reshuffling is far from complete, with Israel and Lebanon set to begin peace talks even as Israeli forces continue striking Hezbollah positions, and with no common ground yet visible between the principal belligerents on the terms of any lasting peace."
+      "The highest-level diplomatic engagement between the United States and Iran since the 1979 Islamic Revolution is set to get underway in Islamabad, as Vice President JD Vance travels to Pakistan to lead the American negotiating team. An Iranian delegation has already arrived in the Pakistani capital ahead of what are being described as historic face-to-face peace talks aimed at ending the war in Iran. The talks come amid a fragile ceasefire, though significant uncertainty remains over whether a durable long-term agreement can be reached between the two deeply distrustful adversaries.",
+      "Pakistan's Prime Minister Shehbaz Sharif has described the upcoming negotiations as 'make or break,' underscoring the enormous stakes riding on the diplomatic effort. Pakistan's ambassador to the United States told Al Jazeera that weeks of intense behind-the-scenes diplomacy have produced a shared commitment from all sides to engage meaningfully. Islamabad's role as host nation reflects Pakistan's strategic positioning between the competing interests and its desire to see stability restored in the region.",
+      "President Trump added further weight to the moment by declaring that the Strait of Hormuz — a critical global oil chokepoint — would reopen 'soon,' while insisting that Washington would not accept Iran's imposition of what he termed a de facto toll booth system in the vital waterway. The closure or restriction of the strait has sent shockwaves through global energy markets for months, and any resolution on this front would have immediate economic ramifications worldwide. Analysts note that the Hormuz issue could serve as both leverage and a potential early confidence-building measure in the negotiations.",
+      "The talks must bridge decades of deep mutual distrust, as the BBC's Lyse Doucet has noted, with fundamental disagreements persisting over Iran's nuclear programme, its regional proxy networks, and the terms under which sanctions might be eased. The war itself has displaced millions and drawn in multiple regional actors, making the path to a comprehensive settlement extraordinarily complex. Both sides face significant domestic pressures — the Trump administration to deliver a deal it can frame as a victory, and Tehran to secure terms that do not appear as capitulation to its public.",
+      "The international community is watching Islamabad with a mixture of hope and caution. A successful outcome could reshape the geopolitical landscape of the Middle East and restore critical global energy flows, while failure risks a return to full-scale hostilities and further destabilisation of an already volatile region. With Lebanon and Israel also set to meet in US-brokered talks next week, the coming days may prove pivotal in determining whether a broader architecture for Middle Eastern peace can begin to take shape."
     ],
-    image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/fb74/live/ad515bf0-347e-11f1-bbf7-7db5bb17fba6.jpg",
-    source: "Al Jazeera",
-    sourceUrl: "https://www.aljazeera.com/economy/2026/4/10/shipping-in-strait-of-hormuz-at-a-trickle-despite-us-iran-ceasefire?traffic_source=rss"
+    image: "https://static01.nyt.com/images/2026/04/10/multimedia/10israel-iran-promo-7pm-tkcv/10israel-iran-promo-7pm-tkcv-mediumSquareAt3X.jpg",
+    source: "New York Times",
+    sourceUrl: "https://www.nytimes.com/live/2026/04/10/world/iran-war-trump-israel-lebanon"
   },
   secondary: [
-    { id: "s1", title: "Iran's Battered Leaders Emerge From War Confident — and With New Cards", summary: "Despite devastating US-Israeli strikes, Iran's theocratic rulers are projecting victory by framing their survival as a triumph, though analysts warn internal economic and political pressures could quickly erode their position.", image: "https://images.pexels.com/photos/31262146/pexels-photo-31262146.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "New York Times", url: "https://www.nytimes.com/2026/04/09/world/middleeast/iran-war-leadership.html", category: "International" },
-    { id: "s2", title: "UK Says Russia Ran Submarine Operation Over Atlantic Cables and Pipelines", summary: "Defence Secretary John Healey revealed that Russia conducted submarine operations near undersea cables and pipelines in the Atlantic, though he stressed there is no evidence of damage to UK infrastructure.", image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/8200/live/9a0ba670-340d-11f1-8be7-8b0656c72753.jpg", source: "BBC News", url: "https://www.bbc.com/news/articles/cre13qn9z7do?at_medium=RSS&at_campaign=rss", category: "Security" },
-    { id: "s3", title: "Riot Police Push Back Protesters Demanding Higher Wages in Venezuela", summary: "Venezuelan security forces clashed with demonstrators in Caracas as citizens took to the streets to demand an increase to the country's minimum wage amid a deepening economic crisis.", image: "https://images.pexels.com/photos/11264510/pexels-photo-11264510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", source: "Al Jazeera", url: "https://www.aljazeera.com/video/newsfeed/2026/4/10/riot-police-push-back-protesters-demanding-higher-wages-in-venezuela?traffic_source=rss", category: "International" }
+    {
+      id: "s1",
+      title: "Xi Jinping Meets Taiwan Opposition Leader in Rare High-Level Encounter",
+      summary: "Chinese President Xi Jinping held rare talks with KMT leader Cheng Li-wun, who floated the idea of one day inviting Xi to visit Taiwan, raising alarm from the island's ruling party about Beijing's efforts to undermine its democracy ahead of a key summit with Trump.",
+      image: "https://static01.nyt.com/images/2026/04/10/multimedia/10int-china-taiwan-pqml/10int-china-taiwan-pqml-mediumSquareAt3X.jpg",
+      source: "New York Times",
+      url: "https://www.nytimes.com/2026/04/10/world/asia/taiwan-china-xi-cheng.html",
+      category: "Geopolitics"
+    },
+    {
+      id: "s2",
+      title: "Hungary Heads to Pivotal Election as Opposition Challenger Scents Victory Over Orbán",
+      summary: "Tens of thousands of anti-Orbán supporters filled Budapest's Heroes' Square as opposition leader Péter Magyar's movement leads in polls ahead of Sunday's vote, in what could be the most serious electoral challenge yet to Hungary's long-serving prime minister.",
+      image: "https://ichef.bbci.co.uk/ace/standard/1536/cpsprodpb/0566/live/a4940140-34a4-11f1-b260-d5e483232ace.jpg",
+      source: "BBC News",
+      url: "https://www.bbc.com/news/articles/c0q9527y41lo?at_medium=RSS&at_campaign=rss",
+      category: "Politics"
+    },
+    {
+      id: "s3",
+      title: "Artemis II Astronauts Return to Earth After First Crewed Lunar Mission in 53 Years",
+      summary: "NASA's Artemis II crew has successfully journeyed back to Earth after completing humanity's first crewed mission to the Moon since the Apollo era, marking a landmark moment in the renewed push for deep-space exploration.",
+      image: "https://images.pexels.com/photos/5255172/pexels-photo-5255172.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      source: "Al Jazeera",
+      url: "https://www.aljazeera.com/video/newsfeed/2026/4/11/artemis-ii-astronauts-journey-back-to-earth-after-moon-mission?traffic_source=rss",
+      category: "Science & Space"
+    }
   ]
 };

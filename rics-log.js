@@ -3,6 +3,44 @@
 
 var RICS_LOG = [
   {
+    "date": "2026-04-11",
+    "topic": "S106 Renegotiation and Viability Review Mechanisms in Affordable Housing Delivery",
+    "module": "Planning and Development Management",
+    "level": 3,
+    "apc_competency": "Planning and Development Management (Level 3)",
+    "focus": "This lesson examines the procedural and technical framework for renegotiating S106 agreements on affordable housing grounds, including viability review mechanisms (early, mid-point, and late-stage), the role of the District Valuer, and how housing associations like Latimer navigate these processes to protect affordable unit delivery. Essential knowledge for APC candidates advising on planning obligations in RP-led schemes.",
+    "image": "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1200&auto=format&fit=crop",
+    "summary": [
+      "S106 viability review mechanisms (VRMs) are standard on phased schemes \u2014 understand the three types (early, mid-point, late-stage) and their trigger definitions.",
+      "Benchmark Land Value should be fixed at the consented appraisal level to prevent landowner capture of value uplift at review \u2014 push for this in S106 drafting.",
+      "Homes England grant must be treated as additional to S106 obligations, not a substitute \u2014 ring-fence S106 baseline affordable units separately in your appraisal.",
+      "Pre-acquisition sensitivity testing must model the 'worst case VRM outcome' (maximum affordable housing uplift across all review triggers) to protect the RP's hurdle rate.",
+      "Drafting quality of VRM clauses is critical \u2014 specify methodology, trigger definitions, time limits, surplus split, caps, and dispute resolution at heads of terms stage."
+    ],
+    "qa": [
+      {
+        "q": "How would you advise your board on the risk of a late-stage viability review clause in a S106 on a 300-unit phased scheme?",
+        "a": "I would model the late-stage review scenario by running the appraisal with current costs and projected sales values at the likely review date. I would test the surplus/deficit against the fixed BLV and consented profit margin. If the scheme shows a surplus, I would calculate the additional affordable units that could be required under the clawback split specified in the S106 \u2014 for example, if the split is 60:40 and the surplus is \u00a32.4m, the additional affordable housing obligation is \u00a31.44m worth of units. I would present the board with three scenarios (base case, upside, downside) showing the impact on IRR and margin on cost, and recommend a maximum land bid that remains viable under the worst case. I would also flag any drafting weaknesses in the VRM clause \u2014 such as an uncapped uplift \u2014 and recommend legal amendments before exchange."
+      },
+      {
+        "q": "What is the difference between a 'clawback' mechanism and an 'upward-only' viability review, and why does the distinction matter for an RP developer?",
+        "a": "A clawback mechanism is financial \u2014 it requires the developer to pay a share of any surplus to the LPA or apply it to additional affordable housing at late stage. An 'upward-only' VRM is a policy tool that allows the affordable housing percentage to increase if viability improves but cannot reduce below the consented baseline. The distinction matters because a clawback may result in a cash payment rather than physical additional units, which can be preferable for an RP if late in the build programme. Conversely, an upward-only VRM may require delivery of additional physical units, affecting design, tenure mix, Homes England grant conditions, and handover timelines. In either case, the RP must model the contingent liability at land acquisition."
+      },
+      {
+        "q": "How should Homes England AHP grant be treated in a viability review appraisal, and what is the risk if it is treated incorrectly?",
+        "a": "Grant should be excluded from the S106 viability review appraisal for the baseline affordable housing obligation. It should be presented as an additional funding source that enables enhanced outcomes \u2014 either more units or deeper affordability tenures (e.g. social rent instead of shared ownership). If grant is included as a viability input in the FVA, the DVS or LPA may conclude that the scheme can support more affordable housing than the consented level, effectively using public subsidy to increase the S106 obligation rather than deliver genuine additionality. This would breach Homes England's funding conditions, which require grant to be additional, and could jeopardise the Strategic Partnership. The correct approach is to run the S106 review appraisal without grant, agree the planning obligation, and then separately layer grant to improve the tenure mix."
+      },
+      {
+        "q": "What is the RICS-recommended approach to establishing Benchmark Land Value in a viability review, and how does this apply on public sector land disposals to RPs?",
+        "a": "The RICS Financial Viability in Planning guidance (2021, updated 2024) and the NPPF/PPG require BLV to be assessed using the Existing Use Value Plus (EUV+) methodology. EUV is the value of the site in its current lawful use, and the 'plus' is a landowner premium sufficient to incentivise release. On public sector land \u2014 for example, a local authority disposing to Latimer \u2014 the premium may be minimal or zero, particularly where the public body's objective is maximising affordable housing rather than land receipt. In a viability review, the BLV should be fixed at the level agreed in the original FVA. If the LPA or DVS seeks to re-test BLV at market value or using comparable transactions inflated by hope value, this should be robustly challenged as inconsistent with policy."
+      },
+      {
+        "q": "Can you give an example from your experience where the drafting of a S106 viability review clause caused a problem, and how you resolved it?",
+        "a": "On a 200-unit phased scheme in the East of England, the S106 VRM trigger was defined as 'prior to commencement of Phase 2' but did not specify whether enabling works (site clearance, access road) constituted commencement. The LPA argued that enabling works triggered the review, but the appraisal inputs at that stage were based on pre-tender estimates. We engaged with the LPA planning officer and their legal team, referencing the TCPA 1990 definition of 'material operation' and arguing that the VRM should be triggered at reserved matters approval for Phase 2, when cost and value certainty was higher. We agreed a deed of variation to clarify the trigger as 'approval of the first reserved matters application for Phase 2'. The lesson was that at heads of terms stage, the development team must specify VRM triggers with precision and cross-reference to defined terms in the S106, avoiding reliance on generic planning terminology."
+      }
+    ]
+  },
+  {
     "date": "2026-04-10",
     "topic": "S106 Viability Review Mechanisms: Late-Stage Reviews in Affordable Housing Schemes",
     "module": "Planning and Development Management",
